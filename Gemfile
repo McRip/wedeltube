@@ -10,9 +10,10 @@ gem 'will_paginate'             # => https://github.com/mislav/will_paginate
 gem 'formtastic', '~> 1.2.3'    # => https://github.com/justinfrench/formtastic
 gem 'acts-as-taggable-on'       # => https://github.com/mbleigh/acts-as-taggable-on
 # acts_as_rateable plugin       # => https://github.com/azabaj/acts_as_rateable/
-gem 'haml'                      # => http://haml-lang.com
-gem 'sass'                      # => http://sass-lang.com
-gem 'jquery-rails'              # => http://github.com/indirect/jquery-rails
+gem 'haml'                      # => https  ://haml-lang.com
+gem 'sass'                      # => https://sass-lang.com
+gem 'jquery-rails'              # => https://github.com/indirect/jquery-rails
+gem 'friendly_id'               # => https://github.com/norman/friendly_id
 
 #debug
 gem 'ruby-debug19', :require => 'ruby-debug'

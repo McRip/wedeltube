@@ -31,6 +31,7 @@ GEM
     acts-as-taggable-on (2.0.6)
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
+    babosa (0.3.4)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     capistrano (2.6.0)
@@ -50,6 +51,8 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
+    friendly_id (3.2.1.1)
+      babosa (~> 0.3.0)
     haml (3.1.1)
     highline (1.6.2)
     hpricot (0.8.4)
@@ -127,6 +130,7 @@ DEPENDENCIES
   capistrano
   devise
   formtastic (~> 1.2.3)
+  friendly_id
   haml
   hpricot
   jquery-rails
