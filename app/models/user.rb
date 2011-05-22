@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
 
   acts_as_tagger
   has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
+
+  def to_s
+    self.username
+  end
 end

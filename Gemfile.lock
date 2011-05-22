@@ -120,7 +120,7 @@ GEM
     tzinfo (0.3.27)
     warden (1.0.4)
       rack (>= 1.0)
-    will_paginate (2.3.15)
+    will_paginate (3.0.pre)
 
 PLATFORMS
   ruby
@@ -141,4 +141,4 @@ DEPENDENCIES
   ruby-debug19
   ruby_parser
   sass
-  will_paginate
+  will_paginate (= 3.0.pre)

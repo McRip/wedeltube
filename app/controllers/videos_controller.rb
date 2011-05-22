@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_filter :find_video, :except => [ :index ]
 
   def index
-    @videos = Video.paginage :page => params[:page]
+    @videos = Video.paginate :page => params[:page]
   end
 
   def show
