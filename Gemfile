@@ -10,10 +10,11 @@ gem 'will_paginate', '3.0.pre'  # => https://github.com/mislav/will_paginate
 gem 'formtastic', '~> 1.2.3'    # => https://github.com/justinfrench/formtastic
 gem 'acts-as-taggable-on'       # => https://github.com/mbleigh/acts-as-taggable-on
 # acts_as_rateable plugin       # => https://github.com/azabaj/acts_as_rateable/
-gem 'haml'                      # => https  ://haml-lang.com
+gem 'haml'                      # => https://haml-lang.com
 gem 'sass'                      # => https://sass-lang.com
 gem 'jquery-rails'              # => https://github.com/indirect/jquery-rails
 gem 'friendly_id'               # => https://github.com/norman/friendly_id
+gem "transitions", :require => ["transitions", "active_record/transitions"]     # => https://github.com/qoobaa/transitions
 
 group :development do
   gem 'hpricot'
