@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_user, :except => [:index]
+  before_filter :find_user, :except => [:index, :new, :create]
   
   def index
     @users = User.paginate :page => params[:page], :conditions => ["username LIKE ?", params[:start_letter].present? ? params[:start_letter]+"%" : "A%"]

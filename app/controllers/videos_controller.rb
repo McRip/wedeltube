@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_video, :except => [ :index ]
+  before_filter :find_video, :except => [ :index, :new, :create ]
 
   def index
     @videos = Video.paginate :page => params[:page]
@@ -11,7 +11,7 @@ class VideosController < ApplicationController
   end
 
   def new
-
+    @video = Video.new
   end
 
   def create
