@@ -38,5 +38,14 @@ module Wedeltube
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.after_initialize do
+
+      # copied from paperclip.rb: due to bundler, this doesn't seem to happen automagically anymore!?!
+      Dir.glob(File.join(File.expand_path(Rails.root), "lib", "paperclip_processors", "*.rb")).each do |processor|
+        require processor # PVDB don't rescue LoadError... let it rip!
+      end
+
+    end
   end
 end

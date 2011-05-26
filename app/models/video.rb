@@ -10,14 +10,22 @@ class Video < ActiveRecord::Base
   acts_as_taggable
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   has_attached_file :video,
-                    :styles => { :ogg => ["1280x720", "640x480", "320x240"],
-                                 :mp4 => ["1280x720", "640x480", "320x240"],
-                                 :webm => ["1280x720", "640x480", "320x240"],
-                                 :preview1 => "300x300>",
-                                 :review2 => "300x300>",
-                                 :preview3 => "300x300>",
-                                 :preview4 => "300x300>" },
-                    :processors => [:video_processor, :video_thumbnail_processor]
+                    :styles => {
+                      :ogg_320  => { :video => true, :format => "ogg", :size => "320x240"  },
+                      :ogg_480  => { :video => true, :format => "ogg", :size => "480x320"  },
+                      :ogg_720  => { :video => true, :format => "ogg", :size => "1280x720" },
+                      :mp4_320  => { :video => true, :format => "mp4", :size => "320x240"  },
+                      :mp4_480  => { :video => true, :format => "mp4", :size => "480x320"  },
+                      :mp4_720  => { :video => true, :format => "mp4", :size => "1280x720" },
+                      :webm_320 => { :video => true,:format => "webm", :size => "320x240"  },
+                      :webm_480 => { :video => true,:format => "webm", :size => "480x320"  },
+                      :webm_720 => { :video => true,:format => "webm", :size => "1280x720" },
+                      :thumb1 => { :thumbnail => true, :format => "jpg", :index => 1, :sizes => [ "300x300>" ] },
+                      :thumb2 => { :thumbnail => true, :format => "jpg", :index => 2, :sizes => [ "300x300>" ] },
+                      :thumb3 => { :thumbnail => true, :format => "jpg", :index => 3, :sizes => [ "300x300>" ] },
+                      :thumb4 => { :thumbnail => true, :format => "jpg", :index => 4, :sizes => [ "300x300>" ] }
+                    },
+                    :processors => [:ffmpeg]
 
   state_machine do
     state :pending
