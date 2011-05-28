@@ -15,6 +15,8 @@ gem 'sass'                                                                      
 gem 'jquery-rails'                                                              # => https://github.com/indirect/jquery-rails
 gem 'friendly_id'                                                               # => https://github.com/norman/friendly_id
 gem "transitions", :require => ["transitions", "active_record/transitions"]     # => https://github.com/qoobaa/transitions
+gem 'delayed_job'                                                               # => https://github.com/collectiveidea/delayed_job
+gem 'delayed_paperclip'                                                         # => https://github.com/jstorimer/delayed_paperclip
 
 group :development do
   gem 'hpricot'
