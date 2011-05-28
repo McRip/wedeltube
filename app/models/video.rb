@@ -11,19 +11,19 @@ class Video < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   has_attached_file :video,
                     :styles => {
-                      :ogg_320  => { :video => true, :format => "ogg", :size => "320x240"  },
-                      :ogg_480  => { :video => true, :format => "ogg", :size => "480x320"  },
-                      :ogg_720  => { :video => true, :format => "ogg", :size => "1280x720" },
+                      :ogg_320  => { :video => true, :format => "ogv", :size => "320x240"  },
+                      :ogg_480  => { :video => true, :format => "ogv", :size => "480x320"  },
+                      #:ogg_720  => { :video => true, :format => "ogv", :size => "1280x720" },
                       :mp4_320  => { :video => true, :format => "mp4", :size => "320x240"  },
                       :mp4_480  => { :video => true, :format => "mp4", :size => "480x320"  },
-                      :mp4_720  => { :video => true, :format => "mp4", :size => "1280x720" },
+                      #:mp4_720  => { :video => true, :format => "mp4", :size => "1280x720" },
                       :webm_320 => { :video => true,:format => "webm", :size => "320x240"  },
                       :webm_480 => { :video => true,:format => "webm", :size => "480x320"  },
-                      :webm_720 => { :video => true,:format => "webm", :size => "1280x720" },
-                      :thumb1 => { :thumbnail => true, :format => "jpg", :index => 1, :sizes => [ "300x300>" ] },
-                      :thumb2 => { :thumbnail => true, :format => "jpg", :index => 2, :sizes => [ "300x300>" ] },
-                      :thumb3 => { :thumbnail => true, :format => "jpg", :index => 3, :sizes => [ "300x300>" ] },
-                      :thumb4 => { :thumbnail => true, :format => "jpg", :index => 4, :sizes => [ "300x300>" ] }
+                      #:webm_720 => { :video => true,:format => "webm", :size => "1280x720" },
+                      :thumb0 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "300x300" },
+                      :thumb1 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "300x300" },
+                      :thumb2 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "300x300" },
+                      :thumb3 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "300x300" }
                     },
                     :processors => [:ffmpeg]
 

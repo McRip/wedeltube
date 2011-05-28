@@ -45,7 +45,6 @@ module Wedeltube
       Dir.glob(File.join(File.expand_path(Rails.root), "lib", "paperclip_processors", "*.rb")).each do |processor|
         require processor # PVDB don't rescue LoadError... let it rip!
       end
-
     end
   end
 end
