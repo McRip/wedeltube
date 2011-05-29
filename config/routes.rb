@@ -7,6 +7,10 @@ Wedeltube::Application.routes.draw do
     resources :tags, :only => [ :index, :show, :create, :update, :destroy ]
     resources :participants, :only => [ :create, :update, :destroy ]
     resource :user
+    member do
+      post 'add_tag'
+      delete 'remove_tag'
+    end
   end
 
   resources :users do

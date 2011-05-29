@@ -1,0 +1,21 @@
+BODY {
+  font-family: Verdana; }
+  BODY A {
+    color: DodgerBlue;
+    text-decoration: none; }
+  BODY A:HOVER {
+    text-decoration: underline; }
+  BODY H1 {
+    font-size: 24px; }
+  BODY H2 {
+    font-size: 20px; }
+  BODY H3 {
+    font-size: 16px; }
+  BODY #wrapper #logo h1 {
+    font-size: 28px;
+    color: DodgerBlue;
+    margin-bottom: 10px; }
+  BODY #wrapper #navigation {
+    margin-bottom: 10px; }
+    BODY #wrapper #navigation ul li {
+      display: inline; }

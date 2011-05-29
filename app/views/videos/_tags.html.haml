@@ -1,0 +1,7 @@
+#tags
+  %h2
+    Tags
+  -@video.tag_list.each do |tag|
+    =render :partial => "tag", :object => tag
+  =form_tag(add_tag_video_url(@video)) do
+    =render :partial => "tags/form"

@@ -34,6 +34,18 @@ class VideosController < ApplicationController
     redirect_to videos_path
   end
 
+  def add_tag
+    @video.tag_list.add(params[:tag])
+    @video.save
+    redirect_to @video
+  end
+
+  def remove_tag
+    @video.tag_list.remove(params[:tag])
+    @video.save
+    redirect_to @video
+  end
+
   private
 
   def find_video
