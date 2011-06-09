@@ -7,7 +7,7 @@ class VideosController < ApplicationController
   end
 
   def show
-    @resolution = build_resolution_hash (params[:res] || "320")
+    @resolution = build_resolution_hash (params[:res] || "360")
   end
 
   def new
@@ -54,10 +54,10 @@ class VideosController < ApplicationController
 
   def build_resolution_hash res
     case res
-    when "320"
-      resolution = {:name => "320", :x => "320", :y => "240"}
+    when "360"
+      resolution = {:name => "360", :x => "640", :y => "360"}
     when "480"
-      resolution = {:name => "480", :x => "480", :y => "320"}
+      resolution = {:name => "480", :x => "854", :y => "480"}
     when "720"
       resolution = {:name => "720", :x => "1280", :y => "720"}
     end

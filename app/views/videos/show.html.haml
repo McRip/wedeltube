@@ -6,7 +6,7 @@
       %source{:src => @video.video.url(("ogv_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
 
   #resolutions
-    =link_to_unless (@resolution[:name] == "320"), "320p", video_url(@video, :res => "320")
+    =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
     =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
     =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
 

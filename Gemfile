@@ -17,6 +17,7 @@ gem 'friendly_id'                                                               
 gem "transitions", :require => ["transitions", "active_record/transitions"]     # => https://github.com/qoobaa/transitions
 gem 'delayed_job'                                                               # => https://github.com/collectiveidea/delayed_job
 gem 'delayed_paperclip'                                                         # => https://github.com/jstorimer/delayed_paperclip
+gem 'passenger'
 
 group :development do
   gem 'hpricot'
