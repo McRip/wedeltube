@@ -12,10 +12,10 @@ class User < ActiveRecord::Base
          :confirmable, :lockable, :timeoutable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :name, :firstname, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :firstname, :email, :password, :password_confirmation, :remember_me
 
   acts_as_tagger
-  has_friendly_id :username, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
+  has_friendly_id :email, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   def to_s
