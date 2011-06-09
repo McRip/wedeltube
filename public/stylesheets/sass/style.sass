@@ -1,2 +1,21 @@
+@mixin box-shadow($color: #333333, $size: 25px)
+  :-moz-box-shadow 0 0 $size $color
+  :-webkit-box-shadow 0 0 $size $color
+  :box-shadow 0 0 $size $color
+  :-ms-filter "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')"
+  :filter progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')
+
+@mixin text-shadow($color: #333333, $size: 3px)
+  :text-shadow 0px 0px $size $color
+
+@mixin center
+  :width 980px
+  :margin 0 auto
+
+$brightblue: #67a3e7
+$darkblue: #22316e
+$brightbackground: #fff
+$darkbackground: #eee
+
 @import "application"
 @import "videos"

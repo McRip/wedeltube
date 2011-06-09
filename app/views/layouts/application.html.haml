@@ -8,11 +8,15 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
+    #navigation
+      = render :partial => "shared/navigation"
     #wrapper
-      #logo
-        %h1
-          Wedeltube
-      #navigation
-        = render :partial => "shared/navigation"
+      #header
+        #logo
+          = link_to image_tag("logo-240.png"), root_path
+
       #content
         = yield
+
+      #footer
+        2011 Wedeltube

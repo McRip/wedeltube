@@ -1,25 +1,50 @@
-BODY
-  :font-family Verdana
-  A
-    :color DodgerBlue
-    :text-decoration none
-  A:HOVER
-    :text-decoration underline
-  H1
-    :font-size 24px
-  H2
-    :font-size 20px
-  H3
-    :font-size 16px
-  #wrapper
-    #logo
-      h1
-        :font-size 28px
-        :color DodgerBlue
-        :margin-bottom 10px
+html
+  :background-color $darkbackground
+  body
+    :font-family Verdana
+    a
+      :color DodgerBlue
+      :text-decoration none
+    a:HOVER
+      :text-decoration underline
+    h1, h2, h3
+      :color $darkblue
+      :margin 10px 0
+      @include text-shadow(#ddd)
+    h1
+      :font-size 28px
+    h2
+      :font-size 20px
+    h3
+      :font-size 16px
     #navigation
-      :margin-bottom 10px
+      :position absolute
+      :top 110px
+      :width 100%
+      :background-color $darkblue
+      @include box-shadow(#aaa)
       ul
+        @include center
+        :padding 5px 0
+        :background-color $brightblue
         li
           :display inline
-    #content
+          :margin-left 1em
+          a
+            :font-size 16px
+            :color #fff
+            @include text-shadow(#aaa)
+    #wrapper
+      @include box-shadow(#aaa)
+      @include center
+      :background-color $brightbackground
+      #header
+        :height 100px
+        :padding 10px
+        #logo
+      #content
+        :padding 20px
+      #footer
+        :text-align center
+        :padding 5px
+        :font-size 0.8em
