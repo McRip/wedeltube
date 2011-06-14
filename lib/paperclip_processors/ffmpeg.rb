@@ -63,6 +63,13 @@ module Paperclip
         audio_bitrate *= 1024          #ffmpeg uses bits not kbits
 
         adjustments = calculate_video_adjustments width, height
+        if (adjustments[:adjustment] == :horizontal)
+          @size = adjustments[:dest_size].to_s+"x"+height.to_s
+          padding_string = "-padleft "+(adjustments[:padding]/2).to_s+" -padright "+(adjustments[:padding]/2).to_s
+        else
+          @size = height.to_s+"x"+adjustments[:dest_size].to_s
+          padding_string = "-padtop "+(adjustments[:padding]/2).to_s+" -padbottom "+(adjustments[:padding]/2).to_s
+        end
 
         puts "Adjustments (Video): "+adjustments.to_s
 
@@ -79,7 +86,7 @@ module Paperclip
         end
         
         command = <<-command
-          -er 4 -y -i #{File.expand_path(@file.path)} -acodec #{audio_codec} -ar 48000 -ab #{audio_bitrate} -s #{@size} -vcodec #{video_codec} -b #{video_bitrate} -flags +loop -cmp +chroma -partitions +parti4x4+partp8x8+partb8x8 -subq 5 -trellis 1 -refs 1 -coder 0 -me_range 16 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -bt #{video_bitrate} -maxrate #{video_bitrate} -bufsize #{video_bitrate} -rc_eq 'blurCplx^(1-qComp)' -qcomp 0.6 -qmin 10 -qmax 51 -qdiff 4 -level 30 -aspect #{@aspect} -g 30 -ss 0 -t 90 -async 2 #{File.expand_path(dst.path)}
+          -er 4 -y -i #{File.expand_path(@file.path)} -acodec #{audio_codec} -ar 48000 -ab #{audio_bitrate} -s #{@size} -vcodec #{video_codec} -b #{video_bitrate} -flags +loop -cmp +chroma -partitions +parti4x4+partp8x8+partb8x8 -subq 5 -trellis 1 -refs 1 -coder 0 -me_range 16 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -bt #{video_bitrate} -maxrate #{video_bitrate} -bufsize #{video_bitrate} -rc_eq 'blurCplx^(1-qComp)' -qcomp 0.6 -qmin 10 -qmax 51 -qdiff 4 -level 30 -aspect #{@aspect} #{padding_string} -g 30 -ss 0 -t 90 -async 2 #{File.expand_path(dst.path)}
         command
 
       elsif @thumbnail

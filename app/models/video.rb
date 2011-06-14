@@ -27,7 +27,7 @@ class Video < ActiveRecord::Base
                     },
                     :processors => [:ffmpeg]
 
-  #process_in_background :video
+  process_in_background :video
 
   state_machine do
     state :pending
