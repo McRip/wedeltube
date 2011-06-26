@@ -1,0 +1,20 @@
+-if video.is_favorite_of?(current_user)
+  =link_to "Aus Favoriten entfernen", favorite_url(video.is_favorite_of?(current_user)), :method => :delete, :class => "favorites"
+  :javascript
+    $('a.favorites[data-method=delete]').click(function(event) {
+      event.preventDefault();
+      $.post(this.href, { _method: 'delete' }, function(data) {
+        $('a.favorites[data-method=delete]').replaceWith(data);
+      }, "script");
+      return false;
+    });
+-else
+  =link_to "Zu Favoriten hinzufügen", favorites_url(:video => video), :method => :post, :class => "favorites"
+  :javascript
+    $('a.favorites[data-method=post]').click(function(event) {
+      event.preventDefault();
+      $.post(this.href, function(data) {
+        $('a.favorites[data-method=post]').replaceWith(data);
+      }, "script");
+      return false;
+    });

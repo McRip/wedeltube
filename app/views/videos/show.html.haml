@@ -11,3 +11,5 @@
     =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
 
   =render :partial => "tags"
+
+  =render :partial => "favorites", :locals => {:video => @video}

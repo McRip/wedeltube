@@ -51,4 +51,9 @@ class Video < ActiveRecord::Base
   def to_s
     self.title
   end
+
+  def is_favorite_of?(user)
+    favorite = self.favorites.find_by_user_id(user.id)
+    favorite.present? ? favorite : false
+  end
 end

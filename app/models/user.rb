@@ -21,4 +21,9 @@ class User < ActiveRecord::Base
   def to_s
     self.username
   end
+
+  def has_favorite_video?(video)
+    favorite = self.favorites.find_by_video_id(video.id)
+    favorite.present? ? favorite : false
+  end
 end
