@@ -11,7 +11,7 @@ class TagsController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def update
@@ -19,7 +19,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-
+    
   end
 
   private

@@ -1,7 +1,23 @@
 #tags
   %h2
     Tags
-  -@video.tag_list.each do |tag|
-    =render :partial => "tag", :object => tag
-  =form_tag(add_tag_video_url(@video)) do
-    =render :partial => "tags/form"
+  %ul{:rel => @video.id}
+    -@video.tag_list.each do |tag|
+      %li
+        =tag
+:javascript
+  $(document).ready(function() {
+    $("#tags ul").tagit({
+      onTagAdded: function(event, tag) {
+        $.post("#{add_tag_video_url(@video)}", {tag: $('.tagit-label', tag[0]).text()}, function(data) {
+        }, "script");
+      },
+      onTagRemoved: function(event, tag) {
+        $.post("#{remove_tag_video_url(@video)}", {tag: $('.tagit-label', tag[0]).text(), _method: 'delete'}, function(data) {
+        }, "script");
+      },
+      onTagClicked: function(event, tag) {
+        
+      }
+    });
+  });

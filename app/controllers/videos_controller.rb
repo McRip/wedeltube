@@ -36,14 +36,33 @@ class VideosController < ApplicationController
 
   def add_tag
     @video.tag_list.add(params[:tag])
-    @video.save
-    redirect_to @video
+    respond_to do |format|
+      if @video.save
+        format.js {
+          render :text => "true"
+        }
+      else
+        format.js {
+          render :text => "false"
+        }
+      end
+    end
+    
   end
 
   def remove_tag
     @video.tag_list.remove(params[:tag])
-    @video.save
-    redirect_to @video
+    respond_to do |format|
+      if @video.save
+        format.js {
+          render :text => "true"
+        }
+      else
+        format.js {
+          render :text => "false"
+        }
+      end
+    end
   end
 
   private
