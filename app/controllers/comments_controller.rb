@@ -4,7 +4,17 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(params[:comment])
-    render @comment
+    @comment.user = current_user
+    @comment.video = Video.find params[:video_id]
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to video_url(@comment.video) }
+        format.js { render @comment }
+      else
+        format.html { redirect_to video_url(@comment.video) }
+        format.js { redirect_to video_url(@comment.video) }
+      end
+    end
   end
 
   def update

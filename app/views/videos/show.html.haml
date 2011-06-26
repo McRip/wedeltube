@@ -10,6 +10,12 @@
     =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
     =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
 
-  =render :partial => "tags"
+  #tags
+    =render :partial => "tags"
 
-  =render :partial => "favorites", :locals => {:video => @video}
+  #favorites
+    =render :partial => "favorites", :locals => {:video => @video}
+
+  #comments
+    =render :partial => "comments/comment", :collection => @video.comments
+    =render :partial => "comments/form", :locals => {:video => @video}
