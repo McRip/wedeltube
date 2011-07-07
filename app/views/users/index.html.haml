@@ -1,5 +1,8 @@
 %h1
-  Benutzer
+  Benutzerübersicht
+%p
+  Übersicht über alle angemeldeten Besucher.
+
 =render @users
 -("A".."Z").each do |letter|
   =link_to letter, users_url(:start_letter => letter)
