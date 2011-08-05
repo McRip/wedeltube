@@ -6,6 +6,10 @@ class Video < ActiveRecord::Base
   has_many :favorites
   has_many :participants
 
+  scope :recent, :order => "created_at DESC"
+  scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id'
+  scope :most_commented, :select => 'videos.*, count(comments.id) as comments_count', :joins => 'left outer join comments on comments.video_id = videos.id', :group => 'videos.id'
+
   acts_as_rateable
   acts_as_taggable
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german

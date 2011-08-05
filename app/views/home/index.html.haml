@@ -3,3 +3,8 @@
 
 %p
   Hier gibt es Videos aus den Audio-Video-Workshops der Fachhochschule Wedel.
+
+=render :partial => "video_box", :locals => {:videos => @new_videos, :title => "Neuste Videos"}
+=render :partial => "video_box", :locals => {:videos => @popular_videos, :title => "Beliebte Videos"}
+=render :partial => "video_box", :locals => {:videos => @most_commented_videos, :title => "Videos mit den meisten Kommentaren"}
+=render :partial => "video_box", :locals => {:videos => @top_rated_videos, :title => "Videos mit der besten Bewertung"}

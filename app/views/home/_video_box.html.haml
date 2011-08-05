@@ -1,0 +1,8 @@
+.video_box
+  %h3
+    =title
+  %ul
+    -if videos.present?
+      -videos.each do |video|
+        %li
+          =link_to video
