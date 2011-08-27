@@ -27,7 +27,9 @@ class Video < ActiveRecord::Base
                       :thumb0 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "854x480" },
                       :thumb1 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "854x480" },
                       :thumb2 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "854x480" },
-                      :thumb3 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "854x480" }
+                      :thumb3 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "854x480" },
+                      :thumb128 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "128x72" },
+                      :thumb267 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "267x150" }
                     },
                     :processors => [:ffmpeg]
 
