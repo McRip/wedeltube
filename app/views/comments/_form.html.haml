@@ -12,7 +12,7 @@
       event.preventDefault();
       $.post(form[0].action, form.serialize(), function(data) {
         $("textarea", form)[0].value = "";
-        $("#comments div.comment:last").append(data);
+        $("#comments div.comment:last").after(data);
         $("#comment_submit").removeAttr('disabled').attr('value', 'Absenden');
       }, "script");
     });
