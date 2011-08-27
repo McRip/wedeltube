@@ -7,8 +7,8 @@ class Video < ActiveRecord::Base
   has_many :participants
 
   scope :recent, :order => "created_at DESC"
-  scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id'
-  scope :most_commented, :select => 'videos.*, count(comments.id) as comments_count', :joins => 'left outer join comments on comments.video_id = videos.id', :group => 'videos.id'
+  scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id', :order => "count(favorites.id) DESC"
+  scope :most_commented, :select => 'videos.*, count(comments.id) as comments_count', :joins => 'left outer join comments on comments.video_id = videos.id', :group => 'videos.id', :order => "count(comments.id) DESC"
 
   acts_as_rateable
   acts_as_taggable
@@ -52,10 +52,14 @@ class Video < ActiveRecord::Base
     end
   end
 
+  def self.top_rated
+    self.find(:all).sort_by{|video| video.average_rating}.take(10)
+  end
+
   def to_s
     self.title
   end
-
+  
   def is_favorite_of?(user)
     favorite = self.favorites.find_by_user_id(user.id)
     favorite.present? ? favorite : false

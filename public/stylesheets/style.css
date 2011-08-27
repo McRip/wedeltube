@@ -4,7 +4,8 @@
 html {
   background-color: #eeeeee; }
   html body {
-    font-family: Verdana; }
+    font-family: Verdana;
+    font-size: 16px; }
     html body a {
       color: DodgerBlue;
       text-decoration: none; }
@@ -20,6 +21,8 @@ html {
       font-size: 20px; }
     html body h3 {
       font-size: 16px; }
+    html body .clearfix {
+      clear: both; }
     html body #navigation {
       position: absolute;
       top: 110px;
@@ -60,6 +63,45 @@ html {
         text-align: center;
         padding: 5px;
         font-size: 0.8em; }
+
+form .field {
+  margin: 5px 0; }
+  form .field label {
+    display: inline-block;
+    width: 200px; }
+  form .field .field_with_errors {
+    display: inline-block; }
+form .notice {
+  font-size: 12px;
+  margin-left: 206px; }
+
+#home #index .video_box {
+  float: left;
+  margin: 10px 10px 10px 0;
+  padding: 10px 10px 10px 0;
+  width: 438px; }
+  #home #index .video_box h3 {
+    margin: 0 10px 10px 0;
+    font-size: 20px; }
+  #home #index .video_box ul li {
+    margin-top: 10px; }
+    #home #index .video_box ul li .thumb {
+      float: left; }
+      #home #index .video_box ul li .thumb img {
+        -moz-box-shadow: 0 0 3px black;
+        -webkit-box-shadow: 0 0 3px black;
+        box-shadow: 0 0 3px black;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color'); }
+    #home #index .video_box ul li .details {
+      float: left;
+      margin-left: 10px; }
+      #home #index .video_box ul li .details .link a {
+        display: block; }
+      #home #index .video_box ul li .details .user {
+        font-size: 12px; }
+      #home #index .video_box ul li .details span.order {
+        font-size: 10px; }
 
 #video li.videothumb {
   width: 300px;

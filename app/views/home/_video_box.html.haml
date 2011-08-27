@@ -5,4 +5,15 @@
     -if videos.present?
       -videos.each do |video|
         %li
-          =link_to video
+          .thumb
+            =link_to image_tag(video.video.url(:thumb0), {:width => 128, :height => 72}), video
+          .details
+            .link
+              =link_to video, video
+            .user
+              von
+              =link_to video.user, video.user
+            %span.order
+              =order_name
+              =video.instance_eval order_function
+          .clearfix

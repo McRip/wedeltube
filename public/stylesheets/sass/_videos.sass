@@ -1,11 +1,29 @@
 #video
-  li.videothumb
-    :width 300px
-    :height 300px
-    :display block
-    :text-align center
-
   #index
+    li.videothumb
+      :display block
+      :height 300px
+      :text-align center
+      :width 300px
+      img
+        :border 3px solid $darkbackground
+        :border-radius 20px 20px 20px 20px
+        :box-shadow 2px 4px 6px $shadow
+        :display block
+        :height 150px
+        :margin 20px
+        :width 200px
+
+    #upload
+      @include linear-gradient($brightbackground, $darkbackground)
+      :border-radius 7px 7px 7px 7px
+      :box-shadow 1px 1px 3px $shadow
+      :display inline-block
+      :margin-left 15px
+      :padding 5px
+      :position relative
+      :text-align center
+      :text-shadow 0px 1px 2px $shadow
 
   #show
     video
@@ -40,5 +58,3 @@
       :margin 20px
       #new_comment
         :background #D8D8D8
-
-
