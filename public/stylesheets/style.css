@@ -1,3 +1,6 @@
+.clearfix {
+  clear: both; }
+
 html {
   background-color: #eeeeee; }
   html body {
@@ -63,3 +66,28 @@ html {
   height: 300px;
   display: block;
   text-align: center; }
+#video #show #resolutions ul li {
+  background-color: silver;
+  border: 1px solid silver;
+  border-radius: 4px 4px 4px 4px;
+  float: left;
+  margin: 10px;
+  padding: 4px; }
+#video #show #tags {
+  text-style: underline; }
+#video #show #comments div.comment {
+  border-color: #d8d8d8;
+  border-bottom-color: white;
+  border-style: solid;
+  border-width: thin;
+  margin-left: 25px; }
+  #video #show #comments div.comment .user {
+    display: inline-block;
+    margin: 10px;
+    color: blue; }
+  #video #show #comments div.comment .text {
+    margin-left: 20px; }
+#video #show #form {
+  margin: 20px; }
+  #video #show #form #new_comment {
+    background: #d8d8d8; }
