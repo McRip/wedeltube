@@ -1,10 +1,13 @@
-%h1
-  Hej hej!
+#home
+  #index
+    %h1
+      Hej hej!
 
-%p
-  Hier gibt es Videos aus den Audio-Video-Workshops der Fachhochschule Wedel.
+    %p
+      Hier gibt es Videos aus den Audio-Video-Workshops der Fachhochschule Wedel.
 
-=render :partial => "video_box", :locals => {:videos => @new_videos, :title => "Neuste Videos"}
-=render :partial => "video_box", :locals => {:videos => @popular_videos, :title => "Beliebte Videos"}
-=render :partial => "video_box", :locals => {:videos => @most_commented_videos, :title => "Videos mit den meisten Kommentaren"}
-=render :partial => "video_box", :locals => {:videos => @top_rated_videos, :title => "Videos mit der besten Bewertung"}
+    =render :partial => "video_box", :locals => {:videos => @new_videos, :title => "Neuste Videos", :order_name => "Hinzugefügt:", :order_function => "created_at.to_formatted_s(:short)"}
+    =render :partial => "video_box", :locals => {:videos => @popular_videos, :title => "Beliebte Videos", :order_name => "Favoriten:", :order_function => "favorites.count"}
+    =render :partial => "video_box", :locals => {:videos => @most_commented_videos, :title => "Videos mit den meisten Kommentaren", :order_name => "Kommentare:", :order_function => "comments.count"}
+    =render :partial => "video_box", :locals => {:videos => @top_rated_videos, :title => "Videos mit der besten Bewertung", :order_name => "Bewertung:", :order_function => "average_rating"}
+    .clearfix
