@@ -103,33 +103,69 @@ form .notice {
       #home #index .video_box ul li .details span.order {
         font-size: 10px; }
 
-#video li.videothumb {
-  width: 300px;
-  height: 300px;
+#video #index li.videothumb {
   display: block;
-  text-align: center; }
+  height: 300px;
+  text-align: center;
+  width: 300px; }
+  #video #index li.videothumb img {
+    border: 3px solid #eeeeee;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 2px 4px 6px #666666;
+    display: block;
+    height: 150px;
+    margin: 20px;
+    width: 200px; }
+#video #index #upload {
+  background: -moz-linear-gradient(top, white, #eeeeee);
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee));
+  background: -webkit-linear-gradient(top, white, #eeeeee);
+  background: -o-linear-gradient(top, white, #eeeeee);
+  background: -ms-linear-gradient(top, white, #eeeeee);
+  background: linear-gradient(top, white, #eeeeee);
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: 1px 1px 3px #666666;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  text-shadow: 0px 1px 2px #666666; }
 #video #show #resolutions ul li {
-  background-color: silver;
-  border: 1px solid silver;
-  border-radius: 4px 4px 4px 4px;
+  background: -moz-linear-gradient(top, white, #bbbbbb);
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#bbbbbb));
+  background: -webkit-linear-gradient(top, white, #bbbbbb);
+  background: -o-linear-gradient(top, white, #bbbbbb);
+  background: -ms-linear-gradient(top, white, #bbbbbb);
+  background: linear-gradient(top, white, #bbbbbb);
+  border: 1px solid black;
+  border-radius: 4px 12px 4px 4px;
+  box-shadow: 1px 1px 4px #666666;
   float: left;
   margin: 10px;
   padding: 4px; }
-#video #show #tags {
-  text-style: underline; }
-#video #show #comments div.comment {
-  border-color: #d8d8d8;
-  border-bottom-color: white;
-  border-style: solid;
-  border-width: thin;
-  margin-left: 25px; }
-  #video #show #comments div.comment .user {
-    display: inline-block;
-    margin: 10px;
-    color: blue; }
-  #video #show #comments div.comment .text {
-    margin-left: 20px; }
-#video #show #form {
-  margin: 20px; }
-  #video #show #form #new_comment {
-    background: #d8d8d8; }
+#video #show #tags ul {
+  margin: 10px; }
+#video #show #comments {
+  margin: 25px; }
+  #video #show #comments div.comment {
+    background: -moz-linear-gradient(top, white, #eeeeee);
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee));
+    background: -webkit-linear-gradient(top, white, #eeeeee);
+    background: -o-linear-gradient(top, white, #eeeeee);
+    background: -ms-linear-gradient(top, white, #eeeeee);
+    background: linear-gradient(top, white, #eeeeee);
+    border-color: #d8d8d8;
+    border-style: solid;
+    border-width: thin; }
+    #video #show #comments div.comment .user {
+      display: inline-block;
+      font-style: italic;
+      margin: 10px;
+      color: blue; }
+    #video #show #comments div.comment .text {
+      margin-left: 20px;
+      width: 500px; }
+#video #show #form #new_comment {
+  background: #d8d8d8;
+  margin-top: 30px; }
