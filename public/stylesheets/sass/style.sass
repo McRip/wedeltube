@@ -8,12 +8,21 @@
 @mixin text-shadow($color: #333333, $size: 3px)
   :text-shadow 0px 0px $size $color
 
+@mixin linear-gradient($colorStart: #000, $colorEnd: #FFF)
+  :background -moz-linear-gradient(top, $colorStart, $colorEnd) /* Firefox */
+  :background -webkit-gradient(linear, left top, left bottom, from($colorStart), to($colorEnd)) /* Safari, Chrome */
+  :background -webkit-linear-gradient(top, $colorStart, $colorEnd) /* Safari, Chrome - neue Syntax! */
+  :background -o-linear-gradient(top, $colorStart, $colorEnd) /* Opera */
+  :background -ms-linear-gradient(top, $colorStart, $colorEnd) /* IE */
+  :background linear-gradient(top, $colorStart, $colorEnd) /* W3C Standard */
+
 @mixin center
   :width 980px
   :margin 0 auto
 
 $brightblue: #67a3e7
 $darkblue: #22316e
+$shadow: #666
 $brightbackground: #fff
 $darkbackground: #eee
 $linkcolor: DodgerBlue
