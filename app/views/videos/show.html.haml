@@ -1,25 +1,48 @@
 #video
   #show
-    %video{:width => @resolution[:x], :height => @resolution[:y], :controls => "controls"}
+    %h1
+      =@video.title
+
+    #videobox
+      %video{:width => @resolution[:x], :height => @resolution[:y], :controls => "controls"}
       %source{:src => @video.video.url(("mp4_"+@resolution[:name]).to_sym), :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
       %source{:src => @video.video.url(("webm_"+@resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
       %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
 
-    #resolutions
-      %ul
-        %li
-          =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
-        %li
-          =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
-        %li
-          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
-      .clearfix
+    %ul#videotable
+      %li
+        %ul
+          %li
+            Länge: 3.40 Minuten
+          %li
+            Kommentare: 42
+          %li
+            Hochgeladen: 01.01.1970
+
+      %li
+        %ul#resolutions
+          %li
+            =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
+          %li
+            =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
+          %li
+            =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
+      %li.favorite
+        =render :partial => "favorites", :locals => {:video => @video}
+
     #tags
       =render :partial => "tags"
 
-    #favorites
-      =render :partial => "favorites", :locals => {:video => @video}
+    %h2
+      Kommentare
 
-    #comments
-      =render :partial => "comments/comment", :collection => @video.comments
-      =render :partial => "comments/form", :locals => {:video => @video}
+    %ul#comments
+      -if @video.comments.present?
+        =render :partial => "comments/comment", :collection => @video.comments
+      -else
+        %li.note
+          Bislang sind keine Kommentare da. Du kannst endlich einmal im Leben der erste sein.
+
+    %h2
+      Kommentar schreiben
+    =render :partial => "comments/form", :locals => {:video => @video}
