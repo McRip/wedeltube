@@ -1,12 +1,25 @@
 class FavoritesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_favorite, :except => [ :create ]
+  before_filter :find_favorite, :except => [ :create_favindex, :create_detail, :index ]
 
-  def create
-    @favorite = Favorite.new
-    @favorite.video = Video.find params[:video]
-    @favorite.user = current_user
-    @favorite.save
+  def index
+    @favorites = User.find(params[:user_id]).favorites
+  end
+
+  def create_favindex
+    create params[:video]
+    respond_to do |format|
+      format.html {
+        redirect_to user_favorites_url(current_user)
+      }
+      format.js {
+        render :partial => "favheart", :locals => { :video => @favorite.video } and return
+      }
+    end
+  end
+
+  def create_detail
+    create params[:video]
     respond_to do |format|
       format.html {
         redirect_to video_url(@favorite.video)
@@ -21,7 +34,19 @@ class FavoritesController < ApplicationController
     @favorite.update_attributes(params[:favorite])
   end
 
-  def destroy
+  def destroy_favindex
+    @favorite.destroy
+    respond_to do |format|
+      format.html {
+        redirect_to video_url(@favorite.video)
+      }
+      format.js {
+        render :partial => "favheart", :locals => { :video => @favorite.video } and return
+      }
+    end
+  end
+
+  def destroy_detail
     @favorite.destroy
     respond_to do |format|
       format.html {
@@ -34,6 +59,13 @@ class FavoritesController < ApplicationController
   end
 
   private
+
+  def create videoparams
+    @favorite = Favorite.new
+    @favorite.video = Video.find videoparams
+    @favorite.user = current_user
+    @favorite.save
+  end
 
   def find_favorite
     @favorite = Favorite.find params[:id]

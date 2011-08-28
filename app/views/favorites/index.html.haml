@@ -1,0 +1,10 @@
+#favorites
+  #index
+    %h1
+      Favoriten
+    %p
+      Übersicht über alle Favoriten.
+    -@favorites.each do |favorite|
+      .favContainer
+        =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
+        =render favorite.video

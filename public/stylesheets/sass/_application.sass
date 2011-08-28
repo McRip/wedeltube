@@ -47,6 +47,7 @@ html
         #logo
       #content
         :padding 20px
+        :margin-top 10px
         #new_video
           .inputs
             ol
@@ -63,6 +64,19 @@ html
         :text-align center
         :padding 5px
         :font-size 0.8em
+
+    li.videothumb
+      :float left
+      :text-align center
+      img
+        :border 3px solid $darkbackground
+        :border-radius 20px 20px 20px 20px
+        :box-shadow 2px 4px 6px $shadow
+        :display block
+        :height 150px
+        :margin 20px
+        :width 267px
+
     div.note
       :background #ffd
       :border 3px #dd9 solid
@@ -72,6 +86,3 @@ html
 
     em
       :font-style italic
-
-    p + *
-      :margin-top 10px
