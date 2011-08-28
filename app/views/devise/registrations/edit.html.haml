@@ -2,25 +2,38 @@
   Profil bearbeiten
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
+
+  %h2
+    E-Mail-Adresse
+
+  = f.label :email, "E-Mail-Adresse"
+  = f.email_field :email
+
+  %h2
+    Kennwort ändern
   %p
-    = f.label :email, "E-Mail-Adresse"
-    %br/
-    = f.email_field :email
-  %p
-    = f.label :password, "Neues Kennwort"
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, "Neues Kennwort wiederholen"
-    %br/
-    = f.password_field :password_confirmation
-  %p
-    = f.label :current_password, "Altes Kennwort"
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password
-  %p= f.submit "Update"
+    Du kannst diese Felder leer lassen, wenn du kein Kenntwort nicht ändern möchtest.
+
+  = f.label :password, "Neues Kennwort"
+  = f.password_field :password
+
+  = f.label :password_confirmation, "Neues Kennwort wiederholen"
+  = f.password_field :password_confirmation
+
+  = f.label :current_password, "Altes Kennwort"
+  = f.password_field :current_password
+
+  %h2
+    Persönliche Daten
+
+  = f.label :firstname, "Vorname"
+  = f.text_field :firstname
+
+  = f.label :name, "Nachname"
+  = f.text_field :name
+
+  %p= f.submit "Speichern"
+
 %h3 Konto löschen
 %p
   Unzufrieden? #{link_to "Dann hau doch ab!", registration_path(resource_name), :confirm => "BWLer oder was?", :method => :delete}

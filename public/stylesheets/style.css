@@ -54,6 +54,7 @@ html {
       html body #wrapper #content {
         padding: 20px; }
       html body #wrapper #footer {
+        clear: both;
         text-align: center;
         padding: 5px;
         font-size: 0.8em; }
@@ -63,3 +64,42 @@ html {
   height: 300px;
   display: block;
   text-align: center; }
+
+html body #usernavigation {
+  border: 1px #22316e solid;
+  width: 450px;
+  text-align: center;
+  margin: 25px auto 0px auto;
+  padding: 5px; }
+html body #avatar {
+  border: 1px #22316e solid;
+  width: 160px;
+  height: 240px;
+  float: right;
+  margin: 10px; }
+
+html body form label {
+  display: block; }
+html body form input + label {
+  margin-top: 10px; }
+html body form input {
+  display: block;
+  margin: 5px 0; }
+html body form input[type="submit"] {
+  margin-top: 10px;
+  padding: 5px; }
+html body form em {
+  font-size: 0.8em; }
+
+div.note {
+  background: #ffffdd;
+  border: 3px #dddd99 solid;
+  margin: 0 auto;
+  padding: 5px;
+  width: 600px; }
+
+em {
+  font-style: italic; }
+
+p + * {
+  margin-top: 10px; }

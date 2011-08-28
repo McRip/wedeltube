@@ -1,8 +1,13 @@
 %h1
   Benutzerübersicht
-%p
-  Übersicht über alle angemeldeten Besucher.
 
-=render @users
--("A".."Z").each do |letter|
-  =link_to letter, users_url(:start_letter => letter)
+-if @users.present?
+  =render @users
+-else
+  %div.note
+    Keine Benutzer mit diesem Anfangsbuchstaben vorhanden.
+
+
+#usernavigation
+  -("A".."Z").each do |letter|
+    =link_to letter, users_url(:start_letter => letter)
