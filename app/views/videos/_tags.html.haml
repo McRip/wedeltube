@@ -1,23 +1,24 @@
 #tags
   %h2
     Tags
-  %ul{:rel => @video.id}
+  %ul.tagit.ui-widget.ui-widget-content.ui-corner-all{:rel => @video.id}
     -@video.tag_list.each do |tag|
-      %li
+      %li.tagit-choice.ui-widget-content.ui-state-default.ui-corner-all.noCallback.tagit-readonly
         =tag
-:javascript
-  $(document).ready(function() {
-    $("#tags ul").tagit({
-      onTagAdded: function(event, tag) {
-        $.post("#{add_tag_video_url(@video)}", {tag: $('.tagit-label', tag[0]).text()}, function(data) {
-        }, "script");
-      },
-      onTagRemoved: function(event, tag) {
-        $.post("#{remove_tag_video_url(@video)}", {tag: $('.tagit-label', tag[0]).text(), _method: 'delete'}, function(data) {
-        }, "script");
-      },
-      onTagClicked: function(event, tag) {
-        
-      }
+-if current_user.owns_video?(@video)
+  :javascript
+    $(document).ready(function() {
+      $("#tags ul").tagit({
+        onTagAdded: function(event, tag) {
+          $.post("#{add_tag_video_url(@video)}", {tag: $('.tagit-label', tag[0]).text()}, function(data) {
+          }, "script");
+        },
+        onTagRemoved: function(event, tag) {
+          $.post("#{remove_tag_video_url(@video)}", {tag: $('.tagit-label', tag[0]).text(), _method: 'delete'}, function(data) {
+          }, "script");
+        },
+        onTagClicked: function(event, tag) {
+
+        }
+      });
     });
-  });

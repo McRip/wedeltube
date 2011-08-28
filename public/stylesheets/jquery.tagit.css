@@ -14,6 +14,9 @@ ul.tagit li.tagit-choice {
     position: relative;
     line-height: inherit;
 }
+ul.tagit li.tagit-readonly {
+  padding: .2em .5em;
+}
 ul.tagit li.tagit-new {
 	padding: .25em 4px .25em 0;
 }
