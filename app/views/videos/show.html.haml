@@ -14,6 +14,10 @@
         %li
           =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
       .clearfix
+    #participants
+      =render :partial => "participants/form", :locals => {:video => @video}
+            
+
     #tags
       =render :partial => "tags"
 
