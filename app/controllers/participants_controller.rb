@@ -4,7 +4,21 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = Participant.new(params[:participant])
-    render @participant
+    @participant.video = Video.find params[:video_id]
+    user = User.find_by_username params[:participant][:name]
+    if user.present?
+      @participant.user = user
+      @participant.name = nil
+    end
+    respond_to do |format|
+      if @participant.save
+        format.html { redirect_to video_url(@participant.video) }
+        format.js { render @participant }
+      else
+        format.html { redirect_to video_url(@participant.video) }
+        format.js { redirect_to video_url(@participant.video) }
+      end
+    end
   end
 
   def update

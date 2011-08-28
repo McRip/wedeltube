@@ -30,15 +30,21 @@
     video
     #resolutions
       ul
+        @include linear-gradient($brightbackground, #BBB)
+        :border 1px solid black
+        :border-radius 4px 12px 4px 4px
+        :box-shadow 1px 1px 4px $shadow
+        :margin 6px
+        :padding 4px
+        :font-size 12px
+        :width 105px
         li
-          @include linear-gradient($brightbackground, #BBB)
-          :border 1px solid black
-          :border-radius 4px 12px 4px 4px
-          :box-shadow 1px 1px 4px $shadow
-          :float left
-          :margin 10px
-          :padding 4px
+          :display inline-block   
     #tags
+      h2
+        :margin-left 10px
+        :text-decoration underline
+        :margin-top 30px
       ul
         :margin 10px
 
@@ -64,3 +70,8 @@
       #new_comment
         :background #D8D8D8
         :margin-top 30px
+        .inputs
+          ol
+            #comment_comment_input
+              #comment_comment
+                :height 150px
