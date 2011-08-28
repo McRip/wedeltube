@@ -103,19 +103,14 @@ form .notice {
       #home #index .video_box ul li .details span.order {
         font-size: 10px; }
 
-#video #index li.videothumb {
+#video #index li.videothumb img {
+  border: 3px solid #eeeeee;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 2px 4px 6px #666666;
   display: block;
-  height: 300px;
-  text-align: center;
-  width: 300px; }
-  #video #index li.videothumb img {
-    border: 3px solid #eeeeee;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: 2px 4px 6px #666666;
-    display: block;
-    height: 150px;
-    margin: 20px;
-    width: 200px; }
+  height: 150px;
+  margin: 20px;
+  width: 200px; }
 #video #index #upload {
   background: -moz-linear-gradient(top, white, #eeeeee);
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#eeeeee));
