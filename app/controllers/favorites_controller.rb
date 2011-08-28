@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_favorite, :except => [ :create ]
+  before_filter :find_favorite, :except => [ :create, :index ]
+
+  def index
+    @favorites = User.find(params[:user_id]).favorites
+  end
 
   def create
     @favorite = Favorite.new

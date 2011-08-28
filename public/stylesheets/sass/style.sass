@@ -16,6 +16,21 @@
   :background -ms-linear-gradient(top, $colorStart, $colorEnd) /* IE */
   :background linear-gradient(top, $colorStart, $colorEnd) /* W3C Standard */
 
+@mixin gradientButton($start: #000, $end: #FFF, $font-color: #BBB)
+  @include linear-gradient($start, $end)
+  :border-radius 7px 7px 7px 7px
+  :box-shadow 1px 1px 3px $shadow
+  :display inline-block
+  :font-weight bold
+  :margin-left 15px
+  :padding 8px
+  :position relative
+  :text-align center
+  :text-shadow 0px 1px 2px $shadow
+  :color $font-color
+  a
+    :color $font-color
+
 @mixin center
   :width 980px
   :margin 0 auto
@@ -33,4 +48,6 @@ $linkcolor: DodgerBlue
 @import "application"
 @import "videos"
 @import "users"
-@import "profile"
+@import "form"
+@import "home"
+@import "favorites"

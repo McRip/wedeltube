@@ -1,6 +1,6 @@
 %h1
   Profil bearbeiten
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f|
   = devise_error_messages!
   .field
     = f.label :email, "E-Mail-Adresse"
@@ -14,6 +14,9 @@
   .field
     = f.label :firstname, "Vorname"
     = f.text_field :firstname
+  .field
+    = f.label :avatar, "Profilbild"
+    = f.file_field :avatar
   .field
     = f.label :password, "Neues Kennwort"
     = f.password_field :password
