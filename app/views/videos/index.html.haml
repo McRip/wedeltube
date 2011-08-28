@@ -4,6 +4,10 @@
       Videos
     %p
       Übersicht über alle vorhandenen Videos.
+      %span#upload
+        =link_to "Video hochladen", new_video_url
     %ul
       =render @videos
+    .clearfix
+
     =will_paginate @videos

@@ -1,13 +1,66 @@
 #video
-  li.videothumb
-    :width 300px
-    :height 300px
-    :display block
-    :text-align center
-
   #index
+    li.videothumb
+      :float left
+      :text-align center
+      img
+        :border 3px solid $darkbackground
+        :border-radius 20px 20px 20px 20px
+        :box-shadow 2px 4px 6px $shadow
+        :display block
+        :height 150px
+        :margin 20px
+        :width 267px
+
+    #upload
+      @include linear-gradient($brightblue, $darkblue)
+      :border-radius 7px 7px 7px 7px
+      :box-shadow 1px 1px 3px $shadow
+      :display inline-block
+      :font-weight bold
+      :margin-left 15px
+      :padding 8px
+      :position relative
+      :text-align center
+      :text-shadow 0px 1px 2px $shadow
+      a
+        :color white
 
   #show
     video
     #resolutions
+      ul
+        li
+          @include linear-gradient($brightbackground, #BBB)
+          :border 1px solid black
+          :border-radius 4px 12px 4px 4px
+          :box-shadow 1px 1px 4px $shadow
+          :float left
+          :margin 10px
+          :padding 4px
     #tags
+      ul
+        :margin 10px
+
+
+    #comments
+      :margin 25px
+      div.comment
+        @include linear-gradient($brightbackground, $darkbackground)
+        :border-color #D8D8D8
+        :border-style solid
+        :border-width thin
+        .user
+          :display inline-block
+          :font-style italic
+          :margin 10px
+          :color blue
+        .text
+          :margin-left 20px
+          :width 500px
+
+
+    #form
+      #new_comment
+        :background #D8D8D8
+        :margin-top 30px
