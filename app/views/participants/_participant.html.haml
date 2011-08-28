@@ -1,5 +1,8 @@
-.participants
+.participant
   .name
-    =participants.user.name
-  .work
-    =participants.works
+    -if participant.user.present?
+      =participant.user.username 
+    -else
+      =participant.name
+  .role
+    =participant.role
