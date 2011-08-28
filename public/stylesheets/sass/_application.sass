@@ -47,10 +47,23 @@ html
         #logo
       #content
         :padding 20px
+        #new_video
+          .inputs
+            ol
+              #video_title_input
+                #video_title
+                  :height 20px
+                  :width 300px
+              #video_description_input
+                #video_description
+                  :height 120px
+                  :width 300px
       #footer
+        :clear both
         :text-align center
         :padding 5px
         :font-size 0.8em
+
     li.videothumb
       :float left
       :text-align center
@@ -62,3 +75,16 @@ html
         :height 150px
         :margin 20px
         :width 267px
+
+    div.note
+      :background #ffd
+      :border 3px #dd9 solid
+      :margin 0 auto
+      :padding 5px
+      :width 600px
+
+    em
+      :font-style italic
+
+    p + *
+      :margin-top 10px

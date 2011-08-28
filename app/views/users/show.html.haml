@@ -1,2 +1,13 @@
-%p
-  =@user.name
+#users
+  #show
+    =image_tag @user.avatar.url(:medium), :id => "avatar"
+
+    %h1
+      =@user.username
+
+    %p
+      =@user.firstname
+      =@user.name
+
+    %h2
+      Videos dieses Benutzers
