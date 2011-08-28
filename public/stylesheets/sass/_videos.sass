@@ -27,19 +27,28 @@
         :color white
 
   #show
-    video
-    #resolutions
-      ul
-        @include linear-gradient($brightbackground, #BBB)
-        :border 1px solid black
-        :border-radius 4px 12px 4px 4px
-        :box-shadow 1px 1px 4px $shadow
-        :margin 6px
-        :padding 4px
-        :font-size 12px
-        :width 105px
-        li
-          :display inline-block   
+    #videobox
+      :text-align center
+
+    #videotable
+      :width 400px
+      :padding 5px
+      :margin 10px auto
+      @include linear-gradient($brightbackground, #BBB)
+      :border 1px solid black
+      :border-radius 4px
+      :box-shadow 0 0 5px $shadow
+      :font-size 12px
+
+      > li
+        :display inline-block
+
+      > li + li
+        :margin-left 30px
+
+      li.favorite
+        :font-size 48px
+
     #tags
       h2
         :margin-left 10px
@@ -49,9 +58,11 @@
         :margin 10px
 
 
-    #comments
-      :margin 25px
-      div.comment
+    ul#comments
+      :margin 0
+      :padding 0
+      li.comment
+        :padding 5px
         @include linear-gradient($brightbackground, $darkbackground)
         :border-color #D8D8D8
         :border-style solid
@@ -64,14 +75,18 @@
         .text
           :margin-left 20px
           :width 500px
-
+        .time
+          :float right
+          :color #888
+          :font-size 0.9em
+      li.comment + li.comment
+        margin-top: 1em
 
     #form
       #new_comment
-        :background #D8D8D8
-        :margin-top 30px
         .inputs
           ol
             #comment_comment_input
               #comment_comment
-                :height 150px
+                :width 350px
+                :height 120px
