@@ -1,13 +1,28 @@
 #users
   #show
-    =image_tag @user.avatar.url(:medium), :id => "avatar"
+    .profile
+      =image_tag @user.avatar.url(:profile), :id => "avatar"
+      %h1
+        =@user.username
+      %p
+        =@user.firstname
+        =@user.name
+      %p
+        =@user.videos.count
+        hochgeladene Videos
+        %br
+        =@user.comments.count
+        geschriebene Kommentare
+        %br
+        =@user.favorites.count
+        Favoriten
+      %p
+        #edit
+          =link_to "Profil bearbeiten", edit_user_registration_path
 
-    %h1
-      =@user.username
-
-    %p
-      =@user.firstname
-      =@user.name
+    .clearfix
 
     %h2
       Videos dieses Benutzers
+
+    =render @user.videos
