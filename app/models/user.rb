@@ -18,7 +18,11 @@ class User < ActiveRecord::Base
 
   acts_as_tagger
   has_friendly_id :email, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :profile => "200x200>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", 
+                                          :profile => "200x200>",
+                                          :thumb => "100x100>",
+                                          :square50 => "50x50#",
+                                          :square100 => "100x100#" }
 
   def to_s
     self.username

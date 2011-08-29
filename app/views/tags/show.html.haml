@@ -1,6 +1,13 @@
-%p
-  ID:
-  =@tag.id
-%p
-  Name:
-  =@tag.name
+#tags
+  #show
+    %h1
+      Alle Videos, die mit dem Tag
+      =@tag
+      markiert sind.
+
+    =will_paginate @videos
+
+    .videos
+      =render @videos
+
+    =will_paginate @videos
