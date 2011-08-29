@@ -1,4 +1,26 @@
 #users
+  #index
+    .letters
+      :margin 10px 0
+      :padding 5px
+      @include linear-gradient($brightbackground, #BBB)
+      @include box-shadow(Black, 3px)
+      .letter
+        :margin-left 8px
+        :margin-right 7px
+        :font-size 20px
+    ul.users
+      li.user
+        @include box-shadow(Black, 3px)
+        :float left
+        :margin 15px
+        :width 283px
+        :height 50px
+        .avatar
+          :float left
+        .detail
+          :float left
+          :margin-left 10px
   #show
     #usernavigation
       :border 1px $darkblue solid
