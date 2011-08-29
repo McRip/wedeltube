@@ -2,8 +2,19 @@
   = semantic_form_for Participant.new, :url => video_participants_url(video) do |form|
     = form.inputs do
       = form.input :name, :label => "Teilnehmer"
+      = form.input :role , :check_boxes => "check"
+      %p
+        %input{ :type => "checkbox", :name => "role" }
+        Post-Produktion
+        %input{ :type => "checkbox", :name => "role" }
+        Schauspieler
+        %input{ :type => "checkbox", :name => "role" }
+        Kamera
+        %input{ :type => "checkbox", :name => "role" }
+        Lichtd
     = form.buttons do
       = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gespeichert…' }
+
 
 :javascript
   $(document).ready(function() {

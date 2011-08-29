@@ -22,7 +22,7 @@
       .clearfix
 
     #participants
-      =render :partial => "participants/form", :locals => {:video => @video}            
+      =render :partial => "participants/form", :locals => {:video => @video}
 
     #tags
       =render :partial => "tags"
@@ -30,5 +30,4 @@
     #comments
       %ul#commentlist
         =render :partial => "comments/comment", :collection => @video.comments
-
-      =render :partial => "comments/form", :locals => {:video => @video}
+        =render :partial => "comments/form", :locals => {:video => @video}
