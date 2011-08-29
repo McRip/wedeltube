@@ -6,6 +6,5 @@
       Übersicht über alle Favoriten.
     -@favorites.each do |favorite|
       .favContainer
-        %span.favHeart
-          =link_to "♥", user_favorite_url(:user_id => current_user, :id => favorite), :method => :delete
+        =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
         =render favorite.video
