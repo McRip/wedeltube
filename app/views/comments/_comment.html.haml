@@ -1,5 +1,7 @@
-.comment
-  .user
+%li.comment
+  %span.time
+    =comment.created_at.strftime("%d.%m.%G %H:%M")
+  %span.user
     =comment.user.username
   .text
     =comment.comment

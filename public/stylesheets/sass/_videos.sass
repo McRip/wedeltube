@@ -7,6 +7,7 @@
     video
       &:HOVER > #favorite
         :display block
+
     #resolutions
       ul
         @include linear-gradient($brightbackground, #BBB)
@@ -19,6 +20,7 @@
         :width 105px
         li
           :display inline-block   
+
     #tags
       h2
         :margin-left 10px
@@ -28,8 +30,11 @@
         :margin 10px
 
     #comments
-      :margin 25px
-      div.comment
+      :margin 0
+      :padding 0
+
+      li.comment
+        :padding 5px
         @include linear-gradient($brightbackground, $darkbackground)
         :border-color #D8D8D8
         :border-style solid
@@ -42,6 +47,12 @@
         .text
           :margin-left 20px
           :width 500px
+        .time
+          :float right
+          :color #888
+          :font-size 0.9em
+      .comment + .comment
+        margin-top: 1em
 
     #favorites
       :display none
@@ -56,10 +67,9 @@
 
     #form
       #new_comment
-        :background #D8D8D8
-        :margin-top 30px
         .inputs
           ol
             #comment_comment_input
               #comment_comment
                 :height 150px
+                :width 350px

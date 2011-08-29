@@ -1,53 +1,83 @@
 html
   :background-color $darkbackground
+
   body
     :font-family Verdana
     :font-size 16px
+
     a
       :color $linkcolor
       :text-decoration none
+
     a:HOVER
       :text-decoration underline
+
     h1, h2, h3
       :color $darkblue
       :margin 10px 0
       @include text-shadow(#ddd)
+
     h1
       :font-size 28px
+
     h2
       :font-size 20px
+
     h3
       :font-size 16px
+
+    * + h1, * + h2, * + h3
+      :margin-top 30px
+
     .clearfix
       :clear both
+
     #navigation
       :position absolute
       :top 110px
       :width 100%
       :background-color $darkblue
       @include box-shadow(#aaa)
+
       ul
         @include center
         :padding 5px 0
         :background-color $brightblue
+
         li
           :display inline
           :margin-left 1em
+
           a
             :font-size 16px
             :color #fff
             @include text-shadow(#aaa)
+
+    div.note
+      :background #ffd
+      :border 3px #dd9 solid
+      :margin 0 auto
+      :padding 5px
+      :width 600px
+
+    em
+      :font-style italic
+
+    p + *
+      :margin-top 10px
+
     #wrapper
       @include box-shadow(#aaa)
       @include center
       :background-color $brightbackground
+
       #header
         :height 100px
         :padding 10px
-        #logo
+
       #content
         :padding 20px
-        :margin-top 10px
+
         #new_video
           .inputs
             ol
@@ -59,6 +89,7 @@ html
                 #video_description
                   :height 120px
                   :width 300px
+
       #footer
         :clear both
         :text-align center
@@ -86,3 +117,6 @@ html
 
     em
       :font-style italic
+
+    p + *
+      :margin-top 10px
