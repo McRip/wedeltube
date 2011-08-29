@@ -34,6 +34,8 @@ class Video < ActiveRecord::Base
                     :processors => [:ffmpeg]
 
   process_in_background :video
+  before_post_process :convert!
+  after_post_process :converted!
 
   state_machine do
     state :pending
@@ -53,6 +55,8 @@ class Video < ActiveRecord::Base
       transitions :from => :converting, :to => :error
     end
   end
+
+
 
   def self.top_rated
     self.find(:all).sort_by{|video| video.average_rating}.take(5)

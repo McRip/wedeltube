@@ -4,8 +4,11 @@
       @include gradientButton($brightblue, $darkblue, white)
 
   #show
-    video
-      &:HOVER > #favorite
+    #videoContainer
+      :display inline-block
+      :position relative
+      video
+      &:HOVER > #favorites
         :display block
 
     #resolutions
@@ -59,7 +62,6 @@
       :font-size 40px
       :position absolute
       :text-shadow 2px 4px 3px $shadow
-      :z-index 1
       :right 15px
       :top 10px
       A:HOVER
@@ -74,6 +76,7 @@
             #comment_comment_input
               #comment_comment
                 :height 150px
+                :width 350px
 
     #participants
       :border groove
@@ -89,4 +92,3 @@
             #participant_role_input
               :margin 5px 5px 5px 20px
             
-
