@@ -4,8 +4,10 @@
       @include gradientButton($brightblue, $darkblue, white)
 
   #show
-    video
-      &:HOVER > #favorite
+    #videoContainer
+      :display inline-block
+      video
+      &:HOVER > #favorites
         :display block
 
     #resolutions
@@ -67,9 +69,21 @@
 
     #form
       #new_comment
+        :background #D8D8D8
+        :margin-top 30px
         .inputs
           ol
             #comment_comment_input
               #comment_comment
                 :height 150px
                 :width 350px
+
+    #participants
+      :border groove
+      #new_participant
+        .inputs
+          ol
+            #participant_name_input
+              :margin 5px 5px 5px 20px
+              #participant_name
+                :width 300px
