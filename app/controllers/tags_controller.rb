@@ -7,7 +7,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    
+    @videos = Video.tagged_with(@tag).paginate(:page => params[:page], :per_page => 12)
   end
 
   def create
