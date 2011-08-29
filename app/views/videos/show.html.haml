@@ -3,11 +3,11 @@
     %h1
       =@video.title
 
-    #videobox
+    #videoContainer
       %video{:width => @resolution[:x], :height => @resolution[:y], :controls => "controls"}
-      %source{:src => @video.video.url(("mp4_"+@resolution[:name]).to_sym), :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
-      %source{:src => @video.video.url(("webm_"+@resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
-      %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
+        %source{:src => @video.video.url(("mp4_"+@resolution[:name]).to_sym), :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
+        %source{:src => @video.video.url(("webm_"+@resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
+        %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
       #favorites
         =render :partial => "favorites", :locals => {:video => @video}
 
