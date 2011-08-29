@@ -1,2 +1,9 @@
-%li
-  =link_to user, user
+%li.user
+  .avatar
+    =link_to image_tag(user.avatar.url(:square50)), user
+  .detail
+    =link_to user, user
+    %br
+    =user.firstname
+    =user.name
+  .clearfix

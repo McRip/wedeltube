@@ -8,6 +8,8 @@
       %source{:src => @video.video.url(("mp4_"+@resolution[:name]).to_sym), :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
       %source{:src => @video.video.url(("webm_"+@resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
       %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
+      #favorites
+        =render :partial => "favorites", :locals => {:video => @video}
 
     #resolutions
       %ul
@@ -18,22 +20,15 @@
         %li
           =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
       .clearfix
+
     #participants
-      =render :partial => "participants/form", :locals => {:video => @video}
-            
+      =render :partial => "participants/form", :locals => {:video => @video}            
+
     #tags
       =render :partial => "tags"
 
-    %h2
-      Kommentare
-
-    %ul#comments
-      -if @video.comments.present?
+    #comments
+      %ul#commentlist
         =render :partial => "comments/comment", :collection => @video.comments
-      -else
-        %li.note
-          Bislang sind keine Kommentare da. Du kannst endlich einmal im Leben der erste sein.
 
-    %h2
-      Kommentar schreiben
-    =render :partial => "comments/form", :locals => {:video => @video}
+      =render :partial => "comments/form", :locals => {:video => @video}

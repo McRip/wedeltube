@@ -1,0 +1,21 @@
+%span.favHeart{:id => dom_id(video)}
+  -if video.is_favorite_of?(current_user)
+    =link_to "♥", destroy_favindex_user_favorite_url(:user_id => current_user, :id => video.is_favorite_of?(current_user)), :method => :delete, :style => "color: #C00000", :class => "favorites", :id => "link_"+dom_id(video)
+    :javascript
+      $('#{"#link_"+dom_id(video)+"[data-method=delete]"}').click(function(event) {
+        event.preventDefault();
+        $.post(this.href, { _method: 'delete' }, function(data) {
+          $('##{dom_id(video)}').replaceWith(data);
+        }, "script");
+        return false;
+      });
+  -else
+    =link_to "♥", create_favindex_user_favorites_url(:user_id => current_user, :video => video.id), :method => :post, :style => "color: #ccc", :class => "favorites", :id => "link_"+dom_id(video)
+    :javascript
+      $('#{"#link_"+dom_id(video)+"[data-method=post]"}').click(function(event) {
+        event.preventDefault();
+        $.post(this.href, function(data) {
+          $('##{dom_id(video)}').replaceWith(data);
+        }, "script");
+        return false;
+      });

@@ -4,27 +4,22 @@
       @include gradientButton($brightblue, $darkblue, white)
 
   #show
-    #videobox
-      :text-align center
+    video
+      &:HOVER > #favorite
+        :display block
 
-    #videotable
-      :width 400px
-      :padding 5px
-      :margin 10px auto
-      @include linear-gradient($brightbackground, #BBB)
-      :border 1px solid black
-      :border-radius 4px
-      :box-shadow 0 0 5px $shadow
-      :font-size 12px
-
-      > li
-        :display inline-block
-
-      > li + li
-        :margin-left 30px
-
-      li.favorite
-        :font-size 48px
+    #resolutions
+      ul
+        @include linear-gradient($brightbackground, #BBB)
+        :border 1px solid black
+        :border-radius 4px 12px 4px 4px
+        :box-shadow 1px 1px 4px $shadow
+        :margin 6px
+        :padding 4px
+        :font-size 12px
+        :width 105px
+        li
+          :display inline-block   
 
     #tags
       h2
@@ -34,10 +29,10 @@
       ul
         :margin 10px
 
-
-    ul#comments
+    #comments
       :margin 0
       :padding 0
+
       li.comment
         :padding 5px
         @include linear-gradient($brightbackground, $darkbackground)
@@ -56,8 +51,19 @@
           :float right
           :color #888
           :font-size 0.9em
-      li.comment + li.comment
+      .comment + .comment
         margin-top: 1em
+
+    #favorites
+      :display none
+      :font-size 40px
+      :position absolute
+      :text-shadow 2px 4px 3px $shadow
+      :z-index 1
+      :right 15px
+      :top 10px
+      A:HOVER
+        :text-decoration none
 
     #form
       #new_comment
