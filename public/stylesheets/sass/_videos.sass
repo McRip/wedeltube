@@ -5,6 +5,8 @@
 
   #show
     video
+      &:HOVER > #favorite
+        :display block
     #resolutions
       ul
         @include linear-gradient($brightbackground, #BBB)
@@ -25,7 +27,6 @@
       ul
         :margin 10px
 
-
     #comments
       :margin 25px
       div.comment
@@ -42,6 +43,16 @@
           :margin-left 20px
           :width 500px
 
+    #favorites
+      :display none
+      :font-size 40px
+      :position absolute
+      :text-shadow 2px 4px 3px $shadow
+      :z-index 1
+      :right 15px
+      :top 10px
+      A:HOVER
+        :text-decoration none
 
     #form
       #new_comment

@@ -4,6 +4,8 @@
       %source{:src => @video.video.url(("mp4_"+@resolution[:name]).to_sym), :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
       %source{:src => @video.video.url(("webm_"+@resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
       %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
+      #favorites
+        =render :partial => "favorites", :locals => {:video => @video}
 
     #resolutions
       %ul
@@ -19,9 +21,6 @@
 
     #tags
       =render :partial => "tags"
-
-    #favorites
-      =render :partial => "favorites", :locals => {:video => @video}
 
     #comments
       =render :partial => "comments/comment", :collection => @video.comments
