@@ -7,11 +7,11 @@
 
 :javascript
   $(document).ready(function() {
-    form = $("#new_comment");
-    form.submit(function(event) {
+    comment_form = $("#new_comment");
+    comment_form.submit(function(event) {
       event.preventDefault();
-      $.post(form[0].action, form.serialize(), function(data) {
-        $("textarea", form)[0].value = "";
+      $.post(comment_form[0].action, comment_form.serialize(), function(data) {
+        $("textarea", comment_form)[0].value = "";
         $("#comments div.comment:last").after(data);
         $("#comment_submit").removeAttr('disabled').attr('value', 'Absenden');
       }, "script");

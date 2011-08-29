@@ -1,0 +1,19 @@
+#form
+  = semantic_form_for Participant.new, :url => video_participants_url(video) do |form|
+    = form.inputs do
+      = form.input :name, :label => "Teilnehmer"
+    = form.buttons do
+      = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gespeichert…' }
+
+:javascript
+  $(document).ready(function() {
+    participant_form = $("#new_participant");
+    participant_form.submit(function(event) {
+      event.preventDefault();
+      $.post(participant_form[0].action, participant_form.serialize(), function(data) {
+        $("#participant_name", participant_form)[0].value = "";
+        $("#participants div.participant:last").after(data);
+        $("#participant_submit").removeAttr('disabled').attr('value', 'Absenden');
+      }, "script");
+    });
+  });
