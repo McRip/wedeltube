@@ -1,9 +1,9 @@
-#form
-  = semantic_form_for Comment.new, :url => video_comments_url(video) do |form|
-    = form.inputs do
-      = form.input :comment, :label => "Dein Kommentar"
-    = form.buttons do
-      = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gespeichert…' }
+= semantic_form_for Comment.new, :url => video_comments_url(video) do |form|
+  = form.inputs do
+    = form.input :comment, :label => "Dein Kommentar"
+  = form.buttons do
+    = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gespeichert…' }
+
 
 :javascript
   $(document).ready(function() {
@@ -12,7 +12,7 @@
       event.preventDefault();
       $.post(comment_form[0].action, comment_form.serialize(), function(data) {
         $("textarea", comment_form)[0].value = "";
-        $("#comments div.comment:last").after(data);
+        $("#commentslist").append(data);
         $("#comment_submit").removeAttr('disabled').attr('value', 'Absenden');
       }, "script");
     });

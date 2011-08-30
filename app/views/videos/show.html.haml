@@ -21,13 +21,39 @@
           =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
       .clearfix
 
+    %p
+      Teilnehmer und Tätigkeiten
+
     #participants
+      %ul#participantslist
+        =render :partial => "participants/participant", :collection => @video.participants
+      %a#toggleParticipantsForm
+        Teilnehmer hinzufügen >
       =render :partial => "participants/form", :locals => {:video => @video}
+
+
 
     #tags
       =render :partial => "tags"
 
     #comments
-      %ul#commentlist
+      %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
-        =render :partial => "comments/form", :locals => {:video => @video}
+      %a#toggleCommentsForm
+        Kommentar schreiben >
+      =render :partial => "comments/form", :locals => {:video => @video}
+
+
+:javascript
+  $(document).ready(function() {
+    $("#toggleParticipantsForm").click(function(event) {
+      $("#new_participant").toggle();
+    });
+  });
+
+:javascript
+  $(document).ready(function() {
+    $("#toggleCommentsForm").click(function(event) {
+      $("#new_comment").toggle();
+    });
+  });

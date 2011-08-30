@@ -35,7 +35,8 @@
     #comments
       :margin 0
       :padding 0
-
+      #form
+        :display none
       li.comment
         :padding 5px
         @include linear-gradient($brightbackground, $darkbackground)
@@ -67,8 +68,11 @@
       A:HOVER
         :text-decoration none
 
-    #form
+    #comments
+      #toggleCommentsForm
+        :cursor pointer
       #new_comment
+        :display none
         :background #D8D8D8
         :margin-top 30px
         .inputs
@@ -79,8 +83,26 @@
                 :width 350px
 
     #participants
-      :border groove
+      #toggleParticipantsForm
+        :cursor pointer
+        @include linear-gradient($brightbackground, grey)
+        :margin 2px 2px 8px 2px
+        :color black
+      #participantslist
+        .participant
+          @include linear-gradient($brightbackground, $darkbackground)
+          :border-color #D8D8D8
+          :border-style solid
+          :border-width thin
+          :margin-top 20px 0px 30px 0px
+          .name
+            :font-size large
+          .role
+            :margin-left 20px            
       #new_participant
+        :display none
+        :border groove
+        :margin-top 10px
         .buttons
           margin 5px 5px 5px 20px
         .inputs
