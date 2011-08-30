@@ -4,6 +4,7 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = Participant.new(params[:participant])
+    @participant.role = @participant.role.delete_if{|participant| participant.empty?}
     @participant.role = @participant.role.join(", ")
     @participant.video = Video.find params[:video_id]
     user = User.find_by_username params[:participant][:name]

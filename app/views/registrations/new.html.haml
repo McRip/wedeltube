@@ -14,8 +14,17 @@
     = f.label :firstname, "Vorname"
     = f.text_field :firstname
   .field
+    = f.label :password, "Passwort"
+    = f.password_field :password
+  .field
     = f.label :password_confirmation, "Passwort Wiederholung"
     = f.password_field :password_confirmation
+  .field
+    =label_tag :ldap_user, "FH Wedel Benutzername"
+    =text_field_tag :ldap_user, "", :size => 30
+  .field
+    =label_tag :ldap_pass, "FH Wedel Passwort"
+    =password_field_tag :ldap_pass, "", :size => 30
   .field
     = f.submit "Jetzt Registrieren"
 = render :partial => "devise/shared/links"

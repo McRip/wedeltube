@@ -30,11 +30,43 @@
         :margin-top 30px
       ul
         :margin 10px
+ 
+    p
+      :font-style italic
+      :margin-top 40px
+      :font-size medium
+      :font-weight bold
+
+    #favorites
+      :display none
+      :font-size 40px
+      :position absolute
+      :text-shadow 2px 4px 3px $shadow
+      :right 15px
+      :top 10px
+      A:HOVER
+        :text-decoration none
 
     #comments
-      :margin 0
-      :padding 0
-
+      #toggleCommentsForm
+        :cursor pointer
+        @include linear-gradient($brightbackground, grey)
+        :margin 2px 2px 8px 2px
+        :color black
+      #commentslist
+        .comment
+          :margin 10px 0px 10px 0px
+      #new_comment
+        :display none
+        :background #D8D8D8
+        :border groove
+        :margin-top 30px
+        .inputs
+          ol
+            #comment_comment_input
+              #comment_comment
+                :height 150px
+                :width 350px
       li.comment
         :padding 5px
         @include linear-gradient($brightbackground, $darkbackground)
@@ -56,38 +88,41 @@
       .comment + .comment
         margin-top: 1em
 
-    #favorites
-      :display none
-      :font-size 40px
-      :position absolute
-      :text-shadow 2px 4px 3px $shadow
-      :right 15px
-      :top 10px
-      A:HOVER
-        :text-decoration none
-
-    #form
-      #new_comment
-        :background #D8D8D8
-        :margin-top 30px
-        .inputs
-          ol
-            #comment_comment_input
-              #comment_comment
-                :height 150px
-                :width 350px
-
     #participants
-      :border groove
+      #toggleParticipantsForm
+        :cursor pointer
+        @include linear-gradient($brightbackground, grey)
+        :margin 2px 2px 8px 2px
+        :color black
+      #participantslist
+        .participant
+          @include linear-gradient($brightbackground, $darkbackground)
+          :border-color #D8D8D8
+          :border-style solid
+          :border-width thin
+          :margin 10px 0px 10px 0px
+          :width 400px
+          .name
+            :font-size large
+          .role
+            :margin-left 10px
       #new_participant
+        :display none
+        :border groove
+        :background #D8D8D8
+        :margin-top 10px
         .buttons
-          margin 5px 5px 5px 20px
+          ol
+            .commit
+              :margin-left 17%
         .inputs
           ol
             #participant_name_input
               :margin 5px 5px 5px 20px
+              :width 50%
               #participant_name
                 :width 300px
             #participant_role_input
               :margin 5px 5px 5px 20px
-            
+              :width 50%
+  

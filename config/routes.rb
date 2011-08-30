@@ -1,5 +1,6 @@
 Wedeltube::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
 
   resources :videos do
     resources :comments, :only => [ :create, :update, :destroy ]
