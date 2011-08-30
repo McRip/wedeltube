@@ -10,6 +10,10 @@ class Video < ActiveRecord::Base
   scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id', :order => "count(favorites.id) DESC", :limit => 5
   scope :most_commented, :select => 'videos.*, count(comments.id) as comments_count', :joins => 'left outer join comments on comments.video_id = videos.id', :group => 'videos.id', :order => "count(comments.id) DESC", :limit => 5
 
+  validates :title, :presence => { :message => "Bitte einen Titel eingeben" }
+  validates_attachment_presence :video, :message => "Bitte Video angeben"
+  validates_attachment_content_type :video, :content_type => /video\/.*/, :message => "Datei ist kein Video"
+
   acts_as_rateable
   acts_as_taggable
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
@@ -34,8 +38,8 @@ class Video < ActiveRecord::Base
                     :processors => [:ffmpeg]
 
   process_in_background :video
-  before_post_process :convert!
-  after_post_process :converted!
+  #before_post_process :convert!
+  #after_post_process :converted!
 
   state_machine do
     state :pending

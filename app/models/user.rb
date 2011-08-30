@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :participants
 
-  validates_presence_of :username
+  validates :username, :presence => true
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

@@ -17,8 +17,11 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(params[:video])
     @video.user = current_user
-    @video.save
-    redirect_to @video
+    if @video.save
+      redirect_to @video
+    else
+      render :new
+    end
   end
 
   def edit
