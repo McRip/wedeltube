@@ -1,28 +1,31 @@
 #home
   #index
-    h1
     .video_box
       :float left
-      :margin 10px 10px 10px 0
-      :padding 10px 10px 10px 0
-      :width 438px
-      h3
-        :margin 0 10px 10px 0
-        :font-size 20px
-      ol
-        li
-          :margin-top 10px
+      :width 445px
+      :margin 10px
+
+      ol.videos
+        li.video
           .thumb
             :float left
             img
               @include box-shadow(Black, 3px)
+
           .details
             :float left
             :margin-left 10px
+            :width 305px
+
             .link
               a
                 :display block
+
             .user
               :font-size 12px
+
             span.order
               :font-size 10px
+
+        li.video + li.video
+          :margin-top 10px

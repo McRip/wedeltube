@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   before_filter :find_tag, :except => [:index]
 
   def index
-    @tags = Tag.paginate :page => params[:page]
+    @tags = Tag.paginate :page => params[:page], :order => "name"
   end
 
   def show

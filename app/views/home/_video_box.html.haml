@@ -1,10 +1,11 @@
 .video_box
-  %h3
+  %h2
     =title
-  %ol
+
+  %ol.videos
     -if videos.present?
       -videos.each do |video|
-        %li
+        %li.video
           .thumb
             =link_to image_tag(video.video.url(:thumb0), {:width => 128, :height => 72}), video
           .details
