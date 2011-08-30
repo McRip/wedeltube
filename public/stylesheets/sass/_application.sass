@@ -2,9 +2,6 @@ html
   :background-color $darkbackground
 
   body
-    :font-family Verdana
-    :font-size 16px
-
     a
       :color $linkcolor
       :text-decoration none
@@ -32,27 +29,6 @@ html
     .clearfix
       :clear both
 
-    #navigation
-      :position absolute
-      :top 110px
-      :width 100%
-      :background-color $darkblue
-      @include box-shadow(#aaa)
-
-      ul
-        @include center
-        :padding 5px 0
-        :background-color $brightblue
-
-        li
-          :display inline
-          :margin-left 1em
-
-          a
-            :font-size 16px
-            :color #fff
-            @include text-shadow(#aaa)
-
     div.note
       :background #ffd
       :border 3px #dd9 solid
@@ -66,57 +42,39 @@ html
     p + *
       :margin-top 10px
 
-    #wrapper
-      @include box-shadow(#aaa)
-      @include center
-      :background-color $brightbackground
-
-      #header
-        :height 100px
-        :padding 10px
-
-      #content
-        :padding 20px
-
-        #new_video
-          .inputs
-            ol
-              #video_title_input
-                #video_title
-                  :height 20px
-                  :width 300px
-              #video_description_input
-                #video_description
-                  :height 120px
-                  :width 300px
-
-      #footer
-        :clear both
-        :text-align center
-        :padding 5px
-        :font-size 0.8em
+    #new_video
+      .inputs
+        ol
+          #video_title_input
+            #video_title
+              :height 20px
+              :width 300px
+          #video_description_input
+            #video_description
+              :height 120px
+              :width 300px
 
     li.videothumb
+      :border 3px solid $darkbackground
+      :border-radius 20px
+      :box-shadow 2px 4px 6px $shadow
       :float left
       :text-align center
-      img
-        :border 3px solid $darkbackground
-        :border-radius 20px 20px 20px 20px
-        :box-shadow 2px 4px 6px $shadow
+      :display block
+      :margin 20px
+      :height 150px
+      :width 267px
+
+      > div.info
+        :display none
+        :padding 10px
+        :background-color rgba(0, 0, 0, 0.4)
+        :border-radius 20px
+        :height 130px
+        :width 247px
+
+        a
+          :color #fff
+
+      &:HOVER > .info
         :display block
-        :height 150px
-        :margin 20px
-        :width 267px
-
-    div.note
-      :background #ffd
-      :border 3px #dd9 solid
-      :margin 0 auto
-      :padding 5px
-      :width 600px
-
-    em
-      :font-style italic
-
-    p + *
-      :margin-top 10px

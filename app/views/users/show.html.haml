@@ -1,5 +1,7 @@
 #users
   #show
+    #edit(style="float: right;")
+      =link_to "Profil bearbeiten", edit_user_registration_path
     .profile
       =image_tag @user.avatar.url(:profile), :id => "avatar"
       %h1
@@ -17,8 +19,7 @@
         =@user.favorites.count
         Favoriten
       %br
-      #edit
-        =link_to "Profil bearbeiten", edit_user_registration_path
+
 
     .clearfix
 

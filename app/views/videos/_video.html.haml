@@ -1,3 +1,3 @@
-%li.videothumb
-  = link_to image_tag(video.video.url(:thumb0)), video
-  = link_to video, video, {:class => "title"}
+%li.videothumb{:style => "background-image: url('" + video.video.url(:thumb0) + "');"}
+  .info
+    = link_to video, video, {:class => "title"}
