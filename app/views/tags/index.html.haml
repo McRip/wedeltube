@@ -1,9 +1,17 @@
-%h1
-  Tags
+#tags
+  %h1
+    Tags
 
-%p
-  Alle Videos werden mit Tags kategorisiert.
+  %p
+    Alle Videos werden mit Tags kategorisiert.
 
-%ul
-  =render @tags
-=will_paginate @tags
+  %table
+    - @tags.each_slice(3).each do |t|
+      %tr
+        %td= link_to t[0], t[0]
+        -if t[1].present?
+          %td= link_to t[1], t[1]
+        -if t[2].present?
+          %td= link_to t[2], t[2]
+
+    =will_paginate @tags
