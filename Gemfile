@@ -18,6 +18,8 @@ gem "transitions", :require => ["transitions", "active_record/transitions"]     
 gem 'delayed_job'                                                               # => https://github.com/collectiveidea/delayed_job
 gem 'delayed_paperclip'                                                         # => https://github.com/jstorimer/delayed_paperclip
 gem 'passenger'
+gem 'net-ldap'
+gem 'pretty_flash'
 
 group :development do
   gem 'hpricot'
