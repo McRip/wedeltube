@@ -1,0 +1,45 @@
+html
+  :background-color $darkbackground
+
+  body
+    :font-family Verdana
+    :font-size 16px
+
+    #navigation
+      :position absolute
+      :top 110px
+      :width 100%
+      :background-color $darkblue
+      @include box-shadow(#aaa)
+
+      ul
+        @include center
+        :padding 5px 0
+        :background-color $brightblue
+
+        li
+          :display inline
+          :margin-left 1em
+
+          a
+            :font-size 16px
+            :color #fff
+            @include text-shadow(#aaa)
+
+    #wrapper
+      @include box-shadow(#aaa)
+      @include center
+      :background-color $brightbackground
+
+      #header
+        :height 100px
+        :padding 10px
+
+      #content
+        :padding 20px
+
+      #footer
+        :clear both
+        :text-align center
+        :padding 5px
+        :font-size 0.8em
