@@ -1,7 +1,8 @@
 %li.comment
-  %span.time
-    =comment.created_at.strftime("%d.%m.%G %H:%M")
+  %img.photo(src="http://www.youtube.com/profile_photo?id=2-gb6Wi0Dtt1RT016LsLiQ")
   %span.user
     =comment.user.username
   .text
     =comment.comment
+  %span.time
+    =comment.created_at.strftime("%d.%m.%G %H:%M")

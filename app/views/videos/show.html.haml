@@ -24,37 +24,34 @@
     #tags
       =render :partial => "tags"
 
-    %p
-      Teilnehmer und Tätigkeit
-
     #participants
+      %h2
+        Mitarbeiter
       %ul#participantslist
         =render :partial => "participants/participant", :collection => @video.participants
-      %a#toggleParticipantsForm
-        Teilnehmer hinzufügen >
+      %a#toggleParticipantsForm(style="clear: left;")
+        Teilnehmer hinzufügen
       =render :partial => "participants/form", :locals => {:video => @video}
 
-    %p
-      Kommentare
-
     #comments
+      %h2
+        Kommentare
       %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
-      %a#toggleCommentsForm
-        Kommentar schreiben >
+      %a#toggleCommentsForm(style="clear: left;")
+        Kommentar hinzufügen
       =render :partial => "comments/form", :locals => {:video => @video}
-
 
 :javascript
   $(document).ready(function() {
     $("#toggleParticipantsForm").click(function(event) {
-      $("#new_participant").toggle();
+      $("#new_participant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 500, height: 350 });
     });
   });
 
 :javascript
   $(document).ready(function() {
     $("#toggleCommentsForm").click(function(event) {
-      $("#new_comment").toggle();
+      $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 500, height: 300 });
     });
   });
