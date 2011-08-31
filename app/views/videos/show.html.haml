@@ -24,6 +24,7 @@
     #tags
       =render :partial => "tags"
 
+
     #participants
       %h2
         Mitarbeiter
@@ -32,6 +33,7 @@
       %a#toggleParticipantsForm(style="clear: left;")
         Teilnehmer hinzufügen
       =render :partial => "participants/form", :locals => {:video => @video}
+
 
     #comments
       %h2
