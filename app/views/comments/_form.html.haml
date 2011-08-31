@@ -1,6 +1,6 @@
 = semantic_form_for Comment.new, :url => video_comments_url(video) do |form|
   = form.inputs do
-    = form.input :comment, :label => "Dein Kommentar"
+    = form.input :comment, :label => "Hier ist Platz für deine Meinung"
   = form.buttons do
     = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gespeichert…' }
 
@@ -14,6 +14,7 @@
         $("textarea", comment_form)[0].value = "";
         $("#commentslist").append(data);
         $("#comment_submit").removeAttr('disabled').attr('value', 'Absenden');
+        $(".modal").fadeOut("fast");
       }, "script");
     });
   });

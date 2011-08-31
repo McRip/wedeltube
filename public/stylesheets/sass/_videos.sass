@@ -47,82 +47,60 @@
       A:HOVER
         :text-decoration none
 
+    #participants, #comments
+      :width 465px
+      
+      ul
+        li
+          :clear left
+          :padding-top 10px
+
+          .photo
+            :width 54px
+            :height 70px
+            :float left
+            :margin-right 10px
+
+          .user
+            :display inline-block
+            :font-style italic
+            :color blue
+
+          .text, .role
+            :margin-left 20px
+            :width 500px
+
+          .time
+            :color #ccc
+            :font-size 0.9em
+
+        li + li
+          :border-top 1px #ddd solid
+          :margin-top 20px
+
     #comments
       #toggleCommentsForm
-        :cursor pointer
-        @include linear-gradient($brightbackground, grey)
-        :margin 2px 2px 8px 2px
-        :color black
-      #commentslist
-        .comment
-          :margin 10px 0px 10px 0px
+        @include gradientButton($brightblue, $darkblue, white)
+        
       #new_comment
         :display none
-        :background #D8D8D8
-        :border groove
-        :margin-top 30px
-        .inputs
-          ol
-            #comment_comment_input
-              #comment_comment
-                :height 150px
-                :width 350px
-      li.comment
-        :padding 5px
-        @include linear-gradient($brightbackground, $darkbackground)
-        :border-color #D8D8D8
-        :border-style solid
-        :border-width thin
-        .user
-          :display inline-block
-          :font-style italic
-          :margin 10px
-          :color blue
-        .text
-          :margin-left 20px
-          :width 500px
-        .time
-          :float right
-          :color #888
-          :font-size 0.9em
-      .comment + .comment
-        margin-top: 1em
 
     #participants
+      :float right
+
       #toggleParticipantsForm
-        :cursor pointer
-        @include linear-gradient($brightbackground, grey)
-        :margin 2px 2px 8px 2px
-        :color black
-      #participantslist
-        .participant
-          @include linear-gradient($brightbackground, $darkbackground)
-          :border-color #D8D8D8
-          :border-style solid
-          :border-width thin
-          :margin 10px 0px 10px 0px
-          :width 400px
-          .name
-            :font-size large
-          .role
-            :margin-left 10px
+        @include gradientButton($brightblue, $darkblue, white)
+
       #new_participant
         :display none
-        :border groove
-        :background #D8D8D8
-        :margin-top 10px
-        .buttons
-          ol
-            .commit
-              :margin-left 17%
-        .inputs
-          ol
-            #participant_name_input
-              :margin 5px 5px 5px 20px
-              :width 50%
-              #participant_name
-                :width 300px
-            #participant_role_input
-              :margin 5px 5px 5px 20px
-              :width 50%
-  
+
+.modal
+  label, textarea
+    :display block
+
+  textarea
+    :width 450px
+    :height 150px
+
+  input[type="submit"]
+    @include gradientButton($brightblue, $darkblue, white)

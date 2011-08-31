@@ -1,7 +1,9 @@
 #users
   #show
-    #edit(style="float: right;")
-      =link_to "Profil bearbeiten", edit_user_registration_path
+    -if current_user == @user
+      #edit(style="float: right;")
+        =link_to "Profil bearbeiten", edit_user_registration_path
+
     .profile
       =image_tag @user.avatar.url(:profile), :id => "avatar"
       %h1
