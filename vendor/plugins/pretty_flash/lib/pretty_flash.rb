@@ -1,7 +1,7 @@
 module RPH
   module PrettyFlash
     module ControllerMethods
-      TYPES = [:notice, :warning, :error]
+      TYPES = [:notice, :warning, :error, :alert]
       
       TYPES.each do |type|
         define_method(type) do |msg|
