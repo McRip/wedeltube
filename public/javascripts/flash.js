@@ -1,7 +1,7 @@
 // jQuery -------------------------------------------------------------
 
 $(document).ready(function() {
-  setTimeout(hideFlashes, 25000);
+  setTimeout(hideFlashes, 3000);
 });
 
 var hideFlashes = function() {

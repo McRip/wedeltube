@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         format.js { render @comment }
       else
         format.html { redirect_to video_url(@comment.video) }
-        format.js { redirect_to video_url(@comment.video) }
+        format.js { render :partial => "form", :status => 403 }
       end
     end
   end
@@ -25,7 +25,11 @@ class CommentsController < ApplicationController
   def destroy
     @video = @comment.video
     @comment.destroy
-    redirect_to @video
+    if @video.save
+      redirect_to @video
+    else
+      render :new
+    end
   end
 
   private
