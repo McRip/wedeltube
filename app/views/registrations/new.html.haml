@@ -1,30 +1,55 @@
-%h2 Registrieren
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email, "E-Mail-Adresse"
-    = f.email_field :email
-  .field
-    = f.label :username, "Username"
-    = f.text_field :username
-  .field
-    = f.label :name, "Name"
-    = f.text_field :name
-  .field
-    = f.label :firstname, "Vorname"
-    = f.text_field :firstname
-  .field
-    = f.label :password, "Passwort"
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation, "Passwort Wiederholung"
-    = f.password_field :password_confirmation
-  .field
-    =label_tag :ldap_user, "FH Wedel Benutzername"
-    =text_field_tag :ldap_user, "", :size => 30
-  .field
-    =label_tag :ldap_pass, "FH Wedel Passwort"
-    =password_field_tag :ldap_pass, "", :size => 30
-  .field
-    = f.submit "Jetzt Registrieren"
-= render :partial => "devise/shared/links"
+#login
+  #register
+    %h2
+      Benutzerregistrierung
+    = render :partial => "devise/shared/links"
+
+    %p
+      Herzlich Willkommen bei Wedeltube! Ein Benutzerkonto zu registrieren dauert gar nicht lange und ist nicht besonders schwierig.
+
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      = devise_error_messages!
+
+      %fieldset
+        %legend
+          Benutzerdaten
+        %p
+          Bitte gib hier einen Benutzernamen sowie deine E-Mail-Adresse und deinen Namen ein.
+        .field
+          = f.label :email, "Deine E-Mail-Adresse"
+          = f.email_field :email
+        .field
+          = f.label :username, "Benutzername"
+          = f.text_field :username
+        .field
+          = f.label :firstname, "Vorname"
+          = f.text_field :firstname
+        .field
+          = f.label :name, "Nachname"
+          = f.text_field :name
+
+      %fieldset
+        %legend
+          Kennwort
+        %p
+          Bitte gib hier ein Kennwort zu deinem Benutzerkonto ein. Denk dran, dass ein sicheres Kennwort aus Buchstaben, Ziffern und Sonderzeichen bestehen sollte.
+        .field
+          = f.label :password, "Kennwort"
+          = f.password_field :password
+        .field
+          = f.label :password_confirmation, "Kennwort-Wiederholung"
+          = f.password_field :password_confirmation
+
+      %fieldset
+        %legend
+          Login-Daten
+        %p
+          Bitte gib hier deine E-Mail-Adresse und dein Kennwort zur Anmeldung an der Fachhochschule Wedel an, damit wir sichergehen können, dass sich nur Studenten hier anmelden. Keine Sorge, wir speichern weder E-Mail-Adresse noch Kennwort und treiben damit keinen Unfug.
+        .field
+          =label_tag :ldap_user, "FH-Wedel-E-Mail-Adresse"
+          =text_field_tag :ldap_user, "", :size => 30
+        .field
+          =label_tag :ldap_pass, "FH-Wedel-Kennwort"
+          =password_field_tag :ldap_pass, "", :size => 30
+      .field
+        = f.submit "Jetzt Registrieren"

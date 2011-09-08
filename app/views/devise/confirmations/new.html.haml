@@ -1,9 +1,17 @@
-%h2 Resend confirmation instructions
-= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
-  %p
-    = f.label :email
-    %br/
-    = f.email_field :email
-  %p= f.submit "Resend confirmation instructions"
-= render :partial => "devise/shared/links"
+#login
+  #resendconfirmation
+    %h2
+      Keine Bestätigungsmail bekommen?
+
+    = render :partial => "devise/shared/links"
+
+    %p
+      Kein Problem. Gib im nachfolgenden Eingabefeld noch einmal deine E-Mail-Adresse an, dann bekommst du eine neue E-Mail. Falls es wieder nicht klappt, schau bitte nach, ob dein E-Mail-Anbieter die Mail womöglich als Spam klassifiziert hat.
+
+    = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+      = devise_error_messages!
+      %p
+        = f.label :email
+        %br/
+        = f.email_field :email
+      %p= f.submit "Bestätigung zusenden"
