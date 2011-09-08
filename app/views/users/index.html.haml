@@ -4,8 +4,6 @@
       Benutzerübersicht
     %p
       Übersicht über alle angemeldeten Besucher.
-    %p
-      Zur Auswahl bitte den Anfangsbuchstaben des Namens anklicken.
 
     .letters
       -("A".."Z").each do |letter|
@@ -15,15 +13,20 @@
     -if @users.present?
       %ul.users
         =render @users
+
+      .clearfix
+
+      .letters
+        -("A".."Z").each do |letter|
+          %span.letter
+            =link_to_unless letter == params[:start_letter], letter, users_url(:start_letter => letter)
+
     -else
       .note
         Keine Benutzer mit dem Anfangsbuchstaben
         =params[:start_letter]
         vorhanden.
 
-    .clearfix
 
-    .letters
-      -("A".."Z").each do |letter|
-        %span.letter
-          =link_to_unless letter == params[:start_letter], letter, users_url(:start_letter => letter)
+
+    

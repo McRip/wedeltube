@@ -29,6 +29,7 @@
         Mitarbeiter
       %ul#participantslist
         =render :partial => "participants/participant", :collection => @video.participants
+      .clearfix
       %a#toggleParticipantsForm(style="clear: left;")
         Teilnehmer hinzufügen
       =render :partial => "participants/form", :locals => {:video => @video}
@@ -38,6 +39,7 @@
         Kommentare
       %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
+      .clearfix
       %a#toggleCommentsForm(style="clear: left;")
         Kommentar hinzufügen
       =render :partial => "comments/form", :locals => {:video => @video}
