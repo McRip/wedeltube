@@ -37,8 +37,14 @@ class Video < ActiveRecord::Base
                       :thumb8541 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "854x480" },
                       :thumb8542 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "854x480" },
                       :thumb8543 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "854x480" },
-                      :thumb128 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "128x72" },
-                      :thumb267 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "267x149" }
+                      :thumb1280 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "128x72" },
+                      :thumb1281 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "128x72" },
+                      :thumb1282 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "128x72" },
+                      :thumb1283 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "128x72" },
+                      :thumb2670 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "267x149" },
+                      :thumb2671 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "267x149" },
+                      :thumb2672 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "267x149" },
+                      :thumb2673 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "267x149" }
                     },
                     :processors => [:ffmpeg]
 
