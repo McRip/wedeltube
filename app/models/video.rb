@@ -9,6 +9,7 @@ class Video < ActiveRecord::Base
   scope :recent, :order => "created_at DESC", :limit => 5
   scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id', :order => "count(favorites.id) DESC", :limit => 5
   scope :most_commented, :select => 'videos.*, count(comments.id) as comments_count', :joins => 'left outer join comments on comments.video_id = videos.id', :group => 'videos.id', :order => "count(comments.id) DESC", :limit => 5
+  scope :viewable, :conditions => "state = 'converted'"
 
   validates :title, :presence => { :message => "Bitte einen Titel eingeben" }
   validates_attachment_presence :video, :message => "Bitte Video angeben"
@@ -28,10 +29,14 @@ class Video < ActiveRecord::Base
                       :webm_360 => { :video => true,:format => "webm", :size => "640x360"  },
                       :webm_480 => { :video => true,:format => "webm", :size => "854x480"  },
                       #:webm_720 => { :video => true,:format => "webm", :size => "1280x720" },
-                      :thumb0 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "854x480" },
-                      :thumb1 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "854x480" },
-                      :thumb2 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "854x480" },
-                      :thumb3 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "854x480" },
+                      :thumb6400 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "640x360" },
+                      :thumb6401 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "640x360" },
+                      :thumb6402 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "640x360" },
+                      :thumb6403 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "640x360" },
+                      :thumb8540 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "854x480" },
+                      :thumb8541 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "854x480" },
+                      :thumb8542 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "854x480" },
+                      :thumb8543 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "854x480" },
                       :thumb128 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "128x72" },
                       :thumb267 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "267x149" }
                     },
