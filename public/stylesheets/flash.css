@@ -10,15 +10,15 @@ p.notice span, p.warning span, p.error span, p.alert span {
   width: 42px;
   height: 32px;
   margin-top: -5px; }
-p.notice, p.alert {
+p.notice {
   background: url(../images/flash-notice-bg.jpg) repeat-x left top;
   color: #41612f; }
-  p.notice span, p.alert span {
+  p.notice span {
     background: url(../images/flash-check.png) no-repeat left top; }
-p.warning {
+p.warning, p.alert {
   background: url(../images/flash-warning-bg.jpg) repeat-x left -10px;
   color: #a26a1a; }
-  p.warning span {
+  p.warning span, p.alert span {
     margin-top: -6px;
     background: url(../images/flash-warning.png) no-repeat left top; }
 p.error {

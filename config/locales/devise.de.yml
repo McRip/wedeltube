@@ -16,7 +16,7 @@ de:
       unconfirmed: 'Du musst dein Benutzerkonto bestätigen um fortzufahren.'
       locked: 'Dein Benutzerkonto ist gesperrt..'
       invalid: 'Unbekannte E-Mail oder ungültiges Passwort.'
-      invalid_token: 'Ungültiger Authentifizierungs Token.'
+      invalid_token: 'Ungültiger Authentifizierungstoken.'
       timeout: 'Deine Sitzung ist abgelaufen. Bitte logge dich erneut ein.'
       inactive: 'Dein Benutzerkonto ist noch nicht aktiviert worden..'
     sessions:
@@ -26,7 +26,7 @@ de:
       send_instructions: 'Du wirst in wenigen Minuten eine E-Mail mit Anweisungen erhalten, wie du dein Passwort ändern kannst.'
       updated: 'Dein Passwort wurde geändert. Du bist nun eingeloggt.'
     confirmations:
-      send_instructions: 'Du wirst in wenigen Minuten eine E-Mail mit Anweiseungen erhalten, wie du dein Benutzerkonto aktivieren kannst.'
+      send_instructions: 'Du wirst in wenigen Minuten eine E-Mail mit Anweisungen erhalten, wie du dein Benutzerkonto aktivieren kannst.'
       confirmed: 'Dein Benutzerkonto wurde aktiviert. Du bist nun eingeloggt.'
     registrations:
       signed_up: 'Willkommen. Du bist nun registriert.'
