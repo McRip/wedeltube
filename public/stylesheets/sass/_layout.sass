@@ -26,6 +26,11 @@ html
             :color #fff
             @include text-shadow(#aaa)
 
+            &:HOVER
+              @include text-shadow(#fff, 10px)
+              :text-decoration none
+              :color $darkblue
+
     #wrapper
       @include box-shadow(#aaa)
       @include center
@@ -37,6 +42,9 @@ html
 
       #content
         :padding 20px
+
+        p
+          :font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
 
       #footer
         :clear both

@@ -6,8 +6,8 @@ html
       :color $linkcolor
       :text-decoration none
 
-    a:HOVER
-      :text-decoration underline
+      &:HOVER
+        :text-decoration underline
 
     h1, h2, h3
       :color $darkblue
@@ -41,6 +41,19 @@ html
 
     p + *
       :margin-top 10px
+
+    p + form
+      :margin-top 20px
+
+    form
+      fieldset
+        legend
+          :font-weight bold
+        p
+          :font-style italic
+
+      fieldset + fieldset
+        :margin-top 20px
 
     #new_video
       .inputs
