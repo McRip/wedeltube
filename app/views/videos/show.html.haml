@@ -24,6 +24,7 @@
     #tags
       =render :partial => "tags"
 
+
     #participants
       %h2
         Mitarbeiter
@@ -34,6 +35,7 @@
         Teilnehmer hinzufügen
       =render :partial => "participants/form", :locals => {:video => @video}
 
+
     #comments
       %h2
         Kommentare
@@ -42,7 +44,7 @@
       .clearfix
       %a#toggleCommentsForm(style="clear: left;")
         Kommentar hinzufügen
-      =render :partial => "comments/form", :locals => {:video => @video}
+      =render :partial => "comments/form"
 
 :javascript
   $(document).ready(function() {

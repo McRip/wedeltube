@@ -1,0 +1,30 @@
+p
+  &.notice, &.warning, &.error, &.alert
+    border: 1px solid Grey
+    border-radius: 0 0 15px 15px
+    box-shadow: 0 3px 3px Silver
+    font-size: 18px
+    margin-bottom: 10px
+    padding: 15px 10px
+  &.notice span, &.warning span, &.error span, &.alert span
+    float: left
+    width: 42px
+    height: 32px
+    margin-top: -5px
+  &.notice, &.alert
+    background: url(../images/flash-notice-bg.jpg) repeat-x left top
+    color: #41612f
+    span
+      background: url(../images/flash-check.png) no-repeat left top
+  &.warning
+    background: url(../images/flash-warning-bg.jpg) repeat-x left -10px
+    color: #a26a1a
+    span
+      margin-top: -6px
+      background: url(../images/flash-warning.png) no-repeat left top
+  &.error
+    background: url(../images/flash-error-bg.jpg) repeat-x left -10px
+    color: #af0100
+    span
+      margin-top: -6px
+      background: url(../images/flash-error.png) no-repeat left top

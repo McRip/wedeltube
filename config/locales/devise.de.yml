@@ -1,0 +1,48 @@
+de:
+  errors:
+    messages:
+      expired: "ist abgelaufen. Bitte fordere eine neue an."
+      not_found: "nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt. Bitte versuch dich einzuloggen."
+      not_locked: "wurde nicht gesperrt."
+      not_saved:
+        one: "1 Fehler verhinderte, dass %{resource} gespeichert werden konnte:"
+        other: "%{count} Fehler verhinderten, dass %{resource} gespeichert werden konnte:"
+
+  devise:
+    failure:
+      already_authenticated: 'Du bist bereits eigeloggt.'
+      unauthenticated: 'Du musst dich anmelden oder einloggen um fortzufahren.'
+      unconfirmed: 'Du musst dein Benutzerkonto bestätigen um fortzufahren.'
+      locked: 'Dein Benutzerkonto ist gesperrt..'
+      invalid: 'Unbekannte E-Mail oder ungültiges Passwort.'
+      invalid_token: 'Ungültiger Authentifizierungs Token.'
+      timeout: 'Deine Sitzung ist abgelaufen. Bitte logge dich erneut ein.'
+      inactive: 'Dein Benutzerkonto ist noch nicht aktiviert worden..'
+    sessions:
+      signed_in: 'Du bist nun eingeloggt.'
+      signed_out: 'Du hast dich ausgeloggt.'
+    passwords:
+      send_instructions: 'Du wirst in wenigen Minuten eine E-Mail mit Anweisungen erhalten, wie du dein Passwort ändern kannst.'
+      updated: 'Dein Passwort wurde geändert. Du bist nun eingeloggt.'
+    confirmations:
+      send_instructions: 'Du wirst in wenigen Minuten eine E-Mail mit Anweiseungen erhalten, wie du dein Benutzerkonto aktivieren kannst.'
+      confirmed: 'Dein Benutzerkonto wurde aktiviert. Du bist nun eingeloggt.'
+    registrations:
+      signed_up: 'Willkommen. Du bist nun registriert.'
+      inactive_signed_up: 'Du bist nun registriert. Allerdings konntest du nicht eingeloggt werden, da dein Benutzerkonto %{reason} ist.'
+      updated: 'Dein Benutzerkonto wurde aktualisiert.'
+      destroyed: 'Auf Wiedersehen! Dein Benutzerkonto wurde gelöscht.'
+    unlocks:
+      send_instructions: 'Du wirst in wenigen Minuten eine E-Mail mit Anweisungen erhalten, wie du dein Benutzerkonto entsperren kannst.'
+      unlocked: 'Dein Benutzerkonto wurde entsperrt. Du bist nun eingeloggt.'
+    omniauth_callbacks:
+      success: 'Freigeschaltet von %{kind} Konto.'
+      failure: 'Das Benutzerkonto konnte nicht von Konto %{kind} freigeschaltet werden, weil "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Benutzerkonto-Aktivierung'
+      reset_password_instructions:
+        subject: 'Passwort zurücksetzen'
+      unlock_instructions:
+        subject: 'Benutzerkonto entsperren'

@@ -18,7 +18,7 @@ class ParticipantsController < ApplicationController
         format.js { render @participant }
       else
         format.html { redirect_to video_url(@participant.video) }
-        format.js { redirect_to video_url(@participant.video) }
+        format.js { render :partial => "form", :status => 403 }
       end
     end
   end
@@ -31,7 +31,11 @@ class ParticipantsController < ApplicationController
   def destroy
     @video = @participant.video
     @participant.destroy
-    redirect_to @video
+    if @participant.save
+      redirect_to @video
+    else
+      render :new
+    end
   end
 
   private

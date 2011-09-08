@@ -1,4 +1,4 @@
-= semantic_form_for Comment.new, :url => video_comments_url(video) do |form|
+= semantic_form_for @comment, :url => video_comments_url(@comment.video) do |form|
   = form.inputs do
     = form.input :comment, :label => "Hier ist Platz für deine Meinung"
   = form.buttons do
@@ -10,11 +10,16 @@
     comment_form = $("#new_comment");
     comment_form.submit(function(event) {
       event.preventDefault();
+      comment_form.unbind("submit");
       $.post(comment_form[0].action, comment_form.serialize(), function(data) {
         $("textarea", comment_form)[0].value = "";
         $("#commentslist").append(data);
         $("#comment_submit").removeAttr('disabled').attr('value', 'Absenden');
-        $(".modal").fadeOut("fast");
-      }, "script");
+        comment_form.dialog("close");
+      }, "script").error(function(request) {
+        comment_form.remove();
+        $("#commentslist").append(request.responseText);
+        $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 500, height: 300 });
+      });
     });
   });
