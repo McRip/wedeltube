@@ -63,7 +63,7 @@ module Paperclip
         audio_bitrate *= 1024          #ffmpeg uses bits not kbits
 
         video_size = calculate_video_size width, height
-        @size = video_size[width].to_s+"x"+video_size[height].to_s
+        @size = video_size[:width].to_s+"x"+video_size[:height].to_s
         padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(video_size[:hPadding]/2).to_s+":"+(video_size[:vPadding]/2).to_s+":black"
         
         case @format
@@ -90,7 +90,7 @@ module Paperclip
         height = size[1].to_i
         
         video_size = calculate_video_size width, height
-        @size = video_size[width].to_s+"x"+video_size[height].to_s
+        @size = video_size[:width].to_s+"x"+video_size[:height].to_s
         padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(video_size[:hPadding]/2).to_s+":"+(video_size[:vPadding]/2).to_s+":black"
         
         command = <<-command
@@ -122,14 +122,13 @@ module Paperclip
         h_padding = 0
         v_padding = 0
       else
-        res_width = (@inspector.width*height_adjustment_factor).floor
+        res_width = (@inspector.width*width_adjustment_factor).floor
         res_height = height
         h_padding = width - res_width
         v_padding = 0
-
-        if dest_size > width
+        if res_width > width
           res_width = width
-          res_height = (@inspector.height*width_adjustment_factor).floor
+          res_height = (@inspector.height*height_adjustment_factor).floor
           h_padding = 0
           v_padding = height - res_height
         end

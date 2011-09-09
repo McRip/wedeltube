@@ -41,8 +41,13 @@ class VideosController < ApplicationController
   end
 
   def destroy
-    @video.destroy
-    redirect_to videos_path
+    if current_user.is_admin?
+      @video.destroy
+      redirect_to videos_path
+    else
+      flash[:error] = "Funktion nicht erlaubt"
+      redirect_to @video
+    end
   end
 
   def add_tag
