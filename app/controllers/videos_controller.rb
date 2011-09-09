@@ -10,6 +10,7 @@ class VideosController < ApplicationController
     @resolution = build_resolution_hash (params[:res] || "360")
     @comment = @video.comments.new
     @participant = @video.participants.new
+    @video.view!
   end
 
   def new
@@ -31,7 +32,11 @@ class VideosController < ApplicationController
   end
 
   def update
-    @video.update_attributes(params[:video])
+    if current_user.is_admin? || current_user.owns_video?(@video)
+      @video.update_attributes(params[:video])
+    else
+      flash[:error] = "Funktion nicht erlaubt"
+    end
     redirect_to @video
   end
 
@@ -41,33 +46,42 @@ class VideosController < ApplicationController
   end
 
   def add_tag
-    @video.tag_list.add(params[:tag])
-    respond_to do |format|
-      if @video.save
-        format.js {
-          render :text => "true"
-        }
-      else
-        format.js {
-          render :text => "false"
-        }
+    if current_user.is_admin? || current_user.owns_video?(@video)
+      @video.tag_list.add(params[:tag])
+      respond_to do |format|
+        if @video.save
+          format.js {
+            render :text => "true"
+          }
+        else
+          format.js {
+            render :text => "false"
+          }
+        end
       end
+    else
+      flash[:error] = "Funktion nicht erlaubt"
+      redirect_to @video
     end
-    
   end
 
   def remove_tag
-    @video.tag_list.remove(params[:tag])
-    respond_to do |format|
-      if @video.save
-        format.js {
-          render :text => "true"
-        }
-      else
-        format.js {
-          render :text => "false"
-        }
+    if current_user.is_admin? || current_user.owns_video?(@video)
+      @video.tag_list.remove(params[:tag])
+      respond_to do |format|
+        if @video.save
+          format.js {
+            render :text => "true"
+          }
+        else
+          format.js {
+            render :text => "false"
+          }
+        end
       end
+    else
+      flash[:error] = "Funktion nicht erlaubt"
+      redirect_to @video
     end
   end
 
