@@ -5,15 +5,11 @@
 
 
     #videoContainer
-      %video{:width => @resolution[:x], :height => @resolution[:y], :controls => "controls"}
-        %source{:src => @video.video.url(("mp4_"+@resolution[:name]).to_sym), :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
-        %source{:src => @video.video.url(("webm_"+@resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
-        %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
+      =render "video_"+@video.state
       #favorites
         =render :partial => "favorites", :locals => {:video => @video}
       #ratings
         =#render :partial => "ratings", :locals => {:video => @video}
-      =render "video_"+@video.state
 
 
     #resolutions
@@ -86,7 +82,7 @@
       $("#new_participant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
     $("#toggleCommentsForm").click(function(event) {
-      $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 300 });
+      $("#new_comment").fancybox({ });
     });
     $("#toggleEditForm").click(function(event) {
       $("#edit form").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 400 });
