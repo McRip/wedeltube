@@ -19,7 +19,7 @@
         %li
           =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
         %li
-          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#videoframe"
+          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#video720"
       .clearfix
 
     #tags
