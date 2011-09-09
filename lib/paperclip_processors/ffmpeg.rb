@@ -89,13 +89,17 @@ module Paperclip
 
       elsif @thumbnail
         time_offset = -(@index*(@inspector.duration/5)/1000)
+        
         size = @size.split('x')
-        adjustments = calculate_video_adjustments size[0].to_i, size[1].to_i
+        width = size[0].to_i
+        height = size[1].to_i
+        
+        adjustments = calculate_video_adjustments width, height
         if (adjustments[:adjustment] == :horizontal)
-          @size = adjustments[:dest_size].to_s+"x"+size[1]
+          @size = adjustments[:dest_size].to_s+"x"+height.to_s
           padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(adjustments[:padding]/2).to_s+":0:black"
         else
-          @size = size[0]+"x"+adjustments[:dest_size].to_s
+          @size = width.to_s+"x"+adjustments[:dest_size].to_s
           padding_string = "-vf pad="+width.to_s+":"+height.to_s+":0:"+(adjustments[:padding]/2).to_s+":black"
         end
         
@@ -104,6 +108,7 @@ module Paperclip
         command
       end
       begin
+        puts command
         success = Paperclip.run('ffmpeg', command)
       rescue PaperclipCommandLineError
         raise PaperclipError, "There was an error processing the thumbnail for #{@basename}" if whiny

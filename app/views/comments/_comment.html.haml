@@ -1,11 +1,12 @@
 %li.comment
-  %img.photo(src="http://www.youtube.com/profile_photo?id=2-gb6Wi0Dtt1RT016LsLiQ")
+  =image_tag comment.user.avatar.url(:square50), :class => "photo"
   %span.user
     =comment.user.username
   .text
     =comment.comment
-  %span.time
-    =comment.created_at.strftime("%d.%m.%G %H:%M")
+    %span.time
+      =comment.created_at.strftime("%d.%m.%G %H:%M")
   .delete
     -if current_user.owns_video?(@video)
       =link_to "Delete", video_comment_url(:video_id => comment.video.id, :id => comment.id), :method => :delete
+

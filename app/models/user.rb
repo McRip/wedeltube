@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
                                           :profile => "200x200>",
                                           :thumb => "100x100>",
                                           :square50 => "50x50#",
-                                          :square100 => "100x100#" }
+                                          :square100 => "100x100#" }, :default_url => '/images/avatars/:style.png'
 
   def to_s
     self.username

@@ -2,12 +2,20 @@
   #index
     #upload
       @include gradientButton($brightblue, $darkblue, white)
+    #videoUser
+      :color $brightblue
+      :margin-top 80px
 
   #show
+    video
+      :margin 0 auto
+      :display block
     #videoContainer
       :display inline-block
       :position relative
       &:HOVER > #favorites
+        :display block
+      &:HOVER > #ratings
         :display block
 
     #resolutions
@@ -21,7 +29,18 @@
         :font-size 12px
         :width 105px
         li
-          :display inline-block   
+          :display inline-block
+
+    #ratings
+      :display none
+      :color gold
+      :font-size 34px
+      :position absolute
+      :text-shadow 2px 4px 3px $shadow
+      :left 15px
+      :top 10px
+      A:HOVER
+        :text-decoration none
 
     #tags
       ul
@@ -47,8 +66,6 @@
           :padding-top 10px
 
           .photo
-            :width 54px
-            :height 70px
             :float left
             :margin-right 10px
 
@@ -58,12 +75,13 @@
             :color blue
 
           .text, .role
-            :margin-left 20px
-            :width 500px
+            :margin-left 64px
 
           .time
+            :margin-top 5px
             :color #ccc
             :font-size 0.9em
+            :display block
 
         li + li
           :border-top 1px #ddd solid
@@ -86,6 +104,15 @@
       #new_participant
         :display none
 
+    #edit
+      :float left
+
+      #toggleEditForm
+        @include gradientButton($brightblue, $darkblue, white)
+      
+      form
+        :display none
+
 .modal
   label, textarea
     :display block
@@ -96,3 +123,15 @@
 
   input[type="submit"]
     @include gradientButton($brightblue, $darkblue, white)
+
+  @include box-shadow
+
+  form.video
+    ol.thumbs
+      :margin 10px 0
+      li
+        :display inline
+
+.ui-dialog-titlebar
+  @include linear-gradient($brightblue, $darkblue)
+  :color #fff
