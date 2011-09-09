@@ -1,6 +1,5 @@
 %li.comment
-  .photocontainer
-    %img.photo(src="http://www.youtube.com/profile_photo?id=2-gb6Wi0Dtt1RT016LsLiQ")
+  =image_tag comment.user.avatar.url(:square50), :class => "photo"
   %span.user
     =comment.user.username
   .text
