@@ -20,14 +20,14 @@ class Video < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   has_attached_file :video,
                     :styles => {
-                      :ogg_360  => { :video => true, :format => "ogv", :size => "640x360"  },
-                      :ogg_480  => { :video => true, :format => "ogv", :size => "854x480"  },
+                      #:ogg_360  => { :video => true, :format => "ogv", :size => "640x360"  },
+                      #:ogg_480  => { :video => true, :format => "ogv", :size => "854x480"  },
                       #:ogg_720  => { :video => true, :format => "ogv", :size => "1280x720" },
-                      :mp4_360  => { :video => true, :format => "mp4", :size => "640x360"  },
-                      :mp4_480  => { :video => true, :format => "mp4", :size => "854x480"  },
+                      #:mp4_360  => { :video => true, :format => "mp4", :size => "640x360"  },
+                      #:mp4_480  => { :video => true, :format => "mp4", :size => "854x480"  },
                       #:mp4_720  => { :video => true, :format => "mp4", :size => "1280x720" },
-                      :webm_360 => { :video => true,:format => "webm", :size => "640x360"  },
-                      :webm_480 => { :video => true,:format => "webm", :size => "854x480"  },
+                      #:webm_360 => { :video => true,:format => "webm", :size => "640x360"  },
+                      #:webm_480 => { :video => true,:format => "webm", :size => "854x480"  },
                       #:webm_720 => { :video => true,:format => "webm", :size => "1280x720" },
                       :thumb6400 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "640x360" },
                       :thumb6401 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "640x360" },
@@ -41,10 +41,10 @@ class Video < ActiveRecord::Base
                       :thumb1281 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "128x72" },
                       :thumb1282 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "128x72" },
                       :thumb1283 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "128x72" },
-                      :thumb2670 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "267x149" },
-                      :thumb2671 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "267x149" },
-                      :thumb2672 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "267x149" },
-                      :thumb2673 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "267x149" }
+                      :thumb2660 => { :thumbnail => true, :format => "jpg", :index => 1, :size => "266x150" },
+                      :thumb2661 => { :thumbnail => true, :format => "jpg", :index => 2, :size => "266x150" },
+                      :thumb2662 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "266x150" },
+                      :thumb2663 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "266x150" }
                     },
                     :processors => [:ffmpeg]
 
@@ -56,7 +56,7 @@ class Video < ActiveRecord::Base
   }
   after_post_process Proc.new { 
     begin 
-      self.convert! 
+      self.converted! 
     rescue Exception
     end 
   }
