@@ -51,17 +51,45 @@
       %a#toggleCommentsForm(style="clear: left;")
         Kommentar hinzufügen
       =render :partial => "comments/form"
+    
+    .clearfix
+
+    #edit
+      %a#toggleEditForm(style="clear: left;")
+        Video bearbeiten
+        
+      = semantic_form_for @video do |form|
+        = form.inputs do
+          = form.input :title, :label => "Filmtitel"
+          = form.input :description, :label => "Beschreibung"
+          = form.input :thumb_index, :as => :select, :collection => %w(0 1 2 3), :label => "Thumbnail Nr.", :include_blank => false
+        
+        %ol.thumbs
+          %li
+            0)
+            =image_tag @video.video.url(createThumbSymbol("thumb128", 0))
+          %li
+            1)
+            =image_tag @video.video.url(createThumbSymbol("thumb128", 1))
+          %li
+            2)
+            =image_tag @video.video.url(createThumbSymbol("thumb128", 2))
+          %li
+            3)
+            =image_tag @video.video.url(createThumbSymbol("thumb128", 3))
+  
+        = form.buttons do
+          = form.commit_button :button_html => { :value => "Speichern", :class => "primary", :disable_with => 'speichert…' }
 
 :javascript
   $(document).ready(function() {
     $("#toggleParticipantsForm").click(function(event) {
       $("#new_participant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
-  });
-
-:javascript
-  $(document).ready(function() {
     $("#toggleCommentsForm").click(function(event) {
       $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 300 });
+    });
+    $("#toggleEditForm").click(function(event) {
+      $("#edit form").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 400 });
     });
   });

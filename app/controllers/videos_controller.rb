@@ -19,7 +19,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(params[:video])
     @video.user = current_user
-    @video.thumb_index = 1
+    @video.thumb_index = 0
     if @video.save
       redirect_to @video
     else
