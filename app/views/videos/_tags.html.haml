@@ -7,7 +7,7 @@
       %li.tagit-choice.ui-widget-content.ui-state-default.ui-corner-all.noCallback.tagit-readonly
         =tag
 
--if current_user.owns_video?(@video)
+-if current_user.is_admin? || current_user.owns_video?(@video)
   :javascript
     $(document).ready(function() {
       $("#tags ul").tagit({

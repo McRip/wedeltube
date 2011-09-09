@@ -62,15 +62,10 @@ module Paperclip
         video_bitrate *= 1024          #ffmpeg uses bits not kbits
         audio_bitrate *= 1024          #ffmpeg uses bits not kbits
 
-        adjustments = calculate_video_adjustments width, height
-        if (adjustments[:adjustment] == :horizontal)
-          @size = adjustments[:dest_size].to_s+"x"+height.to_s
-          padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(adjustments[:padding]/2).to_s+":0:black"
-        else
-          @size = height.to_s+"x"+adjustments[:dest_size].to_s
-          padding_string = "-vf pad="+width.to_s+":"+height.to_s+":0:"+(adjustments[:padding]/2).to_s+":black"
-        end
-
+        video_size = calculate_video_size width, height
+        @size = video_size[width].to_s+"x"+video_size[height].to_s
+        padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(video_size[:hPadding]/2).to_s+":"+(video_size[:vPadding]/2).to_s+":black"
+        
         case @format
         when "ogv"
           video_codec = "libtheora"
@@ -94,14 +89,9 @@ module Paperclip
         width = size[0].to_i
         height = size[1].to_i
         
-        adjustments = calculate_video_adjustments width, height
-        if (adjustments[:adjustment] == :horizontal)
-          @size = adjustments[:dest_size].to_s+"x"+height.to_s
-          padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(adjustments[:padding]/2).to_s+":0:black"
-        else
-          @size = width.to_s+"x"+adjustments[:dest_size].to_s
-          padding_string = "-vf pad="+width.to_s+":"+height.to_s+":0:"+(adjustments[:padding]/2).to_s+":black"
-        end
+        video_size = calculate_video_size width, height
+        @size = video_size[width].to_s+"x"+video_size[height].to_s
+        padding_string = "-vf pad="+width.to_s+":"+height.to_s+":"+(video_size[:hPadding]/2).to_s+":"+(video_size[:vPadding]/2).to_s+":black"
         
         command = <<-command
           -itsoffset #{time_offset} -i #{File.expand_path(@file.path)} -y -vcodec mjpeg -vframes 1 -an -f rawvideo -s #{@size} #{padding_string} #{File.expand_path(dst.path)}
@@ -118,22 +108,34 @@ module Paperclip
 
     private
 
-    def size_adjustment_factor src_height, dest_height
-      dest_height.to_f/src_height.to_f
+    def size_adjustment_factor src, dest
+      dest.to_f/src.to_f
     end
 
-    def calculate_video_adjustments width, height
-      adjustment = :horizontal
-      dest_size = (@inspector.width*size_adjustment_factor(@inspector.height, height)).floor
-      padding = width - dest_size
+    def calculate_video_size width, height
+      width_adjustment_factor = size_adjustment_factor(@inspector.height, height)
+      height_adjustment_factor = size_adjustment_factor(@inspector.width, width)
+      
+      if (@inspector.width == width && @inspector.height == height)
+        res_width = width
+        res_height = height
+        h_padding = 0
+        v_padding = 0
+      else
+        res_width = (@inspector.width*height_adjustment_factor).floor
+        res_height = height
+        h_padding = width - res_width
+        v_padding = 0
 
-      if dest_size > width
-        adjustment = :vertical
-        dest_size = (@inspector.height*size_adjustment_factor(@inspector.width, width)).floor
-        padding = height - dest_size
+        if dest_size > width
+          res_width = width
+          res_height = (@inspector.height*width_adjustment_factor).floor
+          h_padding = 0
+          v_padding = height - res_height
+        end
       end
       
-      {:adjustment => adjustment, :dest_size => dest_size, :padding => padding}
+      {:width => res_width, :height => res_height, :hPadding => h_padding, :vPadding => v_padding}
     end
   end
 end

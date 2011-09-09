@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   before_filter :find_tag, :except => [:index]
 
   def index
-    @tags = Tag.paginate :page => params[:page], :order => "name"
+    @tags = Tag.find(:all).delete_if{ |item| item.taggings.count == 0 }.paginate(:page => params[:page], :order => "name")
   end
 
   def show

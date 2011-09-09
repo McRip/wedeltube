@@ -7,7 +7,7 @@
       -videos.each do |video|
         %li.video
           .thumb
-            =link_to image_tag(video.video.url(createThumbSymbol("thumb128", video.thumb_index)), {:width => 128, :height => 72}), video
+            =link_to image_tag(getThumbUrl(video, 128)), video
           .details
             .link
               =link_to video, video
