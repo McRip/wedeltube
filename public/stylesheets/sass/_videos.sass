@@ -59,8 +59,10 @@
             :margin-left 64px
 
           .time
+            :margin-top 5px
             :color #ccc
             :font-size 0.9em
+            :display block
 
         li + li
           :border-top 1px #ddd solid
@@ -93,3 +95,5 @@
 
   input[type="submit"]
     @include gradientButton($brightblue, $darkblue, white)
+
+  @include box-shadow
