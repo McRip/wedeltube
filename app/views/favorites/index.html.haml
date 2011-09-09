@@ -3,8 +3,11 @@
     %h1
       Favoriten
     %p
-      Übersicht über alle Favoriten.
+      Übersicht über deine Favoriten:
+
     -@favorites.each do |favorite|
       .favContainer
         =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
-        =render favorite.video
+        .videothumb{:style => "background-image: url('" + favorite.video.video.url(:thumb0) + "');"}
+          .info
+            = link_to favorite.video, favorite.video, {:class => "title"}

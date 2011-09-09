@@ -1,9 +1,12 @@
 #tags
   #show
     %h1
-      Alle Videos, die mit dem Tag
       =@tag
-      markiert sind.
+
+    %p
+      Hier sind alle Videos, die mit dem Tag
+      =@tag
+      gekennzeichnet sind:
 
     =will_paginate @videos
 

@@ -2,6 +2,7 @@
   #show
     %h1
       =@video.title
+<<<<<<< HEAD
 
     #videoContainer
       %video{:width => @resolution[:x], :height => @resolution[:y], :controls => "controls"}
@@ -12,6 +13,9 @@
         =render :partial => "favorites", :locals => {:video => @video}
       #ratings
         =render :partial => "ratings", :locals => {:video => @video}
+=======
+    =render "video_"+@video.state
+>>>>>>> 02e053fccb68e42bfb1e08c1edf3332549febe96
 
     #resolutions
       %ul
@@ -26,20 +30,24 @@
     #tags
       =render :partial => "tags"
 
+
     #participants
       %h2
         Mitarbeiter
       %ul#participantslist
         =render :partial => "participants/participant", :collection => @video.participants
+      .clearfix
       %a#toggleParticipantsForm(style="clear: left;")
         Teilnehmer hinzufügen
       =render :partial => "participants/form", :locals => {:video => @video}
+
 
     #comments
       %h2
         Kommentare
       %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
+      .clearfix
       %a#toggleCommentsForm(style="clear: left;")
         Kommentar hinzufügen
       =render :partial => "comments/form"

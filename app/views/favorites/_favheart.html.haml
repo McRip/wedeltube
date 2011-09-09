@@ -6,7 +6,9 @@
         event.preventDefault();
         $.post(this.href, { _method: 'delete' }, function(data) {
           $('##{dom_id(video)}').replaceWith(data);
-          $('##{dom_id(video)}').parent().fadeOut("fast");
+          //Videos unfavorited should stay into the favorites view with an grey heart
+          //until page reload.
+          //$('##{dom_id(video)}').parent().fadeOut("fast");
         }, "script");
         return false;
       });

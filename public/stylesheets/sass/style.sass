@@ -22,17 +22,17 @@
   :box-shadow 1px 1px 3px $shadow
   :display inline-block
   :font-weight bold
-  :margin-left 15px
+  :margin 10px
   :padding 8px
   :position relative
   :text-align center
-  :text-shadow 0px 1px 2px $shadow
+  :text-shadow 0px 1px 1px #ccc
   :color $font-color
   :cursor pointer
+  &:HOVER
+    :text-decoration none
   a
     :color $font-color
-  a:HOVER
-    :text-decoration none
 
 @mixin center
   :width 980px
@@ -54,3 +54,4 @@ $linkcolor: DodgerBlue
 @import "home"
 @import "favorites"
 @import "tags"
+@import "login"

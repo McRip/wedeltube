@@ -37,18 +37,9 @@
         :text-decoration none
 
     #tags
-      h2
-        :margin-left 10px
-        :text-decoration underline
-        :margin-top 30px
       ul
         :margin 10px
- 
-    p
-      :font-style italic
-      :margin-top 40px
-      :font-size medium
-      :font-weight bold
+        :cursor text
 
     #favorites
       :display none
@@ -69,8 +60,6 @@
           :padding-top 10px
 
           .photo
-            :width 54px
-            :height 70px
             :float left
             :margin-right 10px
 
@@ -80,8 +69,7 @@
             :color blue
 
           .text, .role
-            :margin-left 20px
-            :width 500px
+            :margin-left 64px
 
           .time
             :color #ccc
@@ -92,6 +80,7 @@
           :margin-top 20px
 
     #comments
+      :float left
       #toggleCommentsForm
         @include gradientButton($brightblue, $darkblue, white)
         

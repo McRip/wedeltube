@@ -1,10 +1,12 @@
 #tags
   %h2
     Tags
+
   %ul.tagit.ui-widget.ui-widget-content.ui-corner-all{:rel => @video.id}
     -@video.tag_list.each do |tag|
       %li.tagit-choice.ui-widget-content.ui-state-default.ui-corner-all.noCallback.tagit-readonly
         =tag
+
 -if current_user.owns_video?(@video)
   :javascript
     $(document).ready(function() {

@@ -6,8 +6,8 @@ html
       :color $linkcolor
       :text-decoration none
 
-    a:HOVER
-      :text-decoration underline
+      &:HOVER
+        :text-decoration underline
 
     h1, h2, h3
       :color $darkblue
@@ -42,6 +42,19 @@ html
     p + *
       :margin-top 10px
 
+    p + form
+      :margin-top 20px
+
+    form
+      fieldset
+        legend
+          :font-weight bold
+        p
+          :font-style italic
+
+      fieldset + fieldset
+        :margin-top 20px
+
     #new_video
       .inputs
         ol
@@ -54,7 +67,7 @@ html
               :height 120px
               :width 300px
 
-    li.videothumb
+    .videothumb
       :border 3px solid $darkbackground
       :border-radius 20px
       :box-shadow 2px 4px 6px $shadow
@@ -62,7 +75,7 @@ html
       :text-align center
       :display block
       :margin 20px
-      :height 150px
+      :height 149px
       :width 267px
 
       > div.info
