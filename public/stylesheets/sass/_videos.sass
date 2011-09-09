@@ -9,6 +9,8 @@
       :position relative
       &:HOVER > #favorites
         :display block
+      &:HOVER > #ratings
+        :display block
 
     #resolutions
       ul
@@ -21,7 +23,18 @@
         :font-size 12px
         :width 105px
         li
-          :display inline-block   
+          :display inline-block
+
+    #ratings
+      :display none
+      :color gold
+      :font-size 34px
+      :position absolute
+      :text-shadow 2px 4px 3px $shadow
+      :left 15px
+      :top 10px
+      A:HOVER
+        :text-decoration none
 
     #tags
       h2

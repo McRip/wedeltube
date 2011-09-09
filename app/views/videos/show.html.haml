@@ -10,6 +10,8 @@
         %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
       #favorites
         =render :partial => "favorites", :locals => {:video => @video}
+      #ratings
+        =render :partial => "ratings", :locals => {:video => @video}
 
     #resolutions
       %ul
@@ -52,6 +54,6 @@
 :javascript
   $(document).ready(function() {
     $("#toggleCommentsForm").click(function(event) {
-      $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 500, height: 300 });
+      $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 500, height: 320 });
     });
   });
