@@ -76,6 +76,9 @@
 
           = form.buttons do
             = form.commit_button :button_html => { :value => "Speichern", :class => "primary", :disable_with => 'speichert…' }
+    -if current_user.is_admin?
+      #delete
+        =link_to "Video löschen", video_url(@video), :method => :delete
 
 :javascript
   $(document).ready(function() {
