@@ -7,3 +7,7 @@
       =participant.name
   .role
     =participant.role
+  .delete
+    -if current_user.owns_video?(@video)
+      =link_to "Delete", video_participant_url(:video_id => participant.video.id, :id => participant.id), :method => :delete
+    
