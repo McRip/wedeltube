@@ -2,7 +2,7 @@
   #show
     %h1
       =@video.title
-<<<<<<< HEAD
+
 
     #videoContainer
       %video{:width => @resolution[:x], :height => @resolution[:y], :controls => "controls"}
@@ -11,11 +11,11 @@
         %source{:src => @video.video.url(("ogg_"+@resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
       #favorites
         =render :partial => "favorites", :locals => {:video => @video}
-      #ratings
-        =render :partial => "ratings", :locals => {:video => @video}
-=======
-    =render "video_"+@video.state
->>>>>>> 02e053fccb68e42bfb1e08c1edf3332549febe96
+      -#
+        #ratings
+          =render :partial => "ratings", :locals => {:video => @video}
+      =render "video_"+@video.state
+
 
     #resolutions
       %ul
