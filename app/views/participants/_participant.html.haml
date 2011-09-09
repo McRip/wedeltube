@@ -1,6 +1,8 @@
 %li.participant
   -if participant.user.present?
     =image_tag participant.user.avatar.url(:square50), :class => "photo"
+  -else
+    =image_tag "avatars/square50.png", :class => "photo"
   .user
     -if participant.user.present?
       =link_to participant.user, participant.user

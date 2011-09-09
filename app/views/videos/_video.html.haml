@@ -1,3 +1,3 @@
-%li.videothumb{:style => "background-image: url('" + video.video.url(:thumb266) + "');"}
+%li.videothumb{:style => "background-image: url('" + video.video.url(createThumbSymbol("thumb266", video.thumb_index)) + "');"}
   .info
     = link_to video, video, {:class => "title"}
