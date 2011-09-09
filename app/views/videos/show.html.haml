@@ -3,7 +3,6 @@
     %h1
       =@video.title
 
-
     #videoContainer
       =render "video_"+@video.state
       #favorites
@@ -18,12 +17,11 @@
         %li
           =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
         %li
-          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720")
+          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#videoframe"
       .clearfix
 
     #tags
       =render :partial => "tags"
-
 
     #participants
       %h2
@@ -32,7 +30,7 @@
         =render :partial => "participants/participant", :collection => @video.participants
       .clearfix
       -if current_user.is_admin? || current_user.owns_video?(@video)
-        %a#toggleParticipantsForm(style="clear: left;")
+        %a#toggleParticipantsForm(style="clear: left;" href="##new_participant")
           Teilnehmer hinzufügen
         =render :partial => "participants/form", :locals => {:video => @video}
 
@@ -43,12 +41,12 @@
       %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
       .clearfix
-      %a#toggleCommentsForm(style="clear: left;")
+      %a#toggleCommentsForm(style="clear: left;" href="#new_comment")
         Kommentar hinzufügen
       =render :partial => "comments/form"
-    
+
     .clearfix
-    
+
     -if current_user.is_admin? || current_user.owns_video?(@video)
       #edit
         %a#toggleEditForm(style="clear: left;")
@@ -83,9 +81,10 @@
       $("#new_participant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
     $("#toggleCommentsForm").click(function(event) {
-      $("#new_comment").fancybox({ });
+      $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
     $("#toggleEditForm").click(function(event) {
       $("form.video").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
     });
+    $("#theater").fancybox();
   });
