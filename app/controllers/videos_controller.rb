@@ -8,6 +8,7 @@ class VideosController < ApplicationController
 
   def show
     @resolution = build_resolution_hash (params[:res] || "360")
+    @resolution720 = build_resolution_hash ("720")
     @comment = @video.comments.new
     @participant = @video.participants.new
     @video.view!
