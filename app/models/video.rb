@@ -80,6 +80,10 @@ class Video < ActiveRecord::Base
       transitions :from => :converting, :to => :error
     end
   end
+  
+  def view!
+    self.update_attribute(:views, self.views.present? ? self.views+1 : 1)
+  end
 
   def self.top_rated
     self.find(:all).sort_by{|video| video.average_rating}.take(5)

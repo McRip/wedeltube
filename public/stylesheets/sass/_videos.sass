@@ -62,6 +62,17 @@
           :clear left
           :padding-top 10px
 
+          .delete
+            :float right
+            @include gradientButton(#f00, #a00, #fff)
+            :display none
+
+            &:HOVER a
+              :text-decoration none
+
+          &:HOVER > .delete
+            :display block
+
           .photo
             :float left
             :margin-right 10px

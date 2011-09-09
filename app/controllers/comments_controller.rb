@@ -24,11 +24,15 @@ class CommentsController < ApplicationController
 
   def destroy
     @video = @comment.video
-    @comment.destroy
-    if @video.save
-      redirect_to @video
+    if current_user.is_admin? || current_user.owns_video?(@video)
+      if @comment.destroy
+        redirect_to @video
+      else
+        render :new
+      end
     else
-      render :new
+      flash[:error] = "Funktion nicht erlaubt"
+      redirect_to @video
     end
   end
 
