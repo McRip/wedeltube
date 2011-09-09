@@ -1,4 +1,8 @@
 %li.comment
+  -if current_user.owns_video?(@video)
+    .delete
+      =link_to "×", video_comment_url(:video_id => comment.video.id, :id => comment.id), :method => :delete
+
   =image_tag comment.user.avatar.url(:square50), :class => "photo"
   %span.user
     =comment.user.username
@@ -6,7 +10,7 @@
     =comment.comment
     %span.time
       =comment.created_at.strftime("%d.%m.%G %H:%M")
+
   .delete
     -if current_user.owns_video?(@video)
       =link_to "Delete", video_comment_url(:video_id => comment.video.id, :id => comment.id), :method => :delete
-
