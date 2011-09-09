@@ -10,7 +10,7 @@ class ParticipantsController < ApplicationController
     user = User.find_by_username params[:participant][:name]
     if user.present?
       @participant.user = user
-      @participant.name = user.name
+      @participant.name = user.username
     end
     respond_to do |format|
       if @participant.save
