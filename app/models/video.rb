@@ -46,8 +46,7 @@ class Video < ActiveRecord::Base
                       :thumb2662 => { :thumbnail => true, :format => "jpg", :index => 3, :size => "266x150" },
                       :thumb2663 => { :thumbnail => true, :format => "jpg", :index => 4, :size => "266x150" }
                     },
-                    :processors => [:ffmpeg],
-                    :default_url => '/images/video/:style.png'
+                    :processors => [:ffmpeg]
 
   before_post_process Proc.new { 
     begin 
@@ -57,7 +56,7 @@ class Video < ActiveRecord::Base
   }
   after_post_process Proc.new { 
     begin 
-      self.converted! 
+      self.converted!
     rescue Exception
     end 
   }

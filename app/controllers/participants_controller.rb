@@ -4,7 +4,7 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = Participant.new(params[:participant])
-    @participant.role = @participant.role.delete_if{|participant| participant.empty?}
+    @participant.role = @participant.role.delete_if { |participant| participant.empty? }
     @participant.role = @participant.role.join(", ")
     @participant.video = Video.find params[:video_id]
     user = User.find_by_username params[:participant][:name]
@@ -30,17 +30,21 @@ class ParticipantsController < ApplicationController
 
   def destroy
     @video = @participant.video
-    @participant.destroy
-    if @participant.save
-      redirect_to @video
+    if current_user.is_admin? || current_user.owns_video?(@video)
+      if @participant.destroy
+        redirect_to @video
+      else
+        render :new
+      end
     else
-      render :new
+       flash[:error] = "Funktion nicht erlaubt"
+       redirect_to @video
     end
   end
 
   private
 
   def find_participant
-    @participant = Particiant.find params[:id]
+    @participant = Participant.find params[:id]
   end
 end

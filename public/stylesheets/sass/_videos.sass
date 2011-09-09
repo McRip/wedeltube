@@ -2,6 +2,9 @@
   #index
     #upload
       @include gradientButton($brightblue, $darkblue, white)
+    #videoUser
+      :color $brightblue
+      :margin-top 80px
 
   #show
     video
@@ -11,6 +14,8 @@
       :display inline-block
       :position relative
       &:HOVER > #favorites
+        :display block
+      &:HOVER > #ratings
         :display block
 
     #resolutions
@@ -24,7 +29,18 @@
         :font-size 12px
         :width 105px
         li
-          :display inline-block   
+          :display inline-block
+
+    #ratings
+      :display none
+      :color gold
+      :font-size 34px
+      :position absolute
+      :text-shadow 2px 4px 3px $shadow
+      :left 15px
+      :top 10px
+      A:HOVER
+        :text-decoration none
 
     #tags
       ul

@@ -2,7 +2,15 @@
   #show
     %h1
       =@video.title
-    =render "video_"+@video.state
+
+
+    #videoContainer
+      =render "video_"+@video.state
+      #favorites
+        =render :partial => "favorites", :locals => {:video => @video}
+      #ratings
+        =#render :partial => "ratings", :locals => {:video => @video}
+
 
     #resolutions
       %ul
