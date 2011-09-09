@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   def to_s
     self.username
   end
+  
+  def is_admin?
+    self.admin.present?
+  end
 
   def owns_video?(video)
     self.videos.include?(video)
