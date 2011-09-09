@@ -1,15 +1,14 @@
--#
-  %table
-    %td
-      =link_to_unless (@resolution[:name] == "480"), "★", video_url(@video, :res => "480")
-    %td
-      =link_to_unless (@resolution[:name] == "480"), "★", video_url(@video, :res => "480")
-    %td
-      =link_to_unless (@resolution[:name] == "480"), "☆", video_url(@video, :res => "480")
-    %td
-      =link_to_unless (@resolution[:name] == "480"), "☆", video_url(@video, :res => "480")
-    %td
-      =link_to_unless (@resolution[:name] == "480"), "☆", video_url(@video, :res => "480")
+%table
+  %td
+    =link_to_unless (@resolution[:name] == "480"), "★", video_url(@video, :res => "480")
+  %td
+    =link_to_unless (@resolution[:name] == "480"), "★", video_url(@video, :res => "480")
+  %td
+    =link_to_unless (@resolution[:name] == "480"), "☆", video_url(@video, :res => "480")
+  %td
+    =link_to_unless (@resolution[:name] == "480"), "☆", video_url(@video, :res => "480")
+  %td
+    =link_to_unless (@resolution[:name] == "480"), "☆", video_url(@video, :res => "480")
 
   %a#rating_1.star{:rel => "1"}
     ☆
