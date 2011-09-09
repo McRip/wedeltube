@@ -85,6 +85,15 @@
       #new_participant
         :display none
 
+    #edit
+      :float left
+
+      #toggleEditForm
+        @include gradientButton($brightblue, $darkblue, white)
+      
+      form
+        :display none
+
 .modal
   label, textarea
     :display block
@@ -97,3 +106,9 @@
     @include gradientButton($brightblue, $darkblue, white)
 
   @include box-shadow
+
+  form.video
+    ol.thumbs
+      :margin 10px 0
+      li
+        :display inline
