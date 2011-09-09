@@ -10,6 +10,20 @@ class UsersController < ApplicationController
     
   end
 
+  def destroy  
+    if current_user.is_admin? 
+      if @users.destroy
+        redirect_to users_url
+      else
+        render :new
+      end
+    else
+      flash[:error] = "Funktion nicht erlaubt"
+      redirect_to user_url(@users)
+    end
+  end
+
+
   private
 
   def find_user

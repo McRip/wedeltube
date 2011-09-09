@@ -22,10 +22,12 @@
         Favoriten
       %br
 
-
     .clearfix
 
     %h2
       Videos dieses Benutzers
 
     =render @user.videos
+
+    .delete
+      =link_to "Profil löschen", user_url(:user_id => :id), :method => :delete
