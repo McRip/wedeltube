@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908163619) do
+ActiveRecord::Schema.define(:version => 20110909081313) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20110908163619) do
     t.string   "video_file_name"
     t.integer  "video_file_size"
     t.string   "state"
+    t.integer  "thumb_index"
   end
 
 end
