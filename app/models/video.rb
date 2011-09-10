@@ -9,6 +9,7 @@ class Video < ActiveRecord::Base
   scope :recent, :order => "created_at DESC", :limit => 5
   scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id', :order => "count(favorites.id) DESC", :limit => 5
   scope :most_commented, :select => 'videos.*, count(comments.id) as comments_count', :joins => 'left outer join comments on comments.video_id = videos.id', :group => 'videos.id', :order => "count(comments.id) DESC", :limit => 5
+  scope :most_viewed, :order => "views DESC", :limit => 5
   scope :viewable, :conditions => "state = 'converted'"
 
   validates :title, :presence => { :message => "Bitte einen Titel eingeben" }
