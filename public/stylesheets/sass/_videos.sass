@@ -57,7 +57,9 @@
         :text-decoration none
 
     #participants, #comments
+      :position relative
       :width 465px
+      :word-wrap break-word
       
       ul
         li
@@ -68,6 +70,8 @@
             :float right
             @include gradientButton(#f00, #a00, #fff)
             :display none
+            :position absolute
+            :right 10px
 
             &:HOVER a
               :text-decoration none
