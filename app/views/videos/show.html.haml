@@ -1,10 +1,13 @@
 #video
   #show
     -if current_user.is_admin? || current_user.owns_video?(@video)
-      #edit
+      #editbutton
         %a#toggleEditForm(style="clear: left;")
           Video bearbeiten
 
+      #editform
+        #delete
+          =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?"
         = semantic_form_for @video do |form|
           = form.inputs do
             = form.input :title, :label => "Filmtitel"
@@ -27,8 +30,7 @@
 
           = form.buttons do
             = form.commit_button :button_html => { :value => "Speichern", :class => "primary", :disable_with => 'speichert…' }
-        #delete
-          =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?"
+
     %h1
       =@video.title
 
@@ -61,7 +63,7 @@
         =render :partial => "participants/participant", :collection => @video.participants
       .clearfix
       -if current_user.is_admin? || current_user.owns_video?(@video)
-        %a#toggleParticipantsForm(style="clear: left;" href="##new_participant")
+        %a#toggleParticipantsForm(style="clear: left;")
           Teilnehmer hinzufügen
         =render :partial => "participants/form", :locals => {:video => @video}
 
@@ -72,7 +74,7 @@
       %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
       .clearfix
-      %a#toggleCommentsForm(style="clear: left;" href="#new_comment")
+      %a#toggleCommentsForm(style="clear: left;")
         Kommentar hinzufügen
       =render :partial => "comments/form"
 
@@ -88,7 +90,7 @@
       $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
     $("#toggleEditForm").click(function(event) {
-      $("form.video").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
+      $("#editform").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
     });
     $("#theater").fancybox();
   });
