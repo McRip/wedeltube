@@ -118,14 +118,17 @@
       #new_participant
         :display none
 
-    #edit
+    #editbutton
       :float right
 
       #toggleEditForm
         @include gradientButton($brightblue, $darkblue, white)
 
-      form
-        :display none
+    #editform
+      :display none
+
+    #delete
+      @include gradientButton(#f00, #a00, #fff)
 
 .modal
   label, textarea
