@@ -9,5 +9,5 @@
     =render :partial => "video_box", :locals => {:videos => @new_videos, :title => "Neuste Videos", :order_name => "Hinzugefügt:", :order_function => "created_at.to_formatted_s(:short)"}
     =render :partial => "video_box", :locals => {:videos => @popular_videos, :title => "Beliebte Videos", :order_name => "Favoriten:", :order_function => "favorites.count"}
     =render :partial => "video_box", :locals => {:videos => @most_commented_videos, :title => "Videos mit den meisten Kommentaren", :order_name => "Kommentare:", :order_function => "comments.count"}
-    =render :partial => "video_box", :locals => {:videos => @top_rated_videos, :title => "Videos mit der besten Bewertung", :order_name => "Bewertung:", :order_function => "average_rating"}
+    =render :partial => "video_box", :locals => {:videos => @most_viewed_videos, :title => "Meistgehene Videos", :order_name => "Views:", :order_function => "views"}
     .clearfix

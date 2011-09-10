@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @new_videos = Video.recent
     @popular_videos = Video.popular
     @most_commented_videos = Video.most_commented
-    @top_rated_videos = Video.top_rated
+    @most_viewed_videos = Video.most_viewed
   end
 
   def home

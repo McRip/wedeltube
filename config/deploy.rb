@@ -21,12 +21,13 @@ ssh_options[:forward_agent] = true
 set :deploy_to, "/var/www/wedeltube.de"
 set :deploy_via, :remote_cache
 set :user, "administrator"
-set :use_sudo, true
+set :use_sudo, false
+set :port, 34564
 
 
 set :scm, :git
 set :scm_username, "mcrip"
-set :repository, "git@github.com:McRip/wedeltube.git"
+set :repository, "https://McRip@github.com/McRip/wedeltube.git"
 set :branch, "live"
 set :git_enable_submodules, 1
 
