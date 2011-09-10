@@ -61,10 +61,13 @@ class FavoritesController < ApplicationController
   private
 
   def create videoparams
-    @favorite = Favorite.new
-    @favorite.video = Video.find videoparams
-    @favorite.user = current_user
-    @favorite.save
+    @favorite = Favorite.find_by_video_id_and_user_id(Video.find(videoparams).id, current_user.id)
+    unless @favorite.present?
+      @favorite = Favorite.new
+      @favorite.video = Video.find videoparams
+      @favorite.user = current_user
+      @favorite.save
+    end
   end
 
   def find_favorite
