@@ -7,7 +7,7 @@
 
     -if @users.present?
       -@favorites.each do |favorite|
-        .favContainer
+        .favcontainer
           =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
           .videothumb{:style => "background-image: url('" + getThumbUrl(favorite.video, 266) + "');"}
             .info
