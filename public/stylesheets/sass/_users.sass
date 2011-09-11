@@ -21,6 +21,7 @@
         .detail
           :float left
           :margin-left 10px
+
   #show
     #usernavigation
       :border 1px $darkblue solid
@@ -32,6 +33,13 @@
       :border 1px $darkblue solid
       :float left
       :margin 10px 20px 10px 0
+      @include box-shadow($shadow, 5px)
+
     #edit
       @include gradientButton($brightblue, $darkblue, white)
-      :margin-left 0
+      :float right
+
+  #edit
+    #delete
+      @include gradientButton($brightred, $darkred, white)
+      :float right

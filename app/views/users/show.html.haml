@@ -1,26 +1,28 @@
 #users
   #show
-    -if current_user == @user
-      #edit(style="float: right;")
-        =link_to "Profil bearbeiten", edit_user_registration_path
+    =image_tag @user.avatar.url(:profile), :id => "avatar"
 
-    .profile
-      =image_tag @user.avatar.url(:profile), :id => "avatar"
-      %h1
-        =@user.username
-      %p
-        =@user.firstname
-        =@user.name
-      %p
-        =@user.videos.count
-        hochgeladene Videos
-        %br
-        =@user.comments.count
-        geschriebene Kommentare
-        %br
-        =@user.favorites.count
-        Favoriten
+    -if current_user == @user
+      =link_to "Profil bearbeiten", edit_user_registration_path, {:id => 'edit', :class => 'button'}
+
+    %h1
+      =@user.username
+
+    %p
+      =@user.firstname
+      =@user.name
+
+    %p
+      =@user.videos.count
+      hochgeladene Videos
       %br
+      =@user.comments.count
+      geschriebene Kommentare
+      %br
+      =@user.favorites.count
+      Favoriten
+
+    %br
 
     .clearfix
 

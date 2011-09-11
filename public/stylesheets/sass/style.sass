@@ -28,22 +28,23 @@
   @include text-shadow(#000)
   :color $font-color
   :cursor pointer
-  &:HOVER a
+  &:HOVER
     :text-decoration none
-  a
-    :color $font-color
 
 @mixin center
   :width 980px
   :margin 0 auto
 
+
 $brightblue: #67a3e7
 $darkblue: #22316e
-$shadow: #666
+$brightred: #f00
+$darkred: #a00
+
 $brightbackground: #fff
 $darkbackground: #eee
+$shadow: #666
 $linkcolor: DodgerBlue
-
 
 @import "application"
 @import "layout"

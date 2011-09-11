@@ -1,36 +1,52 @@
-%h1
-  Profil bearbeiten
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true, :autocomplete => "off" }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email, "E-Mail-Adresse"
-    = f.email_field :email
-  .field
-    = f.label :username, "Username"
-    = f.text_field :username
-  .field
-    = f.label :name, "Name"
-    = f.text_field :name
-  .field
-    = f.label :firstname, "Vorname"
-    = f.text_field :firstname
-  .field
-    = f.label :avatar, "Profilbild"
-    = f.file_field :avatar
-  .field
-    = f.label :password, "Neues Kennwort"
-    = f.password_field :password
-  .notice
-    %i (leer lassen, falls es nicht geändert werden soll)
-  .field
-    = f.label :password_confirmation, "Neues Kennwort wiederholen"
-    = f.password_field :password_confirmation
-  .field
-    = f.label :current_password, "Aktuelles Kennwort"
-    = f.password_field :current_password
-  .notice
-    %i (wir brauchen dein aktuelles Passwort um deine Änderungen zu bestätigen)
-  .field
-    = f.submit "Update"
-#delAccount
-  #{link_to "Konto löschen", registration_path(resource_name), :confirm => "Achtung, das Konto wird unwiderruflich gelöscht!", :method => :delete}
+#users
+  #edit
+    #{link_to "Konto löschen", registration_path(resource_name), :confirm => "Achtung, das Konto wird unwiderruflich gelöscht!", :method => :delete, :id => 'delete', :class => 'button'}
+
+    %h1
+      Profil bearbeiten
+
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true, :autocomplete => "off" }) do |f|
+      = devise_error_messages!
+
+      %fieldset
+        %legend
+          persönliche Daten
+        .field
+          = f.label :email, "E-Mail-Adresse"
+          = f.email_field :email
+        .field
+          = f.label :username, "Benutzername"
+          = f.text_field :username
+        .field
+          = f.label :firstname, "Vorname"
+          = f.text_field :firstname
+        .field
+          = f.label :name, "Nachname"
+          = f.text_field :name
+
+      %fieldset
+        %legend
+          Profilfoto
+        .field
+          = f.label :avatar, "Profilbild"
+          = f.file_field :avatar
+
+      %fieldset
+        %legend
+          Kennwort
+        .field
+          = f.label :password, "Neues Kennwort"
+          = f.password_field :password
+        .notice
+          %i (leer lassen, falls es nicht geändert werden soll)
+        .field
+          = f.label :password_confirmation, "Wiederholen"
+          = f.password_field :password_confirmation
+        .field
+          = f.label :current_password, "Aktuelles Kennwort"
+          = f.password_field :current_password
+        .notice
+          %i (wir brauchen dein aktuelles Passwort um deine Änderungen zu bestätigen)
+
+      .field
+        = f.submit "Änderungen speichern"
