@@ -11,7 +11,7 @@
     = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
       = devise_error_messages!
       %p
-        = f.label :email
+        = f.label :email, "Deine E-Mail-Adresse"
         %br/
         = f.email_field :email
       %p= f.submit "Bestätigung zusenden"

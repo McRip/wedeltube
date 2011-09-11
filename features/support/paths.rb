@@ -16,6 +16,11 @@ module NavigationHelpers
 
     when /the sign in page/
       '/users/sign_in'
+      
+    when /the user profile page for "(.+)"/
+      user = User.find_by_username $1
+      #topic = Topic.find_by_title!($1)
+      user_path(user)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
