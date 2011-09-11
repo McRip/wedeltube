@@ -5,18 +5,30 @@
       :float right
 
   #show
+    #edit
+      :float right
+      @include gradientButton($brightblue, $darkblue, white)
+
+    #editform
+      :display none
+
     video
       :margin 0 auto
       :display block
-    #videoContainer
-      :display inline-block
-      :position relative
+
+    #videocontainer
+      :background #000
+      :margin 20px -20px
+      :text-align center
+
       &:HOVER > #favorites
         :display block
+
       &:HOVER > #ratings
         :display block
-      #video720
-        :display none
+
+    #video720
+      :display none
 
     #resolutions
       ul
@@ -109,15 +121,7 @@
       #new_participant
         :display none
 
-    #edit
-      :float right
-      @include gradientButton($brightblue, $darkblue, white)
 
-    #editform
-      :display none
-
-    #delete
-      @include gradientButton(#f00, #a00, #fff)
 
 .modal
   @include box-shadow
@@ -132,8 +136,6 @@
   textarea
     :width 450px
     :height 150px
-
-
 
   form.video
     ol.thumbs
