@@ -12,7 +12,7 @@
           .videothumb{:style => "background-image: url('" + getThumbUrl(favorite.video, 266) + "');"}
             .info
               = link_to favorite.video, favorite.video, {:class => "title"}
-              #videoUser
+              .videoUser
                 Hochgeladen von
                 %p
                   = link_to favorite.video.user, favorite.video.user
