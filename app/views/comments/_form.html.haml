@@ -7,7 +7,7 @@
 
 :javascript
   $(document).ready(function() {
-    comment_form = $("#new_comment");
+    comment_form = $("#newcomment");
     comment_form.submit(function(event) {
       event.preventDefault();
       comment_form.unbind("submit");
@@ -19,7 +19,7 @@
       }, "script").error(function(request) {
         comment_form.remove();
         $("#commentslist").append(request.responseText);
-        $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 500, height: 340 });
+        $("#newcomment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 500, height: 340 });
       });
     });
   });

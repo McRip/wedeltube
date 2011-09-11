@@ -1,9 +1,10 @@
 #video
   #index
-    %span#upload(style="float: right;")
-      =link_to "Video hochladen", new_video_url
+    =link_to "Video hochladen", new_video_url, {:id => 'upload', :class => 'button'}
+
     %h1
-      Videos
+      Video-Übersicht
+
     %p
       Übersicht über alle vorhandenen Videos.
 
