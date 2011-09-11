@@ -13,6 +13,14 @@ describe User do
     User.new(@attr).should be_valid
   end
 
+  it "should create valid User with an Avatar" do
+    @attr2 = @attr.merge(:avatar_file_name => Rails.root + 'spec/test_files/Avatar.jpg',
+                         :avatar_content_type => "image/jpeg",
+                         :avatar_file_size => "100")
+
+    User.new(@attr2).should be_valid
+  end
+
   it "should require an email address" do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
