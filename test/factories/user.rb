@@ -24,6 +24,8 @@ FactoryGirl.define do
     firstname 'Admin'
     name  'User'
     email 'admin@wedeltube.de'
+    password 'test123'
+    confirmed_at '2011-09-11 10:00:00'
     admin true
   end
 end
