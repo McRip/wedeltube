@@ -1,14 +1,16 @@
 #users
   #index
     .letters
-      :margin 10px 0
-      :padding 5px
       @include linear-gradient($brightbackground, #BBB)
       @include box-shadow(Black, 3px)
+      :margin 10px 0
+      :padding 5px
+
       .letter
         :margin-left 8px
         :margin-right 7px
         :font-size 20px
+
     ul.users
       li.user
         @include box-shadow(Black, 3px)
@@ -29,15 +31,21 @@
       :text-align center
       :margin 25px auto 0px auto
       :padding 5px
+
     #avatar
+      @include box-shadow($shadow, 5px)
       :border 1px $darkblue solid
       :float left
       :margin 10px 20px 10px 0
-      @include box-shadow($shadow, 5px)
 
     #edit
       @include gradientButton($brightblue, $darkblue, white)
       :float right
+
+    #delete
+      @include gradientButton($brightred, $darkred, white)
+      :float right
+
 
   #edit
     #delete
