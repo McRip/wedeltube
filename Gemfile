@@ -19,7 +19,8 @@ gem 'delayed_job'                                                               
 gem 'delayed_paperclip'                                                         # => https://github.com/jstorimer/delayed_paperclip
 gem 'passenger'
 gem 'net-ldap'
-#gem 'pretty_flash' Plugin                                                      # => https://github.com/rpheath/pretty_flash
+# 'pretty_flash' Plugin                                                         # => https://github.com/rpheath/pretty_flash
+gem 'ssl_requirement'                                                           # => https://github.com/retr0h/ssl_requirement
 
 group :development do
   gem 'hpricot'

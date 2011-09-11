@@ -61,6 +61,7 @@ class Video < ActiveRecord::Base
     rescue Exception
     end 
   }
+  
   process_in_background :video
 
   state_machine do
