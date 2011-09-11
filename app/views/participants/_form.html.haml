@@ -5,10 +5,9 @@
   = form.buttons do
     = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gespeichert…', :align => "left" }
 
-
 :javascript
   $(document).ready(function() {
-    participant_form = $("#new_participant");
+    participant_form = $("#newparticipant");
     participant_form.submit(function(event) {
       event.preventDefault();
       $.post(participant_form[0].action, participant_form.serialize(), function(data) {
@@ -19,7 +18,7 @@
       }, "script").error(function(request) {
         participant_form.remove();
         $("#participantslist").append(request.responseText);
-        $("#new_participant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 500, height: 350 });
+        $("#newparticipant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 500, height: 350 });
       });
     });
   });

@@ -103,7 +103,8 @@
 
     #comments
       :float left
-      #toggleCommentsForm
+
+      #addcomment
         @include gradientButton($brightblue, $darkblue, white)
         
       #new_comment
@@ -112,7 +113,7 @@
     #participants
       :float right
 
-      #toggleParticipantsForm
+      a#addparticipant
         @include gradientButton($brightblue, $darkblue, white)
 
       #new_participant
@@ -120,9 +121,7 @@
 
     #editbutton
       :float right
-
-      #toggleEditForm
-        @include gradientButton($brightblue, $darkblue, white)
+      @include gradientButton($brightblue, $darkblue, white)
 
     #editform
       :display none

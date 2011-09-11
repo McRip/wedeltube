@@ -1,9 +1,8 @@
 #video
   #show
     -if current_user.is_admin? || current_user.owns_video?(@video)
-      #editbutton
-        %a#toggleEditForm(style="clear: left;")
-          Video bearbeiten
+      %a#editbutton(style="clear: left;")
+        Video bearbeiten
 
       #editform
         #delete
@@ -43,15 +42,18 @@
       #ratings
         =#render :partial => "ratings", :locals => {:video => @video}
 
-    #resolutions
-      %ul
-        %li
-          =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
-        %li
-          =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
-        %li
-          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#video720"
-      .clearfix
+      #resolutions
+        %ul
+          %li
+            =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
+          %li
+            =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
+          %li
+            =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#video720"
+        .clearfix
+
+      #description
+        =@video.description
 
     #tags
       =render :partial => "tags"
@@ -63,7 +65,7 @@
         =render :partial => "participants/participant", :collection => @video.participants
       .clearfix
       -if current_user.is_admin? || current_user.owns_video?(@video)
-        %a#toggleParticipantsForm(style="clear: left;")
+        %a#addparticipant(style="clear: left;")
           Teilnehmer hinzufügen
         =render :partial => "participants/form", :locals => {:video => @video}
 
@@ -74,7 +76,7 @@
       %ul#commentslist
         =render :partial => "comments/comment", :collection => @video.comments
       .clearfix
-      %a#toggleCommentsForm(style="clear: left;")
+      %a#addcomment(style="clear: left;")
         Kommentar hinzufügen
       =render :partial => "comments/form"
 
@@ -83,13 +85,13 @@
 
 :javascript
   $(document).ready(function() {
-    $("#toggleParticipantsForm").click(function(event) {
+    $("#addparticipant").click(function(event) {
       $("#new_participant").dialog({ title: 'Filmmitarbeier hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
-    $("#toggleCommentsForm").click(function(event) {
+    $("#addcomment").click(function(event) {
       $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
-    $("#toggleEditForm").click(function(event) {
+    $("#editbutton").click(function(event) {
       $("#editform").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
     });
     $("#theater").fancybox();
