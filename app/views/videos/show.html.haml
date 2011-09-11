@@ -5,8 +5,8 @@
         Video bearbeiten
 
       #editform.hidden
-        #delete
-          =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?"
+        =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?", :id => "delete", :class => "button"
+
         = semantic_form_for @video do |form|
           = form.inputs do
             = form.input :title, :label => "Filmtitel"
@@ -33,27 +33,25 @@
     %h1
       =@video.title
 
-    #videoContainer
+    #videocontainer
       =render :partial => "video_"+@video.state, :locals => {:resolution => @resolution}
-      #video720
-        =render :partial => "video_"+@video.state, :locals => {:resolution => @resolution720}
-      #favorites
-        =render :partial => "favorites", :locals => {:video => @video}
-      #ratings
-        =#render :partial => "ratings", :locals => {:video => @video}
+    #video720
+      =render :partial => "video_"+@video.state, :locals => {:resolution => @resolution720}
+    #favorites
+      =render :partial => "favorites", :locals => {:video => @video}
 
-      #resolutions
-        %ul
-          %li
-            =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
-          %li
-            =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
-          %li
-            =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#video720"
-        .clearfix
+    #resolutions
+      %ul
+        %li
+          =link_to_unless (@resolution[:name] == "360"), "360p", video_url(@video, :res => "360")
+        %li
+          =link_to_unless (@resolution[:name] == "480"), "480p", video_url(@video, :res => "480")
+        %li
+          =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#video720"
+      .clearfix
 
-      #description
-        =@video.description
+    #description
+      =simple_format(@video.description)
 
     #tags
       =render :partial => "tags"
@@ -81,7 +79,6 @@
       =render :partial => "comments/form"
 
     .clearfix
-
 
 :javascript
   $(document).ready(function() {

@@ -1,4 +1,4 @@
-.video_box
+.videobox
   %h2
     =title
 
@@ -6,11 +6,9 @@
     -if videos.present?
       -videos.each do |video|
         %li.video
-          .thumb
-            =link_to image_tag(getThumbUrl(video, 128)), video
+          =link_to image_tag(getThumbUrl(video, 128), {:class => "thumb"}), video
           .details
-            .link
-              =link_to video, video
+            =link_to video, video, {:class => "title"}
             .user
               von
               =link_to video.user, video.user
