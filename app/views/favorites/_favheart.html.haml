@@ -1,4 +1,4 @@
-%span.favHeart{:id => dom_id(video)}
+%span.favheart{:id => dom_id(video)}
   -if video.is_favorite_of?(current_user)
     =link_to "♥", destroy_favindex_user_favorite_url(:user_id => current_user, :id => video.is_favorite_of?(current_user)), :method => :delete, :style => "color: #C00000", :class => "favorites", :id => "link_"+dom_id(video)
     :javascript
