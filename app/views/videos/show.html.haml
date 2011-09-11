@@ -1,10 +1,10 @@
 #video
   #show
     -if current_user.is_admin? || current_user.owns_video?(@video)
-      %a#editbutton(style="clear: left;")
+      %a#edit.button
         Video bearbeiten
 
-      #editform
+      #editform.hidden
         #delete
           =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?"
         = semantic_form_for @video do |form|
@@ -91,7 +91,7 @@
     $("#addcomment").click(function(event) {
       $("#new_comment").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
     });
-    $("#editbutton").click(function(event) {
+    $("#edit").click(function(event) {
       $("#editform").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
     });
     $("#theater").fancybox();
