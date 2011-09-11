@@ -224,7 +224,9 @@ de:
         username: "Benutzername"
         email: "E-Mail-Adresse"
         password: "Kennwort"
-        password_confirmation: "Passwort-Wiederholung"
+        password_confirmation: "Kennwort-Wiederholung"
+        current_password: "Aktuelles Kennwort"
+        
     errors:
       template:
         header:
