@@ -3,8 +3,6 @@ require 'net/ldap'
 
 class RegistrationsController < Devise::RegistrationsController
   
-  filter_parameter_logging :ldap_user, :ldap_pass
-  
   def new
     super
   end

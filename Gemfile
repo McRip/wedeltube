@@ -30,7 +30,11 @@ group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
-group :test do
-  
+group :test, :development, :cucumber do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
 end
 
