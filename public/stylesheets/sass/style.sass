@@ -18,16 +18,17 @@
 
 @mixin gradientButton($start: #000, $end: #FFF, $font-color: #BBB)
   @include linear-gradient($start, $end)
-  :border-radius 7px 7px 7px 7px
-  :box-shadow 1px 1px 3px $shadow
+  @include text-shadow(#000)
+  @include box-shadow($shadow, 3px)
+  :border-radius 7px
   :display inline-block
   :margin 5px
   :padding 8px
   :position relative
   :text-align center
-  @include text-shadow(#000)
   :color $font-color
   :cursor pointer
+
   &:HOVER
     :text-decoration none
 
@@ -35,8 +36,7 @@
   :width 980px
   :margin 0 auto
 
-
-$brightblue: #67a3e7
+brightblue: #67a3e7
 $darkblue: #22316e
 $brightred: #f00
 $darkred: #a00
