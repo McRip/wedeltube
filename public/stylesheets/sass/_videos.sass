@@ -120,6 +120,12 @@
       @include gradientButton(#f00, #a00, #fff)
 
 .modal
+  @include box-shadow
+
+  #delete
+    @include gradientButton(#f00, #a00, #fff)
+    :float right
+
   label, textarea
     :display block
 
@@ -127,10 +133,7 @@
     :width 450px
     :height 150px
 
-  input[type="submit"]
-    @include gradientButton($brightblue, $darkblue, white)
 
-  @include box-shadow
 
   form.video
     ol.thumbs

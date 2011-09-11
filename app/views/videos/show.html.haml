@@ -5,8 +5,8 @@
         Video bearbeiten
 
       #editform.hidden
-        #delete
-          =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?"
+        =link_to "Video löschen", video_url(@video), :method => :delete, :confirm => "Video wirklich löschen?", :id => "delete", :class => "button"
+
         = semantic_form_for @video do |form|
           = form.inputs do
             = form.input :title, :label => "Filmtitel"
