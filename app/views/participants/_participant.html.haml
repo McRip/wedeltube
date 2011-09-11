@@ -1,7 +1,6 @@
 %li.participant
   -if current_user.owns_video?(@video)
-    .delete
-      =link_to "×", video_participant_url(:video_id => participant.video.id, :id => participant.id), :method => :delete
+    =link_to "×", video_participant_url(:video_id => participant.video.id, :id => participant.id), :method => :delete, :class => "button delete"
 
   -if participant.user.present?
     =image_tag participant.user.avatar.url(:square50), :class => "photo"

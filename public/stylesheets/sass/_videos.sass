@@ -5,22 +5,34 @@
       :float right
 
   #show
+    #edit
+      :float right
+      @include gradientButton($brightblue, $darkblue, white)
+
+    #editform
+      :display none
+
     video
       :margin 0 auto
       :display block
-    #videoContainer
-      :display inline-block
-      :position relative
+
+    #videocontainer
+      :background #000
+      :margin 20px -20px
+      :text-align center
+
       &:HOVER > #favorites
         :display block
+
       &:HOVER > #ratings
         :display block
-      #video720
-        :display none
+
+    #video720
+      :display none
 
     #resolutions
       ul
-        @include linear-gradient($brightbackground, #BBB)
+        @include linear-gradient($brightbackground, $darkbackground)
         :border 1px solid black
         :border-radius 4px 12px 4px 4px
         :box-shadow 1px 1px 4px $shadow
@@ -57,8 +69,8 @@
           :padding-top 10px
 
           .delete
+            @include gradientButton($brightred, $darkred, #fff)
             :float right
-            @include gradientButton(#f00, #a00, #fff)
             :display none
             :position absolute
             :right 10px
@@ -109,28 +121,21 @@
       #new_participant
         :display none
 
-    #edit
-      :float right
-      @include gradientButton($brightblue, $darkblue, white)
 
-    #editform
-      :display none
-
-    #delete
-      @include gradientButton(#f00, #a00, #fff)
 
 .modal
+  @include box-shadow
+
+  #delete
+    @include gradientButton(#f00, #a00, #fff)
+    :float right
+
   label, textarea
     :display block
 
   textarea
     :width 450px
     :height 150px
-
-  input[type="submit"]
-    @include gradientButton($brightblue, $darkblue, white)
-
-  @include box-shadow
 
   form.video
     ol.thumbs
