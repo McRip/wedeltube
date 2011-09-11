@@ -4,8 +4,8 @@ describe ParticipantsController do
 
   before (:each) do
     @user = Factory(:user)
-    @video = Factory(:video)
-    @participant = Factory(:participant, :user => @user, :video => @video)
+    @video = Factory(:video, :user => @user)
+    @participant = Factory(:participant, :user => @user, :video => @video, :name => @user.name, :role => "Kamera")
     sign_in @user
   end
 
@@ -14,8 +14,7 @@ describe ParticipantsController do
   describe "DELETE 'destroy'" do
 
     it "should be successful" do
-
-      delete :destroy, :id => @user.participants
+      delete :destroy
       response.should be_success
     end
 
