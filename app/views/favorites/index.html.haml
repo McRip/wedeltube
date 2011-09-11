@@ -5,13 +5,19 @@
     %p
       Das sind deine favorisierten Videos:
 
-    -@favorites.each do |favorite|
-      .favContainer
-        =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
-        .videothumb{:style => "background-image: url('" + getThumbUrl(favorite.video, 266) + "');"}
-          .info
-            = link_to favorite.video, favorite.video, {:class => "title"}
-            #videoUser
-              Hochgeladen von
-              %p
-                = link_to favorite.video.user, favorite.video.user
+    -if @users.present?
+      -@favorites.each do |favorite|
+        .favContainer
+          =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
+          .videothumb{:style => "background-image: url('" + getThumbUrl(favorite.video, 266) + "');"}
+            .info
+              = link_to favorite.video, favorite.video, {:class => "title"}
+              #videoUser
+                Hochgeladen von
+                %p
+                  = link_to favorite.video.user, favorite.video.user
+    -else
+      .note
+        Bislang hast du keine Videos favorisiert.
+
+
