@@ -16,7 +16,6 @@ class Video < ActiveRecord::Base
   validates_attachment_presence :video, :message => "Bitte Video angeben"
   validates_attachment_content_type :video, :content_type => /video\/.*/, :message => "Datei ist kein Video"
 
-  acts_as_rateable
   acts_as_taggable
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   has_attached_file :video,

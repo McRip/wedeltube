@@ -1,42 +1,3 @@
-@mixin box-shadow($color: #333, $size: 25px)
-  :-moz-box-shadow 0 0 $size $color
-  :-webkit-box-shadow 0 0 $size $color
-  :box-shadow 0 0 $size $color
-  :-ms-filter "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')"
-  :filter progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')
-
-@mixin text-shadow($color: #333, $size: 3px)
-  :text-shadow 0px 0px $size $color
-
-@mixin linear-gradient($colorStart: #000, $colorEnd: #fff)
-  :background -moz-linear-gradient(top, $colorStart, $colorEnd) /* Firefox */
-  :background -webkit-gradient(linear, left top, left bottom, from($colorStart), to($colorEnd)) /* Safari, Chrome */
-  :background -webkit-linear-gradient(top, $colorStart, $colorEnd) /* Safari, Chrome - neue Syntax! */
-  :background -o-linear-gradient(top, $colorStart, $colorEnd) /* Opera */
-  :background -ms-linear-gradient(top, $colorStart, $colorEnd) /* IE */
-  :background linear-gradient(top, $colorStart, $colorEnd) /* W3C Standard */
-
-@mixin gradientButton($start: #000, $end: #fff, $font-color: #bbb)
-  @include linear-gradient($start, $end)
-  @include text-shadow($shadow)
-  @include box-shadow($shadow, 2px)
-  :border-radius 7px
-  :display inline-block
-  :margin 5px
-  :padding 8px
-  :position relative
-  :text-align center
-  :color $font-color
-  :cursor pointer
-
-  &:HOVER
-    :text-decoration none
-
-@mixin center
-  :width 980px
-  :margin 0 auto
-
-
 $brightblue: #67a3e7
 $darkblue: #22316e
 $brightred: #f00
@@ -47,6 +8,7 @@ $darkbackground: #eee
 $shadow: #666
 $linkcolor: DodgerBlue
 
+@import "mixin"
 @import "application"
 @import "layout"
 @import "videos"
