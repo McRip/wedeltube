@@ -5,7 +5,7 @@
     %p
       Das sind deine favorisierten Videos:
 
-    -if @users.present?
+    -if @favorites.present?
       -@favorites.each do |favorite|
         .favcontainer
           =render :partial => "favorites/favheart", :locals => {:video => favorite.video}
