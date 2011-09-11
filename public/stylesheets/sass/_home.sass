@@ -7,22 +7,18 @@
 
       ol.videos
         li.video
-          .thumb
+          img.thumb
             :float left
-            img
-              @include box-shadow(Black, 3px)
+            @include box-shadow($shadow, 3px)
 
           .details
             :float left
             :margin-left 10px
             :width 305px
+            :font-size 12px
 
-            .link
-              a
-                :display block
-
-            .user
-              :font-size 12px
+            a.title
+              :font-size 16px
 
             span.order
               :font-size 10px
