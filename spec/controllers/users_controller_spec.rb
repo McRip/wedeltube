@@ -4,8 +4,11 @@ describe UsersController do
 
   before (:each) do
     @user = Factory(:user)
-    sign_in @user
+    @admin = Factory(:admin)
+    sign_in @admin
   end
+
+
 
   describe "GET 'show'" do
     
@@ -18,7 +21,21 @@ describe UsersController do
       get :show, :id => @user.id
       assigns(:user).should == @user
     end
-    
+
+  end
+
+  describe "DELETE 'destroy'" do
+
+    it "should be not successful" do
+      delete :destroy, :id => @user.id
+      response.should_not be_success
+    end
+
+    it "should be successful" do
+      delete :destroy, :id => @user.id
+      response.should be_success
+    end
+
   end
 
 end
