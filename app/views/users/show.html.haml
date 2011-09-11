@@ -32,4 +32,5 @@
     =render @user.videos
 
     .delete
-      =link_to "Profil löschen", user_url(:user_id => :id), :method => :delete
+      -if currnet_user.is_admin?
+        =link_to "Profil löschen", user_url(:user_id => :id), :method => :delete
