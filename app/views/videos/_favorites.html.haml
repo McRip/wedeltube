@@ -1,20 +1,20 @@
 -if video.is_favorite_of?(current_user)
-  =link_to "♥",destroy_detail_user_favorite_url(:user_id => current_user, :id => video.is_favorite_of?(current_user).id), :method => :delete, :style => "color: #C00000", :class => "favorites"
+  =link_to "♥",destroy_detail_user_favorite_url(:user_id => current_user, :id => video.is_favorite_of?(current_user).id), :method => :delete, :style => "color: #C00", :class => "heart"
   :javascript
-    $('a.favorites[data-method=delete]').click(function(event) {
+    $('a.heart[data-method=delete]').click(function(event) {
       event.preventDefault();
       $.post(this.href, { _method: 'delete' }, function(data) {
-        $('a.favorites[data-method=delete]').replaceWith(data);
+        $('a.heart[data-method=delete]').replaceWith(data);
       }, "script");
       return false;
     });
 -else
-  =link_to "♥", create_detail_user_favorites_url(:user_id => current_user.id, :video => video.id), :method => :post, :style => "color: #ccc", :class => "favorites"
+  =link_to "♥", create_detail_user_favorites_url(:user_id => current_user.id, :video => video.id), :method => :post, :style => "color: #ccc", :class => "heart"
   :javascript
-    $('a.favorites[data-method=post]').click(function(event) {
+    $('a.heart[data-method=post]').click(function(event) {
       event.preventDefault();
       $.post(this.href, function(data) {
-        $('a.favorites[data-method=post]').replaceWith(data);
+        $('a.heart[data-method=post]').replaceWith(data);
       }, "script");
       return false;
     });

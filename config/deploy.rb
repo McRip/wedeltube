@@ -27,8 +27,8 @@ set :port, 34564
 
 set :scm, :git
 set :scm_username, "mcrip"
-set :repository, "https://McRip@github.com/McRip/wedeltube.git"
-set :branch, "live"
+set :repository, "git@github.com:McRip/wedeltube.git"
+set :branch, "deploy/live"
 set :git_enable_submodules, 1
 
 namespace :deploy do

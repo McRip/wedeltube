@@ -6,17 +6,27 @@ form
       :display inline-block
       :width 200px
 
-    input
-    select
-    textarea
     .field_with_errors
       :display inline-block
 
   fieldset
     legend
       :font-weight bold
+
     p
       :font-style italic
 
   fieldset + fieldset
     :margin-top 20px
+
+  #error_explanation
+    @include linear-gradient(#fdd, #eaa)
+    :padding 10px
+    :clear both
+    :width 75%
+    :margin 10px auto
+    :border-radius 10px
+
+    h2
+      :color red
+      :margin-top 0
