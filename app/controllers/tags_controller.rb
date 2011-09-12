@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_tag, :except => [:index]
+  require 'will_paginate/array'
 
   def index
     @tags = Tag.find(:all).delete_if{ |item| item.taggings.count == 0 }.paginate(:page => params[:page], :order => "name")
