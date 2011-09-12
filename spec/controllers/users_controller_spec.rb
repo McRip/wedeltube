@@ -5,7 +5,7 @@ describe UsersController do
   before (:each) do
     @user = Factory(:user)
     @admin = Factory(:admin)
-    sign_in @admin
+    sign_in @user
   end
 
   describe "GET 'show'" do
@@ -29,10 +29,14 @@ describe UsersController do
       response.should_not be_success
     end
 
-    #it "should be successful" do
-      #delete :destroy, :id => @user.id
-      #response.should be_success
-    #end
+
+    it "should be successful" do
+      sign_out
+      sign_in(@admin)
+      delete :destroy, :id => @user.id
+      response.should be_success
+    end
+
 
   end
 
