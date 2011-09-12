@@ -1,9 +1,10 @@
 $:.unshift(File.expand_path("~/.rvm/lib"))
 require 'rvm/capistrano'
+require "delayed/recipes"  
+require 'bundler/capistrano'
+
 set :rvm_ruby_string, '1.9.2-p180'
 set :rvm_type, :user
-
-require 'bundler/capistrano'
 
 set :application, "wedeltube"
 set :repository,  "git://github.com/McRip/wedeltube.git"
@@ -24,6 +25,7 @@ set :user, "administrator"
 set :use_sudo, false
 set :port, 34564
 
+set :rails_env, "production" #added for delayed job  
 
 set :scm, :git
 set :scm_username, "mcrip"
@@ -35,12 +37,17 @@ namespace :deploy do
   task :start, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
   end
-
   task :stop, :roles => :app do
     # Do nothing.
+  end 
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-   task :stop do ; end
-   task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
- end
+end
+ 
+before "deploy:restart", "delayed_job:stop"
+after  "deploy:restart", "delayed_job:start"
+
+after "deploy:stop",  "delayed_job:stop"
+after "deploy:start", "delayed_job:start"
