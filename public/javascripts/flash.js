@@ -5,6 +5,6 @@ $(document).ready(function() {
 });
 
 var hideFlashes = function() {
-  $('p.notice, p.warning, p.error').fadeOut(1500);
+  $('p.notice, p.warning, p.error, p.alert').slideUp(750);
 }
 // --------------------------------------------------------------------
