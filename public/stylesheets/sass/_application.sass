@@ -73,15 +73,16 @@ html
       :height 150px
       :width 266px
 
-      > div.info
+      div.info
         :display none
         :padding 10px
-        :background-color rgba(0, 0, 0, 0.4)
+        :background-color rgba(0, 0, 0, 0.6)
         :border-radius 20px
         :height 130px
         :width 247px
 
         a
+          @include text-shadow(#fff, 1px)
           :color #fff
           :text-decoration none
 
@@ -90,7 +91,6 @@ html
 
         a.user
           :display block
-          :color $brightblue
 
       &:HOVER > .info
         :display block
