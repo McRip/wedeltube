@@ -5,7 +5,7 @@ describe UsersController do
   before (:each) do
     @user = Factory(:user)
     @admin = Factory(:admin)
-    sign_in @admin
+    sign_in @user
   end
 
 
@@ -32,6 +32,8 @@ describe UsersController do
     end
 
     it "should be successful" do
+      sign_out
+      sign_in(@admin)
       delete :destroy, :id => @user.id
       response.should be_success
     end
