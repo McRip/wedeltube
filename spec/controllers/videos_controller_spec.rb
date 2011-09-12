@@ -17,6 +17,14 @@ describe VideosController do
 
   end
 
+  describe "PUT 'update'" do
+    it "should correctly update the video" do
+        put :update, :video => {:id => "3", :title => "test", :description => "Test-Description"}
+        response.should be_success
+    end
+
+  end
+
   describe "DELETE 'destroy'" do
 
     it "should not be successful" do
