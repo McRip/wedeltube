@@ -59,4 +59,4 @@ Feature: User Actions
       Then I should see "Profil bearbeiten"
       And I should see "Konto löschen"
       When I follow "Konto löschen"
-      Then I should see "asdasd"
+      Then I should see "Auf Wiedersehen! Dein Benutzerkonto wurde gelöscht."
