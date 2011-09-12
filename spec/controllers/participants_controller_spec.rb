@@ -10,7 +10,6 @@ describe ParticipantsController do
   end
 
 
-
   describe "DELETE 'destroy'" do
 
     #it "should be successful" do
