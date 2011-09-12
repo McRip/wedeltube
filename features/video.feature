@@ -8,9 +8,7 @@ Feature: Video
     Given I am a user named "foo" with an email "user@test.com" and password "please"
     Then I confirm my account with email "user@test.com"
     And I upload a new video
-    Given I go to the new video page
     
-
     Scenario: Creating a Video
       When I fill in "Title" with "foobar"
       And I fill in "Description" with "Nice movie"
@@ -31,9 +29,15 @@ Feature: Video
     Scenario: View Video in 480 resolution
 
     Scenario: Add Comment
+      When I click on "Kommentar hinzufügen"
+      Then I should see "Kommentar hinzufügen"
+      When I fill in "Hier ist Platz für deine Meinung" with "Hallo Hier"
+      Then I should not see "Error"
+      When I follow "Absenden"
+      Then I should see the show page
     
     Scenario: Add Participant
-      When I follow "Teilnehmer hinzufügen"
+      When I click on "Teilnehmer hinzufügen"
       Then I should see "Filmmitarbeiter hinzufügen"
       When I fill in "Teilnehmer" with "Hugo"
       And I check "Licht"
