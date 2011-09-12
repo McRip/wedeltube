@@ -33,11 +33,13 @@ html
       :clear both
 
     div.note
-      :background #ffd
-      :border 3px #dd9 solid
-      :margin 5px auto
-      :padding 5px
-      :width 600px
+      @include linear-gradient(#ffd, #eea)
+      :padding 10px
+      :clear both
+      :margin 10px 0
+      :border-radius 10px
+      :width 75%
+      :margin 10px auto
 
     em
       :font-style italic
@@ -70,24 +72,25 @@ html
       :margin 20px
       :height 150px
       :width 266px
-      #videoUser
-        :color $brightblue
-        :margin-top 80px
 
-      > div.info
+      div.info
         :display none
         :padding 10px
-        :background-color rgba(0, 0, 0, 0.4)
+        :background-color rgba(0, 0, 0, 0.6)
         :border-radius 20px
         :height 130px
         :width 247px
 
         a
+          @include text-shadow(#fff, 1px)
           :color #fff
           :text-decoration none
 
         a.title
           :font-weight bold
+
+        a.user
+          :display block
 
       &:HOVER > .info
         :display block
