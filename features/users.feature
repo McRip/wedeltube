@@ -19,7 +19,7 @@ Feature: User Actions
       Then I should see "foo"
       When I follow "foo"
       Then I should be on the user profile page for "foo"
-    
+
     Scenario: View Profile Page as stranger
       When I go to the user profile page for "foo"
       Then I should be on the sign in page
