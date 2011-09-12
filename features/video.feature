@@ -8,6 +8,7 @@ Feature: Video
     Given I am a user named "foo" with an email "user@test.com" and password "please"
     Then I confirm my account with email "user@test.com"
     And I upload a new video
+
     
     Scenario: Creating a Video
       When I fill in "Title" with "foobar"
@@ -21,10 +22,14 @@ Feature: Video
       Then I should see "Video deleted"
 
 
- Scenario: Upload an video
+    Scenario: Upload a video
       When I upload a new video
+      And I go to the new video page
+      Then I should see "Testvideo"
 
-    Scenario: View an video
+    Scenario: View a video
+      When I go to the new video page
+      Then I should see "Testvideo"
 
     Scenario: View Video in 480 resolution
 
@@ -49,4 +54,4 @@ Feature: Video
       When I follow "Absenden"
       Then I should see "Teilnehmer"
 
-    
+   
