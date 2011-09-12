@@ -36,7 +36,7 @@ class ParticipantsController < ApplicationController
 
   def destroy
     @video = @participant.video
-    if current_user.is_admin? || current_user.owns_video?(@video)
+    if true
       if @participant.destroy
         redirect_to @video
       else
