@@ -17,7 +17,6 @@ describe User do
     @attr2 = @attr.merge(:avatar_file_name => Rails.root + 'spec/test_files/Avatar.jpg',
                          :avatar_content_type => "image/jpeg",
                          :avatar_file_size => "100")
-
     User.new(@attr2).should be_valid
   end
 

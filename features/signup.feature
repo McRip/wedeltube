@@ -14,7 +14,7 @@ Feature: Sign up
         | E-Mail-Adresse        | user@test.com   |
         | Kennwort              | please          |
         | Kennwort-Wiederholung | please          |
-      And I press "Jetzt Registrieren"
+      And I press "user_submit"
       Then I should see "Du bist nun registriert. Allerdings konntest du nicht eingeloggt werden, da dein Benutzerkonto unconfirmed ist."
 
     Scenario: User signs up with invalid email
@@ -23,7 +23,7 @@ Feature: Sign up
         | E-Mail-Adresse        | invalidemail    |
         | Kennwort              | please          |
         | Kennwort-Wiederholung | please          |
-      And I press "Jetzt Registrieren"
+      And I press "user_submit"
       Then I should see "E-Mail-Adresse ist nicht gültig"
 
     Scenario: User signs up without password
@@ -32,7 +32,7 @@ Feature: Sign up
         | E-Mail-Adresse        |                 |
         | Kennwort              | please          |
         | Kennwort-Wiederholung | please          |
-      And I press "Jetzt Registrieren"
+      And I press "user_submit"
       Then I should see "E-Mail-Adresse muss ausgefüllt werden"
 
     Scenario: User signs up without password confirmation
@@ -41,7 +41,7 @@ Feature: Sign up
         | E-Mail-Adresse        | user@test.com   |
         | Kennwort              | please          |
         | Kennwort-Wiederholung |                 |
-      And I press "Jetzt Registrieren"
+      And I press "user_submit"
       Then I should see "Kennwort stimmt nicht mit der Bestätigung überein"
 
     Scenario: User signs up with mismatched password and confirmation
@@ -50,5 +50,5 @@ Feature: Sign up
         | E-Mail-Adresse        | user@test.com   |
         | Kennwort              | please          |
         | Kennwort-Wiederholung | please1         |
-      And I press "Jetzt Registrieren"
+      And I press "user_submit"
       Then I should see "Kennwort stimmt nicht mit der Bestätigung überein"
