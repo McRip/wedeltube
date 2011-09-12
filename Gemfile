@@ -6,7 +6,7 @@ gem 'mysql2', '0.2.7'
 gem 'capistrano'
 gem 'devise'                                                                    # => https://github.com/plataformatec/devise
 gem 'paperclip'                                                                 # => https://github.com/thoughtbot/paperclip
-gem 'will_paginate', '3.0.pre'                                                  # => https://github.com/mislav/will_paginate
+gem 'will_paginate', '~> 3.0'                                                  # => https://github.com/mislav/will_paginate
 gem 'formtastic', '~> 1.2.3'                                                    # => https://github.com/justinfrench/formtastic
 gem 'acts-as-taggable-on'                                                       # => https://github.com/mbleigh/acts-as-taggable-on
 # acts_as_rateable plugin                                                       # => https://github.com/azabaj/acts_as_rateable/
