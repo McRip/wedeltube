@@ -35,11 +35,11 @@
 
     #videocontainer
       =render :partial => "video_"+@video.state, :locals => {:resolution => @resolution}
+      #favorites
+        =render :partial => "favorites", :locals => {:video => @video}
     #video720
       =render :partial => "video_"+@video.state, :locals => {:resolution => @resolution720}
-    #favorites
-      =render :partial => "favorites", :locals => {:video => @video}
-
+    
     #resolutions
       %ul
         %li
