@@ -1,4 +1,7 @@
 %li.videothumb{:style => "background-image: url('" + getThumbUrl(video, 266) + "');"}
   .info
     = link_to video, video, {:class => "title"}
-    = link_to video.user, video.user, {:class => "user"}
+    .videouser
+      %p
+        hochgeladen von
+      = link_to video.user, video.user
