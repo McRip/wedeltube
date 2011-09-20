@@ -1,4 +1,5 @@
 %p
-  Welcome #{@resource.email}!
-%p You can confirm your account through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  Hej #{@resource.email}!
+%p
+  Bitte klicke auf den folgenden Link, um dein Wedeltube-Benutzerkonto zu aktivieren:
+%p= link_to 'Benutzerkonto freischalten', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
