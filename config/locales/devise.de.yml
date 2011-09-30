@@ -6,8 +6,8 @@ de:
       already_confirmed: "wurde bereits bestätigt. Bitte versuch dich einzuloggen."
       not_locked: "wurde nicht gesperrt."
       not_saved:
-        one: "1 Fehler verhinderte, dass %{resource} gespeichert werden konnte:"
-        other: "%{count} Fehler verhinderten, dass %{resource} gespeichert werden konnte:"
+        one: "1 Fehler verhinderte, dass der Benutzer gespeichert werden konnte:"
+        other: "%{count} Fehler verhinderten, dass der Benutzer gespeichert werden konnte:"
 
   devise:
     failure:
