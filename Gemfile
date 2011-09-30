@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rack'
 gem 'rails', '3.0.7'
-gem 'mysql2', '0.2.7'
+gem 'mysql2', '~> 0.2.7'
 gem 'capistrano'
 gem 'devise'                                                                    # => https://github.com/plataformatec/devise
 gem 'paperclip'                                                                 # => https://github.com/thoughtbot/paperclip

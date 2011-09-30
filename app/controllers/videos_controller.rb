@@ -22,6 +22,10 @@ class VideosController < ApplicationController
     @video = Video.new(params[:video])
     @video.user = current_user
     @video.thumb_index = 0
+    
+    @video.video_file_name.force_encoding("UTF-8")
+    @video.video_content_type.force_encoding("UTF-8")
+    
     if @video.save
       redirect_to @video
     else
