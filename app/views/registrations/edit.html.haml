@@ -46,6 +46,12 @@
         .field
           = f.label :password_confirmation, "Wiederholen"
           = f.password_field :password_confirmation
+
+      %fieldset
+        %legend
+          Aktuelles Kennwort
+        %p
+          Bitte gib hier dein aktuelles Kennwort ein, um die Änderungen zu bestätigen.
         .field
           = f.label :current_password, "Aktuelles Kennwort"
           = f.password_field :current_password

@@ -91,5 +91,5 @@
     $("#edit").click(function(event) {
       $("#editform").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
     });
-    $("#theater").fancybox();
+    $("#theater").fancybox( { 'onStart': function() { $('#videocontainer video').pause(); } } );
   });

@@ -8,27 +8,30 @@ Feature: Video
     Given I am a user named "foo" with an email "user@test.com" and password "please"
     Then I confirm my account with email "user@test.com"
     And I upload a new video
-
     
     Scenario: Creating a Video
-      When I fill in "Title" with "foobar"
-      And I fill in "Description" with "Nice movie"
-      And I press "commit"
-      Then I should see "Video created"
+      When I follow "Videos"
+      Then I should see "Hier findest du alle hochgeladenen Videos."
+      When I follow "Video hochladen"
+      Then I should see "Video hochladen"
+      When I fill in "video_title" with "foobar"
+      And I fill in "video_description" with "Nice movie"
+      When I attach the file "spec/test_files/Frau.avi" to "video_video"
+      And I press "video_submit"
+      Then I should see "Kommentare"
 
     Scenario: Deleting a Video
       When I go to the video page
-      And I follow "Delete"                   
+      And I follow "Video bearbeiten"
+      And I follow "delete"
       Then I should see "Video deleted"
-
 
     Scenario: Upload a video
       When I upload a new video
-      And I go to the new video page
       Then I should see "Testvideo"
 
     Scenario: View a video
-      When I go to the new video page
+      When I go to the video page
       Then I should see "Testvideo"
 
     Scenario: View Video in 480 resolution

@@ -3,5 +3,6 @@
   %source{:src => @video.video.url(("webm_"+resolution[:name]).to_sym), :type => 'video/webm; codecs="vp8, vorbis"'}
   %source{:src => @video.video.url(("ogg_"+resolution[:name]).to_sym), :type => 'video/ogg; codecs="theora, vorbis"'}
 
-#favorites
-  =render :partial => "favorites", :locals => {:video => @video}
+-if resolution != @resolution720
+  #favorites
+    =render :partial => "favorites", :locals => {:video => @video}
