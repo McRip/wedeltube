@@ -22,6 +22,11 @@ module NavigationHelpers
       #topic = Topic.find_by_title!($1)
       user_path(user)
 
+    when /the video page for "(.+)"/
+       video = User.find_by_title $1
+       #topic = Topic.find_by_title!($1)
+       user_path(video)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
