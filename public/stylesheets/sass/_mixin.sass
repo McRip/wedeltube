@@ -19,7 +19,6 @@
   :background linear-gradient(top, $colorStart, $colorEnd) /* W3C Standard */
 
 @mixin gradientButton($start: #000, $end: #fff, $font-color: #bbb)
-  :background-color $start
   @include linear-gradient($start, $end)
   @include text-shadow($shadow)
   @include box-shadow($shadow, 2px)
