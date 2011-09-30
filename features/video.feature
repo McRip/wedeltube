@@ -34,15 +34,17 @@ Feature: Video
     Scenario: View Video in 480 resolution
 
     Scenario: Add Comment
-      When I click on "Kommentar hinzufügen"
+      When I go to the new video page
+      And I follow "Kommentar hinzufügen"
       Then I should see "Kommentar hinzufügen"
       When I fill in "Hier ist Platz für deine Meinung" with "Hallo Hier"
       Then I should not see "Error"
-      When I follow "Absenden"
+      When I press "Absenden"
       Then I should see the show page
     
     Scenario: Add Participant
-      When I click on "Teilnehmer hinzufügen"
+      When I go to the new video page
+      And I follow "Teilnehmer hinzufügen"
       Then I should see "Filmmitarbeiter hinzufügen"
       When I fill in "Teilnehmer" with "Hugo"
       And I check "Licht"
@@ -51,7 +53,7 @@ Feature: Video
       Then the "Kamera" checkbox should be checked
       When I uncheck "Kamera"
       Then the "Kamera" checkbox should be unchecked
-      When I follow "Absenden"
+      When I press "Absenden"
       Then I should see "Teilnehmer"
 
    
