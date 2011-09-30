@@ -1,100 +1,96 @@
-html
-  :background-color $darkbackground
+a
+  :color $linkcolor
+  :text-decoration none
 
-  body
+  &:HOVER
+    :text-decoration underline
+
+h1, h2, h3
+  :color $darkblue
+  :margin 10px 0
+  @include text-shadow(#aaa)
+
+h1
+  :font-size 28px
+
+h2
+  :font-size 20px
+
+h3
+  :font-size 16px
+
+* + h1, * + h2, * + h3
+  :margin-top 30px
+
+.button + h1, .button + h2, .button + h3, .hidden + h1, .hidden + h2, .hidden + h3
+  :margin-top 10px
+
+.clearfix
+  :clear both
+
+div.note
+  @include linear-gradient(#ffd, #eea)
+  :padding 10px
+  :clear both
+  :margin 10px 0
+  :border-radius 10px
+  :width 75%
+  :margin 10px auto
+
+em
+  :font-style italic
+
+p + *
+  :margin-top 10px
+
+p + form
+  :margin-top 20px
+
+#new_video
+  .inputs
+    ol
+      #video_title_input
+        #video_title
+          :height 20px
+          :width 300px
+      #video_description_input
+        #video_description
+          :height 120px
+          :width 300px
+
+.videothumb
+  :border 3px solid $darkbackground
+  :border-radius 20px
+  :box-shadow 2px 4px 6px $shadow
+  :float left
+  :text-align center
+  :display block
+  :margin 20px
+  :height 150px
+  :width 266px
+
+  div.info
+    :display none
+    :padding 10px
+    :background-color rgba(0, 0, 0, 0.6)
+    :border-radius 20px
+    :height 130px
+    :width 247px
+    .videouser
+      :top 70px
+      :position relative
+      :color $brightblue
+
     a
-      :color $linkcolor
+      @include text-shadow(#fff, 1px)
+      :color #fff
       :text-decoration none
 
-      &:HOVER
-        :text-decoration underline
+    a.title
+      :font-weight bold
 
-    h1, h2, h3
-      :color $darkblue
-      :margin 10px 0
-      @include text-shadow(#aaa)
-
-    h1
-      :font-size 28px
-
-    h2
-      :font-size 20px
-
-    h3
-      :font-size 16px
-
-    * + h1, * + h2, * + h3
-      :margin-top 30px
-
-    .button + h1, .button + h2, .button + h3, .hidden + h1, .hidden + h2, .hidden + h3
-      :margin-top 10px
-
-    .clearfix
-      :clear both
-
-    div.note
-      @include linear-gradient(#ffd, #eea)
-      :padding 10px
-      :clear both
-      :margin 10px 0
-      :border-radius 10px
-      :width 75%
-      :margin 10px auto
-
-    em
-      :font-style italic
-
-    p + *
-      :margin-top 10px
-
-    p + form
-      :margin-top 20px
-
-    #new_video
-      .inputs
-        ol
-          #video_title_input
-            #video_title
-              :height 20px
-              :width 300px
-          #video_description_input
-            #video_description
-              :height 120px
-              :width 300px
-
-    .videothumb
-      :border 3px solid $darkbackground
-      :border-radius 20px
-      :box-shadow 2px 4px 6px $shadow
-      :float left
-      :text-align center
+    a.user
       :display block
-      :margin 20px
-      :height 150px
-      :width 266px
 
-      div.info
-        :display none
-        :padding 10px
-        :background-color rgba(0, 0, 0, 0.6)
-        :border-radius 20px
-        :height 130px
-        :width 247px
-        .videouser
-          :top 70px
-          :position relative
-          :color $brightblue
-
-        a
-          @include text-shadow(#fff, 1px)
-          :color #fff
-          :text-decoration none
-
-        a.title
-          :font-weight bold
-
-        a.user
-          :display block
-
-      &:HOVER > .info
-        :display block
+  &:HOVER > .info
+    :display block
