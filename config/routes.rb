@@ -33,6 +33,8 @@ Wedeltube::Application.routes.draw do
   resources :tags, :only => [ :index, :show, :create, :update, :destroy ] do
     resources :taggings, :only => [ :create, :update, :destroy ]
   end
+  
+  match "/imprint" => 'home#imprint', :as => 'imprint'
 
   root :to => "home#index"
 end

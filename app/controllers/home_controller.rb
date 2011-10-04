@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:index, :home]
 
   def index
     @new_videos = Video.recent
@@ -10,6 +10,10 @@ class HomeController < ApplicationController
   end
 
   def home
+    
+  end
+  
+  def imprint
     
   end
 end
