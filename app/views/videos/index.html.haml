@@ -8,6 +8,14 @@
     %p
       Hier findest du alle hochgeladenen Videos.
 
+    %p
+      Sortieren nach
+      =link_to_unless_current "Aufrufe", videos_url(:order_by => "views DESC")
+      |
+      =link_to_unless_current "Neueste", videos_url(:order_by => "created_at DESC")
+      |
+      =link_to_unless_current "Älteste", videos_url(:order_by => "created_at ASC")
+
     %ul
       =render @videos
 

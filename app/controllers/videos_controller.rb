@@ -3,7 +3,12 @@ class VideosController < ApplicationController
   before_filter :find_video, :except => [ :index, :new, :create ]
 
   def index
-    @videos = Video.paginate :page => params[:page]
+    puts params.inspect
+    if params[:order_by].present?
+      @videos = Video.viewable.paginate :page => params[:page], :order => params[:order_by]
+    else
+      @videos = Video.viewable.paginate :page => params[:page]
+    end
   end
 
   def show
@@ -104,9 +109,9 @@ class VideosController < ApplicationController
   def build_resolution_hash res
     case res
     when "360"
-      resolution = {:name => "360", :x => "640", :y => "360"}
+      resolution = {:name => "360", :x => "640", :y => "368"}
     when "480"
-      resolution = {:name => "480", :x => "854", :y => "480"}
+      resolution = {:name => "480", :x => "864", :y => "480"}
     when "720"
       resolution = {:name => "720", :x => "1280", :y => "720"}
     end

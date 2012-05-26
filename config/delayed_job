@@ -1,0 +1,12 @@
+# Start when system enters runlevel 2 (multi-user mode).
+start on runlevel 2
+
+# Start delayed_job via the daemon control script.
+exec /usr/bin/env RAILS_ENV=production /var/www/wedeltube.de/current/delayed_job start
+
+# Restart the process if it dies with a signal
+# or exit code not given by the 'normal exit' stanza.
+respawn
+
+# Give up if restart occurs 10 times in 90 seconds.
+    respawn limit 10 90

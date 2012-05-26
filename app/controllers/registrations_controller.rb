@@ -10,8 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
 
-    #if (ldap_authenticated? || Rails.env.cucumber? || Rails.env.test?) && resource.save
-    if resource.save
+    if ((Rails.env.production? && ldap_authenticated?) || !Rails.env.production? ) && resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_in(resource_name, resource)
@@ -42,7 +41,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def ldap_authenticated?
     ldap = Net::LDAP.new
-    ldap.host = 'localhost'
+    ldap.host = 'vsrv-ldap-replica.fh-wedel.de'
     ldap.port = 389
     ldap.auth params[:ldap_user], params[:ldap_pass]
     ldap.bind

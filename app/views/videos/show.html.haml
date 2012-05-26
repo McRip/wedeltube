@@ -32,6 +32,8 @@
 
     %h1
       =@video.title
+    %div{:style => "font-size: 12px; line-height: 12px;"}
+      =@video.created_at.to_formatted_s(:long)
 
     #videocontainer
       =render :partial => "video_"+@video.state, :locals => {:resolution => @resolution}
@@ -91,5 +93,5 @@
     $("#edit").click(function(event) {
       $("#editform").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
     });
-    $("#theater").fancybox( { 'onStart': function() { $('#videocontainer video').pause(); } } );
+    $("#theater").fancybox( { 'onStart': function() { $('#videocontainer video')[0].pause(); } } );
   });
