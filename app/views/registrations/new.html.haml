@@ -7,6 +7,9 @@
     %p
       Herzlich Willkommen bei Wedeltube! Ein Benutzerkonto zu registrieren dauert gar nicht lange und ist nicht besonders schwierig.
 
+		%p
+			Zur Registrierung brauchst du deine Zugangsdaten von der Fachhochschule Wedel, um sicherzustellen, dass sich hier nur immatrikulierte Studenten registrieren. Deine FH-Wedel-Zugangsdaten sind nur für die Authorisierung notwendig, du meldest dich später mit deiner eigenen E-Mail-Adresse und deinen eigenen Kennwort an. Du bekommst außerdem nach dem Absenden des Formulares eine E-Mail mit Anweisungen, wie du deine Registrierung bestätigst.
+
     = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       = devise_error_messages!
 
@@ -15,7 +18,6 @@
           Benutzerdaten
         %p
           Bitte gib hier einen Benutzernamen sowie deine E-Mail-Adresse und deinen Namen ein.
-          Gib nur dann einen Namen ein, wenn du mit seiner öffentlichen Darstellung einverstanden bist.
         .field
           = f.label :email, "Deine E-Mail-Adresse"
           = f.email_field :email
