@@ -6,7 +6,7 @@
     = render :partial => "devise/shared/links"
 
     %p
-      Kein Problem. Gib im nachfolgenden Eingabefeld noch einmal deine E-Mail-Adresse an, dann bekommst du eine neue E-Mail. Falls es wieder nicht klappt, schau bitte nach, ob dein E-Mail-Anbieter die Mail womöglich als Spam klassifiziert hat.
+      Kein Problem: Gib im nachfolgenden Eingabefeld noch einmal deine E-Mail-Adresse an, dann senden wir dir eine neue E-Mail. Falls es wieder nicht klappt, schau bitte nach, ob dein E-Mail-Anbieter die Mail womöglich als Spam klassifiziert hat.
 
     = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
       = devise_error_messages!
