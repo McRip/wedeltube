@@ -41,6 +41,7 @@ Wedeltube::Application.routes.draw do
   resources :reports, :only => [ :index, :destroy ]
   
   match "/imprint" => 'home#imprint', :as => 'imprint'
+  match "/terms_of_use" => 'home#terms_of_use', :as => 'terms_of_use'
 
   root :to => "home#index"
 end
