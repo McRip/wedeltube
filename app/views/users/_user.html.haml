@@ -2,8 +2,7 @@
   .avatar
     =link_to image_tag(user.avatar.url(:square50)), user
   .detail
-    =link_to user, user
+    =link_to truncate(user.username, :length => 35), user
     %br
     =truncate(user.firstname+" "+user.name, :length => 20)
   .clearfix
-  
