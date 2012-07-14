@@ -2,6 +2,7 @@
   = form.inputs do
     = form.input :title, :label => "Filmtitel"
     = form.input :description, :label => "Beschreibung"
+    = form.input :tag_list, :label => "Tags"
     = form.input :video, :as => :file, :label => "Datei"
   = form.buttons do
     = form.commit_button :button_html => { :value => "Hochladen", :class => "primary", :disable_with => 'Magic happens…' }
