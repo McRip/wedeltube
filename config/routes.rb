@@ -3,10 +3,13 @@ Wedeltube::Application.routes.draw do
 
 
   resources :videos do
-    resources :comments, :only => [ :create, :update, :destroy ]
+    resources :comments, :only => [ :create, :update, :destroy ] do
+      resources :reports, :only => [ :create ]
+    end
     resources :favorites, :only => [ :create, :update, :destroy ]
     resources :tags, :only => [ :index, :show, :create, :update, :destroy ]
     resources :participants, :only => [ :create, :update, :destroy ]
+    resources :reports, :only => [ :create ]
     resource :user
     member do
       post 'add_tag'
@@ -28,11 +31,14 @@ Wedeltube::Application.routes.draw do
     end
     resources :videos
     resources :participants, :only => [ :create, :update, :destroy ]
+    resources :reports, :only => [ :create ]
   end
 
   resources :tags, :only => [ :index, :show, :create, :update, :destroy ] do
     resources :taggings, :only => [ :create, :update, :destroy ]
   end
+
+  resources :reports, :only => [ :index, :destroy ]
   
   match "/imprint" => 'home#imprint', :as => 'imprint'
   match "/terms_of_use" => 'home#terms_of_use', :as => 'terms_of_use'

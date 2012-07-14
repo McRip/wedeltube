@@ -1,0 +1,14 @@
+%tr{:id => dom_id(report)}
+  %td
+    =report.id
+  %td
+    =report.comment
+  %td
+    =report.reportable_type
+  %td
+    =report.created_at
+  %td
+    =link_to report.reportable, report.reportable unless report.reportable_type == "Comment"
+    =link_to report.reportable.video, report.reportable.video if report.reportable_type == "Comment"
+  %td
+    =link_to "X", report_url(report), :method => :delete

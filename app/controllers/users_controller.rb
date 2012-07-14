@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @report = @user.reports.new
   end
 
   def destroy  

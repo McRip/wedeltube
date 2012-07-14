@@ -7,6 +7,9 @@
     = link_to "Tags", tags_url
   %li
     = link_to "Benutzer", users_url
+  -if current_user.is_admin?
+    %li
+      = link_to "Meldungen", reports_url
   -if user_signed_in?
     %li
       = link_to "Profil", user_url(current_user)

@@ -5,6 +5,7 @@ class Video < ActiveRecord::Base
   has_many :comments
   has_many :favorites
   has_many :participants
+  has_many :reports, :as => :reportable
 
   scope :recent, :order => "created_at DESC", :limit => 5
   scope :popular, :select => 'videos.*, count(favorites.id) as favorites_count', :joins => 'left outer join favorites on favorites.video_id = videos.id', :group => 'videos.id', :order => "count(favorites.id) DESC", :limit => 5

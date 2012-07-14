@@ -1,0 +1,23 @@
+= semantic_form_for @report, :url => user_reports_url(:user_id => @user.id) do |form|
+  = form.inputs do
+    = form.input :comment, :label => "Warum möchtest du dies melden?"
+  = form.buttons do
+    = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gemeldet…' }
+
+
+:javascript
+  $(document).ready(function() {
+    report_form = $("#new_report");
+    report_form.submit(function(event) {
+      event.preventDefault();
+      report_form.unbind("submit");
+      $.post(report_form[0].action, report_form.serialize(), function(data) {
+        $("textarea", report_form)[0].value = "";
+        $("#report_submit").removeAttr('disabled').attr('value', 'Absenden');
+        report_form.dialog("close");
+      }, "json").error(function(request) {
+        report_form.remove();
+        $("#new_report").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
+      });
+    });
+  });

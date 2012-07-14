@@ -51,6 +51,11 @@
         %li
           =link_to_unless (@resolution[:name] == "720"), "720p", video_url(@video, :res => "720"), :id => "theater", :href => "#video720"
       .clearfix
+    #report
+      %a#addreport
+        Video melden!
+      =render :partial => "reports/form_video", :locals => {:object => @video}
+    .clearfix
 
     #description
       =simple_format(@video.description)
@@ -92,6 +97,9 @@
     });
     $("#edit").click(function(event) {
       $("#editform").dialog({ title: 'Video bearbeiten', dialogClass: 'modal', width: 700, height: 550 });
+    });
+    $("#addreport").click(function(event) {
+      $("#new_report").dialog({ title: 'Video melden', dialogClass: 'modal', width: 600, height: 300 });
     });
     $("#theater").fancybox( { 'onStart': function() { $('#videocontainer video')[0].pause(); } } );
   });

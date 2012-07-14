@@ -1,6 +1,8 @@
 %li.comment
   -if current_user.owns_video?(@video)
-    =link_to "×", video_comment_url(:video_id => comment.video.id, :id => comment.id), :method => :delete, :class => "button delete"
+    =link_to "×", video_comment_url(:video_id => comment.video.id, :id => comment.id), :method => :delete, :class => "button delete", :alt => "Löschen"
+    %a.button.report{:id => dom_id(comment, "link"), :alt => "Melden"}
+      !
 
   =image_tag comment.user.avatar.url(:square50), :class => "photo"
   =link_to comment.user, comment.user
@@ -8,4 +10,11 @@
     =comment.comment
     %span.time
       =comment.created_at.strftime("%d.%m.%G %H:%M")
+=render :partial => "reports/form_comment", :locals => {:object => comment}
+:javascript
+  $(document).ready(function() {
+    $("##{dom_id(comment, "link")}").click(function(event) {
+      $("##{dom_id(comment, "form")}").dialog({ title: 'Kommentar melden', dialogClass: 'modal', width: 600, height: 300 });
+    });
+  });
 

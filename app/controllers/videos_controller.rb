@@ -16,6 +16,7 @@ class VideosController < ApplicationController
     @resolution720 = build_resolution_hash ("720")
     @comment = @video.comments.new
     @participant = @video.participants.new
+    @report = @video.reports.new
     @video.view!
   end
 

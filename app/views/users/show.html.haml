@@ -6,6 +6,10 @@
       =link_to "Profil bearbeiten", edit_user_registration_path, {:id => 'edit', :class => 'button'}
     -if current_user.is_admin?
       =link_to "Profil löschen", user_url(:user_id => :id), :method => :delete, :class => "button", :id => "delete", :confirm => "Soll dieses Konto wirklich gelöscht werden? Das lässt sich nicht rückgängig machen!"
+    #report
+      %a#addreport
+        Benutzer melden
+      =render :partial => "reports/form_user", :locals => {:object => @user}
 
     %h1
       =@user.username
@@ -32,3 +36,10 @@
       Videos dieses Benutzers
 
     =render @user.videos
+
+:javascript
+  $(document).ready(function() {
+    $("#addreport").click(function(event) {
+      $("#new_report").dialog({ title: 'Benutzer melden', dialogClass: 'modal', width: 600, height: 300 });
+    });
+  });
