@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :favorites
   has_many :participants
+  has_many :reports, :as => :reportable
 
   validates :username, :presence => true, :length => { :maximum => 20 }
 

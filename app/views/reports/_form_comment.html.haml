@@ -1,0 +1,24 @@
+= semantic_form_for @report, :url => video_comment_reports_url(:video_id => @video, :comment_id => object), :html => {:id => dom_id(object, "form"), :class => "new_report"} do |form|
+  = form.inputs do
+    = form.input :comment, :label => "Warum möchtest du dies melden?"
+  = form.buttons do
+    = form.commit_button :button_html => { :value => "Absenden", :class => "primary", :disable_with => 'wird gemeldet…' }
+
+
+:javascript
+  $(document).ready(function() {
+    console.log('ready');
+    $("##{dom_id(object, "form")}").submit(function(event) {
+      console.log('submit');
+      event.preventDefault();
+      $(this).unbind("submit");
+      $.post(this.action, $(this).serialize(), function(data) {
+        $("##{dom_id(object, "form")} textarea")[0].value = "";
+        $("##{dom_id(object, "form")} #report_submit").removeAttr('disabled').attr('value', 'Absenden');
+        $('##{dom_id(object, "form")}').dialog("close");
+      }, "json").error(function(request) {
+        $('##{dom_id(object, "form")}').remove();
+        $("##{dom_id(object, "form")}").dialog({ title: 'Kommentar hinzufügen', dialogClass: 'modal', width: 600, height: 350 });
+      });
+    });
+  });

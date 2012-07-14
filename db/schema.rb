@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110909081313) do
+ActiveRecord::Schema.define(:version => 20120714120920) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20110909081313) do
 
   add_index "ratings", ["rate_id"], :name => "index_ratings_on_rate_id"
   add_index "ratings", ["rateable_id", "rateable_type"], :name => "index_ratings_on_rateable_id_and_rateable_type"
+
+  create_table "reports", :force => true do |t|
+    t.string   "comment"
+    t.integer  "reportable_id"
+    t.string   "reportable_type"
+    t.boolean  "viewed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
