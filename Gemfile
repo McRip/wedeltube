@@ -25,12 +25,10 @@ gem 'ssl_requirement'                                                           
 group :development do
   gem 'hpricot'
   gem 'ruby_parser'
-  
-  #debug
-  gem 'ruby-debug19', :require => 'ruby-debug'
+
 end
 
-group :test, :development, :cucumber do
+group :test, :cucumber do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'cucumber-rails'

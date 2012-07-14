@@ -1,4 +1,5 @@
-%li.videothumb{:style => "background-image: url('" + getThumbUrl(video, 266) + "');"}
+%li.videothumb
+  =link_to image_tag(getThumbUrl(video, 266), {:class => "thumb"}), video
   .info
     = link_to video, video, {:class => "title"}
     .videouser
