@@ -4,6 +4,7 @@ gem 'rack'
 gem 'rails', '3.0.7'
 gem 'mysql2', '~> 0.2.7'
 gem 'capistrano'
+gem 'rvm-capistrano'
 gem 'devise'                                                                    # => https://github.com/plataformatec/devise
 gem 'paperclip'                                                                 # => https://github.com/thoughtbot/paperclip
 gem 'will_paginate', '~> 3.0'                                                  # => https://github.com/mislav/will_paginate

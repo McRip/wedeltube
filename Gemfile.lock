@@ -158,6 +158,8 @@ GEM
     ruby_parser (2.0.6)
       sexp_processor (~> 3.0)
     rubyzip (0.9.4)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.1.1)
     selenium-webdriver (2.5.0)
       childprocess (>= 0.2.1)
@@ -205,6 +207,7 @@ DEPENDENCIES
   rails (= 3.0.7)
   rspec-rails
   ruby_parser
+  rvm-capistrano
   sass
   ssl_requirement
   transitions

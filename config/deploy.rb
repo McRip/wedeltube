@@ -1,4 +1,3 @@
-$:.unshift(File.expand_path("~/.rvm/lib"))
 require 'rvm/capistrano'
 require "delayed/recipes"  
 require 'bundler/capistrano'
